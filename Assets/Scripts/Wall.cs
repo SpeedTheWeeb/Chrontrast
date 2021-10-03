@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
-
-// Hits needed to break
-public int hitsNeeded = 3;
-
-// Value used to store hits taken in order to break
-public int hitsTaken;
-
 {
+    // Hits needed to break
+    public int hitsNeeded = 3;
+    // Value used to store hits taken in order to break
+    public int hitsTaken;
     // Start is called before the first frame update
     void Start()
     {
