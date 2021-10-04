@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Bullet Data
-    public Rigidbody2D bullet;
+    public GameObject bullet;
     public float bulletSpeed = 20f;
     public GameObject bulletSpawn;
+    private float destroyBullet = 1f;
 
     //Player Data
     public int playerNumber = 1;
@@ -37,10 +38,38 @@ public class PlayerMovement : MonoBehaviour
             case 1:
                 if(Input.GetKeyDown(KeyCode.A))
                 {
-
+                    bulletSpawn.transform.eulerAngles = new Vector3(0,90,0);
+                }
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    bulletSpawn.transform.eulerAngles = new Vector3(90, 90, 0);
+                }
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    bulletSpawn.transform.eulerAngles = new Vector3(0, 0, 0);
+                }
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    bulletSpawn.transform.eulerAngles = new Vector3(-90, 90, 0);
                 }
                 break;
             case 2:
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    bulletSpawn.transform.eulerAngles = new Vector3(0, 90, 0);
+                }
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    bulletSpawn.transform.eulerAngles = new Vector3(90, 90, 0);
+                }
+                if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    bulletSpawn.transform.eulerAngles = new Vector3(0, 0, 0);
+                }
+                if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    bulletSpawn.transform.eulerAngles = new Vector3(-90, 90, 0);
+                }
                 break;
         }
 
@@ -81,10 +110,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Fire()
     {
-        Rigidbody2D clone = Instantiate(bullet, transform.position, Quaternion.identity);
-        clone.velocity = transform.right * bulletSpeed;
-        clone.AddForce(Vector2.right * bulletSpeed);
-        //clone.transform.Translate(clone.velocity * Time.deltaTime);
-        //clone.GetComponent<Rigidbody2D>().AddForce(clone.transform.forward * bulletSpeed);
+        GameObject clone = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+        clone.GetComponent<Rigidbody>().velocity = bulletSpawn.transform.right * bulletSpeed;
+        clone.GetComponent<Rigidbody>().AddForce(Vector2.right * bulletSpeed);
+
+        Destroy(clone.gameObject, destroyBullet);
     }
 }
