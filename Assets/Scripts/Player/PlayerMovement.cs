@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     private float xAxis;
     private float yAxis;
     private bool isHolding = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -77,20 +76,22 @@ public class PlayerMovement : MonoBehaviour
         {
             Fire();
         }
-
-        if(Input.GetButtonDown("Drop" + playerNumber))
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("enter");
+        if (Input.GetButtonDown("Drop" + playerNumber))
         {
-            if(isHolding)
+            if (isHolding)
             {
                 Drop();
             }
             else
             {
-                PickUp();
+                PickUp(collision);
             }
         }
     }
-    
     private void FixedUpdate()
     {
         Vector2 mov = new Vector2(speed.x * xAxis, speed.y * yAxis);
@@ -99,12 +100,15 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Translate(mov);
     }
-    private void PickUp()
+    private void PickUp(Collider2D col)
     {
+        Debug.Log("You picked this up");
+        col.transform.parent = currentPlayer.transform;
         isHolding = true;
     }
     private void Drop()
     {
+        Debug.Log("You dropped this");
         isHolding = false;
     }
 
