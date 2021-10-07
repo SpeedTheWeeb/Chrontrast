@@ -18,12 +18,21 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D r2d;
     private float xAxis;
     private float yAxis;
+
+    //Pickup and Drop
     private bool isHolding = false;
+    public bool trigger = false;
+    private Collider2D collidingObject = null;
+    private GameObject pickupObject;
+    public float dropSpeed = 20f;
+    public ItemBehavior Item;
+
     // Start is called before the first frame update
     void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
         currentPlayer = GameObject.Find("P" + playerNumber);
+        
     }
 
     // Update is called once per frame
@@ -76,11 +85,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Fire();
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("enter");
-        if (Input.GetButtonDown("Drop" + playerNumber))
+
+        if (Input.GetButtonDown("Drop" + playerNumber) && trigger)
         {
             if (isHolding)
             {
@@ -88,9 +94,25 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                PickUp(collision);
+                PickUp(collidingObject);
             }
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(pickupObject != null)
+        {
+            pickupObject.transform.parent = null;
+        }
+
+        trigger = false;
+        collidingObject = null;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        trigger = true;
+        collidingObject = collision;
+
     }
     private void FixedUpdate()
     {
@@ -102,13 +124,16 @@ public class PlayerMovement : MonoBehaviour
     }
     private void PickUp(Collider2D col)
     {
-        Debug.Log("You picked this up");
         col.transform.parent = currentPlayer.transform;
+        pickupObject = col.gameObject;
+        Item = col.GetComponent<ItemBehavior>();
+        Item.Init(bulletSpawn);
         isHolding = true;
     }
     private void Drop()
     {
-        Debug.Log("You dropped this");
+        Item.Throw();
+        pickupObject.transform.parent = null;
         isHolding = false;
     }
 
