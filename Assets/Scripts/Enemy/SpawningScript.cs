@@ -30,6 +30,7 @@ public class SpawningScript : MonoBehaviour
     {
         enemyInfo = JsonUtility.FromJson<JsonList>(jsonText.text);
 
+        //Red Spawning
         for (int r = 0; r < enemyInfo.WaveInfo[currentWave - 1].Red_Spawn; r++)
         {
             int rNumber = Random.Range(1, 3);
@@ -45,6 +46,7 @@ public class SpawningScript : MonoBehaviour
             redClone.GetComponent<RedScript>().stopSpot = rNumber;
         }
 
+        //Blue Spawning
         for (int b = 0; b < enemyInfo.WaveInfo[currentWave - 1].Blue_Spawn; b++)
         {
             int bNumber = Random.Range(1, 3);
@@ -59,6 +61,8 @@ public class SpawningScript : MonoBehaviour
             GameObject blueClone = Instantiate(BlueObj, pos, Quaternion.identity);
             blueClone.GetComponent<BlueScript>().stopSpot = bNumber;
         }
+
+        //Green Spawning
         for (int g = 0; g < enemyInfo.WaveInfo[currentWave - 1].Green_Spawn; g++)
         {
             int gNumber = Random.Range(1, 3);

@@ -100,10 +100,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(pickupObject != null)
-        {
-            pickupObject.transform.parent = null;
-        }
+        //if(pickupObject != null)
+        //{
+        //    pickupObject.transform.parent = null;
+        //}
 
         trigger = false;
         collidingObject = null;

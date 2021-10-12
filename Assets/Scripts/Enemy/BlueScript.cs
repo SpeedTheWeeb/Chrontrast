@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BlueScript : MonoBehaviour
 {
+    public float speed = 5f;
     public int stopSpot;
+    bool forward = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +16,12 @@ public class BlueScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(forward)
+        {
+            float vel = speed * Time.deltaTime;
+
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, 0, 0), vel);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +29,10 @@ public class BlueScript : MonoBehaviour
         {
             Destroy(other);
             Destroy(gameObject);
+        }
+        if(other.gameObject.name == "Blue Stop")
+        {
+            forward = false;
         }
     }
 }
