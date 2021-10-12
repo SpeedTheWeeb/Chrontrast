@@ -180,3 +180,6 @@ MonoBehaviour:
   bulletSpawn: {fileID: 1620510727}
   playerNumber: 1
   speed: {x: 10, y: 10}
+  trigger: 0
+  dropSpeed: 20
+  Item: {fileID: 0}

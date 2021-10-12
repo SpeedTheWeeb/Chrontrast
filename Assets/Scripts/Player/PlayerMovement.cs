@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
 
-        if(Input.GetButtonDown("Fire" + playerNumber))
+        if(Input.GetButtonDown("Fire" + playerNumber) && isHolding)
         {
             Fire();
         }

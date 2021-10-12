@@ -22,7 +22,7 @@ public class ItemBehavior : MonoBehaviour
     public void Throw()
     {
         isThrown = true;
-        transform.rotation = bulletSpawn.transform.rotation;
+        //transform.rotation = bulletSpawn.transform.rotation;
     }
 
     // Update is called once per frame
