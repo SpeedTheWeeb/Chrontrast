@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Objective
+  - Rift
   layers:
   - Default
   - TransparentFX
