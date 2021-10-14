@@ -17,5 +17,9 @@ public class CrystalHP : MonoBehaviour
             Debug.Log(crystalhealth);
             Destroy(collision.gameObject);
         }
+        if(collision.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

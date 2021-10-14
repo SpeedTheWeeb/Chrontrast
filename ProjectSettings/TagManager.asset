@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Objective
+  - Projectile
+  - Rift
   layers:
   - Default
   - TransparentFX
