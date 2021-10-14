@@ -17,6 +17,7 @@ public class PlayerInteract : MonoBehaviour
     public float bulletSpeed = 20f;
     public GameObject bulletSpawn;
     private float destroyBullet = 1f;
+    public Vector2 throwingDirection;
 
     private GameObject currentPlayer = null;
     public int playerNumber;
@@ -35,6 +36,7 @@ public class PlayerInteract : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.A))
                 {
                     bulletSpawn.transform.eulerAngles = new Vector3(0, 90, 0);
+                    throwingDirection = new Vector2(-1, 0);
                 }
                 if (Input.GetKeyDown(KeyCode.W))
                 {
@@ -43,6 +45,7 @@ public class PlayerInteract : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.D))
                 {
                     bulletSpawn.transform.eulerAngles = new Vector3(0, 0, 0);
+                    throwingDirection = new Vector2(1, 0);
                 }
                 if (Input.GetKeyDown(KeyCode.S))
                 {
@@ -53,6 +56,7 @@ public class PlayerInteract : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     bulletSpawn.transform.eulerAngles = new Vector3(0, 90, 0);
+                    throwingDirection = new Vector2(-1, 0);
                 }
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
@@ -61,12 +65,14 @@ public class PlayerInteract : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     bulletSpawn.transform.eulerAngles = new Vector3(0, 0, 0);
+                    throwingDirection = new Vector2(1, 0);
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     bulletSpawn.transform.eulerAngles = new Vector3(-90, 90, 0);
                 }
                 break;
+
         }
 
         if (Input.GetButtonDown("Fire" + playerNumber) && isHolding)
@@ -102,14 +108,23 @@ public class PlayerInteract : MonoBehaviour
         collidingObject = collision;
 
     }
+
+    //Pick up object
+    //Is to be changed to delete the item and change a variable in a weapon_manager script to a number that corrosponds with the weapon type
     private void PickUp(Collider2D col)
     {
+        //gameObject.GetComponent<WeaponManager>.weaponType = col.GetComponent<ItemBehavior>().weaponType;
+        //Destroy(col);
+
         col.transform.parent = currentPlayer.transform;
         pickupObject = col.gameObject;
         Item = col.GetComponent<ItemBehavior>();
         Item.Init(bulletSpawn);
         isHolding = true;
     }
+
+    //Is to be changed to look at the variable in the weapon_manager script that determines what weapon is being held and then instansiate
+    //the weapon with a velocity that is apropriate
     private void Drop()
     {
         Item.Throw();
