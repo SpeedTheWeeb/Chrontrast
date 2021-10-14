@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RedScript : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 3f;
     public int stopSpot;
     bool forward = true;
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class RedScript : MonoBehaviour
     {
         if(other.gameObject.tag == "Bullet")
         {
-            Destroy(other);
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
         if (other.gameObject.name == "Red Stop")

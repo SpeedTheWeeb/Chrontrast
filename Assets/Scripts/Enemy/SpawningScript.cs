@@ -7,8 +7,11 @@ public class SpawningScript : MonoBehaviour
     public int currentWave;
     private JsonList enemyInfo;
     public TextAsset jsonText;
-    private int totalEnemies;
+    public int totalEnemies;
     public GameObject spawnSide;
+    int reds;
+    int blues;
+    int greens;
 
     public GameObject RedObj;
     public GameObject BlueObj;
@@ -17,65 +20,89 @@ public class SpawningScript : MonoBehaviour
     void Start()
     {
         currentWave = 1;
-        spawnEnemies(1);
+        InitWave();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
-    public void spawnEnemies(int Wave)
+    }
+    public void InitWave()
     {
         enemyInfo = JsonUtility.FromJson<JsonList>(jsonText.text);
 
-        //Red Spawning
-        for (int r = 0; r < enemyInfo.WaveInfo[currentWave - 1].Red_Spawn; r++)
+        reds = enemyInfo.WaveInfo[currentWave - 1].Red_Spawn;
+        blues = enemyInfo.WaveInfo[currentWave - 1].Blue_Spawn;
+        greens = enemyInfo.WaveInfo[currentWave - 1].Green_Spawn;
+
+        totalEnemies = enemyInfo.WaveInfo[currentWave - 1].Red_Spawn + enemyInfo.WaveInfo[currentWave - 1].Blue_Spawn + enemyInfo.WaveInfo[currentWave - 1].Green_Spawn;
+
+        spawnEnemies();
+    }
+
+    public void spawnEnemies()
+    {
+        if (totalEnemies > 0)
         {
-            int rNumber = Random.Range(1, 3);
-            float srNumber = Random.Range(-3, 4);
-            spawnSide = GameObject.Find("Enemy Spawn " + rNumber);
+            Debug.Log(totalEnemies);
+            int randomR = Random.Range(1, reds + 1);
+            int randomG = Random.Range(1, greens + 1);
+            int randomB = Random.Range(1, blues + 1);
 
-            Vector3 pos = new Vector3(
-                spawnSide.transform.position.x,
-                spawnSide.transform.position.y + srNumber,
-                spawnSide.transform.position.z);
+            //Red Spawning
+            for (int r = 0; r < randomR; r++)
+            {
+                int rNumber = Random.Range(1, 3);
+                float srNumber = Random.Range(-3, 4);
+                spawnSide = GameObject.Find("Enemy Spawn " + rNumber);
 
-            GameObject redClone = Instantiate(RedObj, pos, Quaternion.identity);
-            redClone.GetComponent<RedScript>().stopSpot = rNumber;
-        }
+                Vector3 pos = new Vector3(
+                    spawnSide.transform.position.x,
+                    spawnSide.transform.position.y + srNumber,
+                    spawnSide.transform.position.z);
 
-        //Blue Spawning
-        for (int b = 0; b < enemyInfo.WaveInfo[currentWave - 1].Blue_Spawn; b++)
-        {
-            int bNumber = Random.Range(1, 3);
-            float sbNumber = Random.Range(-3, 4);
-            spawnSide = GameObject.Find("Enemy Spawn " + bNumber);
+                GameObject redClone = Instantiate(RedObj, pos, Quaternion.identity);
+                redClone.GetComponent<RedScript>().stopSpot = rNumber;
+            }
 
-            Vector3 pos = new Vector3(
-                spawnSide.transform.position.x,
-                spawnSide.transform.position.y + sbNumber,
-                spawnSide.transform.position.z);
+            //Blue Spawning
+            for (int b = 0; b < randomB; b++)
+            {
+                int bNumber = Random.Range(1, 3);
+                float sbNumber = Random.Range(-3, 4);
+                spawnSide = GameObject.Find("Enemy Spawn " + bNumber);
 
-            GameObject blueClone = Instantiate(BlueObj, pos, Quaternion.identity);
-            blueClone.GetComponent<BlueScript>().stopSpot = bNumber;
-        }
+                Vector3 pos = new Vector3(
+                    spawnSide.transform.position.x,
+                    spawnSide.transform.position.y + sbNumber,
+                    spawnSide.transform.position.z);
 
-        //Green Spawning
-        for (int g = 0; g < enemyInfo.WaveInfo[currentWave - 1].Green_Spawn; g++)
-        {
-            int gNumber = Random.Range(1, 3);
-            float sgNumber = Random.Range(-3, 4);
-            spawnSide = GameObject.Find("Enemy Spawn " + gNumber);
+                GameObject blueClone = Instantiate(BlueObj, pos, Quaternion.identity);
+                blueClone.GetComponent<BlueScript>().stopSpot = bNumber;
+            }
 
-            Vector3 pos = new Vector3(
-                spawnSide.transform.position.x,
-                spawnSide.transform.position.y + sgNumber,
-                spawnSide.transform.position.z);
+            //Green Spawning
+            for (int g = 0; g < randomG; g++)
+            {
+                int gNumber = Random.Range(1, 3);
+                float sgNumber = Random.Range(-3, 4);
+                spawnSide = GameObject.Find("Enemy Spawn " + gNumber);
 
-            GameObject GreenClone = Instantiate(GreenObj, pos, Quaternion.identity);
-            GreenClone.GetComponent<GreenScript>().stopSpot = gNumber;
+                Vector3 pos = new Vector3(
+                    spawnSide.transform.position.x,
+                    spawnSide.transform.position.y + sgNumber,
+                    spawnSide.transform.position.z);
+
+                GameObject GreenClone = Instantiate(GreenObj, pos, Quaternion.identity);
+                GreenClone.GetComponent<GreenScript>().stopSpot = gNumber;
+            }
+            greens -= randomG;
+            reds -= randomR;
+            blues -= randomB;
+            totalEnemies -= randomB + randomG + randomR;
+            Debug.Log(totalEnemies);
+            Invoke("spawnEnemies", 10f);
         }
     }
 }
