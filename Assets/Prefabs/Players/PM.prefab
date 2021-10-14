@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 3471769012860917643}
   - component: {fileID: 3471769012860917642}
   - component: {fileID: 190539467830835856}
-  - component: {fileID: 8335124686936447845}
   m_Layer: 0
   m_Name: PM
   m_TagString: Untagged
@@ -176,24 +175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9138f1e39f584641ad714ddc1f46ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 2881899270805731437, guid: 7f139527381c85442813f0c9bdd690d2, type: 3}
+  bulletSpeed: 10
+  bulletSpawn: {fileID: 1620510727}
   playerNumber: 1
   speed: {x: 10, y: 10}
---- !u!114 &8335124686936447845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3471769012860917646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996a26cf78aa17146a52581ec198e85b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   trigger: 0
   dropSpeed: 20
   Item: {fileID: 0}
-  bullet: {fileID: 2881899270805731437, guid: 7f139527381c85442813f0c9bdd690d2, type: 3}
-  bulletSpeed: 20
-  bulletSpawn: {fileID: 1620510727}
-  playerNumber: 1
