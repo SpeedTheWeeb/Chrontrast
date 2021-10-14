@@ -1254,8 +1254,8 @@ GameObject:
   - component: {fileID: 1811937773}
   - component: {fileID: 1811937774}
   m_Layer: 0
-  m_Name: InvisMid
-  m_TagString: Untagged
+  m_Name: Rift
+  m_TagString: Rift
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
