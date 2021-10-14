@@ -13,7 +13,7 @@ public class ItemBehavior : MonoBehaviour
     {
         
     }
-
+    
     public void Init(GameObject spawn)
     {
         bulletSpawn = spawn;
