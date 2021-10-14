@@ -10,18 +10,18 @@ public class CrystalHP : MonoBehaviour
         crystalhealth = 100;
         }
 
-        void OnCollisionEnter2D(Collision2D collisionInfo)
+        void OnCollisionEnter(Collision collisionInfo)
         {
-            if (collisionInfo.collider.tag == "bullet") //Skal ændre til entity hvis vi vælger dette system
+            if (collisionInfo.collider.tag == "projectile") //Skal ændre til entity hvis vi vælger dette system
             {
                 crystalhealth = crystalhealth -1;
                 Debug.Log(crystalhealth);
             }
 
         }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "bullet") //Skal ændre til entity hvis vi vælger dette system
+        if (collision.tag == "projectile") //Skal ændre til entity hvis vi vælger dette system
         {
             crystalhealth = crystalhealth - 1;
             Debug.Log(crystalhealth);
