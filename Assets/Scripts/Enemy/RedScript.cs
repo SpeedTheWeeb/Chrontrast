@@ -27,7 +27,7 @@ public class RedScript : MonoBehaviour
     {
         if(other.gameObject.tag == "Bullet")
         {
-            Destroy(other);
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
         if (other.gameObject.name == "Red Stop")

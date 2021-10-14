@@ -40,7 +40,7 @@ public class BlueScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
-            Destroy(other);
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
         if(other.gameObject.name == "Blue Stop")
