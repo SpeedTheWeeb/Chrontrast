@@ -5,26 +5,36 @@ using UnityEngine;
 public class CrystalHP : MonoBehaviour
 {
     public int crystalhealth;
+    public bool crystaldeath = false; // husk, måske slet hvis deathscreen virker
     private void Start()
     {
         crystalhealth = 100;
+        
     }
 
-        void OnCollisionEnter2D(Collision2D collisionInfo)
+        void OnCollisionEnter(Collision collisionInfo)
         {
-            if (collisionInfo.collider.tag == "bullet") //Skal ændre til entity hvis vi vælger dette system
+            if (collisionInfo.collider.tag == "projectile") //tag imod skade fra fjendeskud
             {
                 crystalhealth = crystalhealth -1;
                 Debug.Log(crystalhealth);
             }
 
         }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "bullet") //Skal ændre til entity hvis vi vælger dette system
+        if (collision.tag == "projectile") //tag skade fra fjendeskud
         {
             crystalhealth = crystalhealth - 1;
             Debug.Log(crystalhealth);
+        }
+    }
+    private void Update()
+    {
+        if (crystalhealth < 1)
+        {
+            FindObjectOfType<Gamemanager>().Endgame();
+
         }
     }
 }
