@@ -6,11 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Objective
-  - Projectile
-<<<<<<< HEAD
-=======
-  - Rift
->>>>>>> 667785792188e0dac76c5328dc8f38dcd3bad7ad
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -19,7 +15,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Enemies
   - 
   - 
   - 
