@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class BlueScript : MonoBehaviour
 {
-    public float speed = 3f;
+    public float speed = 5f;
     public int stopSpot;
     bool forward = true;
     bool isArrived = false;
     public GameObject bullet;
-    public float timer = 4f;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,19 +27,14 @@ public class BlueScript : MonoBehaviour
 
         if(isArrived)
         {
-            timer -= Time.deltaTime;
-            if(timer <= 0)
-            {
-                Instantiate(bullet, transform.position, transform.rotation);
-                timer = 2f;
-            }
+            StartCoroutine(shoot());
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Bullet")
         {
-            Destroy(other.gameObject);
+            Destroy(other);
             Destroy(gameObject);
         }
         if(other.gameObject.name == "Blue Stop")
@@ -48,5 +42,11 @@ public class BlueScript : MonoBehaviour
             forward = false;
             isArrived = true;
         }
+    }
+
+    IEnumerator shoot()
+    {
+        yield return new WaitForSeconds(2);
+        Instantiate(bullet, transform.position, transform.rotation);
     }
 }

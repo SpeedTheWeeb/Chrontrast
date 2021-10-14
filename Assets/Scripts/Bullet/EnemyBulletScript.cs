@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyBulletScript : MonoBehaviour
 {
-    public float speed;
+    public float speed = 1f;
     // Start is called before the first frame update
     void Start()
     {
-        speed = 20f;
+        
     }
 
     // Update is called once per frame

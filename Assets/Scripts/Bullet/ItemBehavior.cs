@@ -21,7 +21,7 @@ public class ItemBehavior : MonoBehaviour
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
-    
+
     public void Init(GameObject spawn)
     {
         bulletSpawn = spawn;

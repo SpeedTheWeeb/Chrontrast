@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class GreenScript : MonoBehaviour
 {
-    public float speed = 3f;
+    public float speed = 5f;
     public int stopSpot;
     bool forward = true;
-    bool isArrived = false;
-    public GameObject bullet;
-    public float timer = 4f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,27 +22,17 @@ public class GreenScript : MonoBehaviour
 
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, 0, 0), vel);
         }
-        if (isArrived)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                Instantiate(bullet, transform.position, transform.rotation);
-                timer = 2f;
-            }
-        }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Bullet")
         {
-            Destroy(other.gameObject);
+            Destroy(other);
             Destroy(gameObject);
         }
         if (other.gameObject.name == "Green Stop")
         {
             forward = false;
-            isArrived = true;
         }
     }
 }

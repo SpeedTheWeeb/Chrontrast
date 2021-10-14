@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //Bullet Data
+    public GameObject bullet;
+    public float bulletSpeed = 20f;
+    public GameObject bulletSpawn;
+    private float destroyBullet = 1f;
+
     //Player Data
     public int playerNumber = 1;
     private GameObject currentPlayer = null;
+
     public Vector2 speed = new Vector2(10, 10);
     Rigidbody2D r2d;
     private float xAxis;
@@ -116,8 +123,8 @@ public class PlayerMovement : MonoBehaviour
     {
         trigger = true;
         collidingObject = collision;
+
     }
-    
     private void FixedUpdate()
     {
         Vector2 mov = new Vector2(speed.x * xAxis, speed.y * yAxis);
