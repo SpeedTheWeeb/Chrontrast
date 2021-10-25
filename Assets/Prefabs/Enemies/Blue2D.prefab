@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2229189421873999049}
   - component: {fileID: 6686297243593594870}
   - component: {fileID: 54720978785739077}
+  - component: {fileID: 1316461886663271325}
   m_Layer: 0
   m_Name: Blue2D
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,3 +149,16 @@ MonoBehaviour:
   stopSpot: 0
   bullet: {fileID: 4178815753567730303, guid: be205f040edc35b4baf9a9da66207748, type: 3}
   timer: 4
+--- !u!114 &1316461886663271325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514315005102724664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4482f52bc88a342921c0ddb0faf6d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitObj: {fileID: 762555304240144639, guid: f077f3ca657618544a640fb5d9936769, type: 3}

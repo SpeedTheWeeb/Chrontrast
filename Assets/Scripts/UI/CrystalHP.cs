@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class CrystalHP : MonoBehaviour
 {
+    public Text TextUI;
     public int crystalhealth;
     private void Start()
     {
@@ -14,7 +15,7 @@ public class CrystalHP : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile")) //Skal ændre til entity hvis vi vælger dette system
         {
             crystalhealth = crystalhealth - 1;
-            Debug.Log(crystalhealth);
+            TextUI.text = "Crystal HP: " + crystalhealth;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Bullet"))

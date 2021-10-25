@@ -8,9 +8,9 @@ public class ItemBehavior : MonoBehaviour
     public float speed = 20f;
     public float timer = 1f;
     private bool isThrown = false;
-    public Vector2 throwingDirection;
+    //public Vector2 throwingDirection;
     public bool isMedieval;
-    Vector2 Direction;
+    public Vector2 Direction;
     SpriteRenderer spriteRenderer;
 
     //to get the throwing direction i need to access the script of the parent og the game object that has this script
@@ -57,6 +57,13 @@ public class ItemBehavior : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Wall"))
+        {
+            isThrown = false;
+        }
+    }
     //If the item exits a 2d collider...
     void OnTriggerExit2D(Collider2D other)
     {

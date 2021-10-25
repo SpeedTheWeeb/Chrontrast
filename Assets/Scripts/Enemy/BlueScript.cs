@@ -38,11 +38,6 @@ public class BlueScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Bullet")
-        {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
         if (other.gameObject.name == "Blue Stop")
         {
             forward = false;

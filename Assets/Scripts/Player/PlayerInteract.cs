@@ -39,17 +39,17 @@ public class PlayerInteract : MonoBehaviour
                     direction = Vector2.left * 100;
                     throwingDirection = Vector2.left;
                 }
-                if (Input.GetKeyDown(KeyCode.W))
+                else if (Input.GetKeyDown(KeyCode.W))
                 {
                     direction = Vector2.up * 100;
                     throwingDirection = Vector2.up;
                 }
-                if (Input.GetKeyDown(KeyCode.D))
+                else if(Input.GetKeyDown(KeyCode.D))
                 {
                     direction = Vector2.right * 100;
                     throwingDirection = Vector2.right;
                 }
-                if (Input.GetKeyDown(KeyCode.S))
+                else if (Input.GetKeyDown(KeyCode.S))
                 {
                     direction = Vector2.down * 100;
                     throwingDirection = Vector2.down;
@@ -61,17 +61,17 @@ public class PlayerInteract : MonoBehaviour
                     direction = Vector2.left*100;
                     throwingDirection = Vector2.left;
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow))
+                else if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     direction = Vector2.up*100;
                     throwingDirection = Vector2.up;
                 }
-                if (Input.GetKeyDown(KeyCode.RightArrow))
+                else if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     direction = Vector2.right*100;
                     throwingDirection = Vector2.right;
                 }
-                if (Input.GetKeyDown(KeyCode.DownArrow))
+                else if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     direction = Vector2.down*100;
                     throwingDirection = Vector2.down;
@@ -85,7 +85,7 @@ public class PlayerInteract : MonoBehaviour
             Fire();
         }
 
-        if (Input.GetButtonDown("Drop" + playerNumber) && trigger)
+        if (Input.GetButtonDown("Drop" + playerNumber) && (trigger || isHolding))
         {
             if (isHolding)
             {
@@ -126,7 +126,7 @@ public class PlayerInteract : MonoBehaviour
             pickupObject = col.gameObject;
             Item = col.GetComponent<ItemBehavior>();
             Item.Init(bulletSpawn);
-            Item.dirInit(currentPlayer);
+            
             isHolding = true;
         }
     }
@@ -136,6 +136,7 @@ public class PlayerInteract : MonoBehaviour
     private void Drop()
     {
         Item.Throw();
+        Item.dirInit(currentPlayer);
         pickupObject.transform.parent = null;
         isHolding = false;
     }
