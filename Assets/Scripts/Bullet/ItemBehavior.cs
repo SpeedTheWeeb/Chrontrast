@@ -10,7 +10,7 @@ public class ItemBehavior : MonoBehaviour
     private bool isThrown = false;
     public Vector2 throwingDirection;
     public bool isMedieval;
-
+    Vector2 Direction;
     SpriteRenderer spriteRenderer;
 
     //to get the throwing direction i need to access the script of the parent og the game object that has this script
@@ -26,22 +26,27 @@ public class ItemBehavior : MonoBehaviour
     {
         bulletSpawn = spawn;
     }
-
+    public void dirInit(GameObject Player)
+    {
+        PlayerInteract getDirection = Player.GetComponent<PlayerInteract>();
+        Direction = getDirection.throwingDirection;
+    }
     // Sets 
     public void Throw()
     {
         isThrown = true;
-        //transform.rotation = bulletSpawn.transform.rotation;
     }
 
     // Update is called once per frame
     void Update()
     {
         //GetComponent<Rigidbody2D>().AddForce(Vector2.right * speed);
+
         // If the Throw funtion gets activated the item will move to the right untill a timer runs out
         if(isThrown)
         {
-            transform.Translate(bulletSpawn.transform.right * speed * Time.deltaTime);
+            //GetComponent<Rigidbody2D>().AddForce(Direction * speed);
+            transform.Translate(Direction * speed * Time.deltaTime);
             timer -= Time.deltaTime;
             if(timer <= 0f)
             {
@@ -50,8 +55,6 @@ public class ItemBehavior : MonoBehaviour
                 timer = 1f;
             }
         }
-
-
     }
 
     //If the item exits a 2d collider...

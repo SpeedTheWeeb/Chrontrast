@@ -21,6 +21,7 @@ public class PlayerInteract : MonoBehaviour
 
     private GameObject currentPlayer = null;
     public int playerNumber;
+    public Vector2 direction;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,41 +36,45 @@ public class PlayerInteract : MonoBehaviour
             case 1:
                 if (Input.GetKeyDown(KeyCode.A))
                 {
-                    bulletSpawn.transform.eulerAngles = new Vector3(0, 90, 0);
-                    throwingDirection = new Vector2(-1, 0);
+                    direction = Vector2.left * 100;
+                    throwingDirection = Vector2.left;
                 }
                 if (Input.GetKeyDown(KeyCode.W))
                 {
-                    bulletSpawn.transform.eulerAngles = new Vector3(90, 90, 0);
+                    direction = Vector2.up * 100;
+                    throwingDirection = Vector2.up;
                 }
                 if (Input.GetKeyDown(KeyCode.D))
                 {
-                    bulletSpawn.transform.eulerAngles = new Vector3(0, 0, 0);
-                    throwingDirection = new Vector2(1, 0);
+                    direction = Vector2.right * 100;
+                    throwingDirection = Vector2.right;
                 }
                 if (Input.GetKeyDown(KeyCode.S))
                 {
-                    bulletSpawn.transform.eulerAngles = new Vector3(-90, 90, 0);
+                    direction = Vector2.down * 100;
+                    throwingDirection = Vector2.down;
                 }
                 break;
             case 2:
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
-                    bulletSpawn.transform.eulerAngles = new Vector3(0, 90, 0);
-                    throwingDirection = new Vector2(-1, 0);
+                    direction = Vector2.left*100;
+                    throwingDirection = Vector2.left;
                 }
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
-                    bulletSpawn.transform.eulerAngles = new Vector3(90, 90, 0);
+                    direction = Vector2.up*100;
+                    throwingDirection = Vector2.up;
                 }
                 if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
-                    bulletSpawn.transform.eulerAngles = new Vector3(0, 0, 0);
-                    throwingDirection = new Vector2(1, 0);
+                    direction = Vector2.right*100;
+                    throwingDirection = Vector2.right;
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
-                    bulletSpawn.transform.eulerAngles = new Vector3(-90, 90, 0);
+                    direction = Vector2.down*100;
+                    throwingDirection = Vector2.down;
                 }
                 break;
 
@@ -115,12 +120,15 @@ public class PlayerInteract : MonoBehaviour
     {
         //gameObject.GetComponent<WeaponManager>.weaponType = col.GetComponent<ItemBehavior>().weaponType;
         //Destroy(col);
-
-        col.transform.parent = currentPlayer.transform;
-        pickupObject = col.gameObject;
-        Item = col.GetComponent<ItemBehavior>();
-        Item.Init(bulletSpawn);
-        isHolding = true;
+        if(col.CompareTag("Objective"))
+        {
+            col.transform.parent = currentPlayer.transform;
+            pickupObject = col.gameObject;
+            Item = col.GetComponent<ItemBehavior>();
+            Item.Init(bulletSpawn);
+            Item.dirInit(currentPlayer);
+            isHolding = true;
+        }
     }
 
     //Is to be changed to look at the variable in the weapon_manager script that determines what weapon is being held and then instansiate
@@ -134,9 +142,8 @@ public class PlayerInteract : MonoBehaviour
 
     private void Fire()
     {
-        GameObject clone = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
-        clone.GetComponent<Rigidbody>().velocity = bulletSpawn.transform.right * bulletSpeed;
-        clone.GetComponent<Rigidbody>().AddForce(Vector2.right * bulletSpeed);
+        GameObject clone = Instantiate(bullet, transform.position, Quaternion.identity);
+        clone.GetComponent<Rigidbody2D>().AddForce(direction * bulletSpeed);
 
         Destroy(clone.gameObject, destroyBullet);
     }

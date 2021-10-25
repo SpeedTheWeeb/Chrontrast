@@ -9,7 +9,7 @@ public class CrystalHP : MonoBehaviour
     {
         crystalhealth = 100;
     }
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Projectile")) //Skal ændre til entity hvis vi vælger dette system
         {
@@ -17,9 +17,10 @@ public class CrystalHP : MonoBehaviour
             Debug.Log(crystalhealth);
             Destroy(collision.gameObject);
         }
-        if(collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(collision.gameObject);
         }
     }
+
 }
