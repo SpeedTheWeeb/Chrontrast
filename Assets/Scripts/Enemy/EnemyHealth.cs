@@ -28,5 +28,11 @@ public class EnemyHealth : MonoBehaviour
         // animator.SetBool("IsDead", true)
 
         Destroy(gameObject);
+
+        //Check enemy amount after every kill, when there are no more left, run code
+        if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 1)
+        {
+            Debug.Log("No More Enemies");
+        }
     }
 }

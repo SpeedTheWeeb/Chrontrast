@@ -25,21 +25,14 @@ public class RedScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.tag == "Bullet")
+        {
+            GetComponent<EnemyHealth>().TakeDamage(50);
+
+        }
         if (other.gameObject.name == "Red Stop")
         {
             forward = false;
         }
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.tag == "Bullet")
-    //    {
-    //        Destroy(other.gameObject);
-    //        Destroy(gameObject);
-    //    }
-    //    if (other.gameObject.name == "Red Stop")
-    //    {
-    //        forward = false;
-    //    }
-    //}
 }

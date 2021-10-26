@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4108915048944605794}
   - component: {fileID: 7318247844327742087}
   - component: {fileID: 1485423621031303826}
-  - component: {fileID: 8958774779598543913}
+  - component: {fileID: 2375199753967913781}
   m_Layer: 0
   m_Name: Red2D
   m_TagString: Enemy
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   stopSpot: 0
---- !u!114 &8958774779598543913
+--- !u!114 &2375199753967913781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 462621949098890694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba4482f52bc88a342921c0ddb0faf6d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 442e855f1e4f5764386a51f1925c8c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitObj: {fileID: 762555304240144639, guid: f077f3ca657618544a640fb5d9936769, type: 3}
+  maxHealth: 100
