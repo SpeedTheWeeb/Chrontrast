@@ -26,10 +26,10 @@ public class ItemBehavior : MonoBehaviour
     {
         bulletSpawn = spawn;
     }
-    public void dirInit(GameObject Player)
+    public void dirInit(Vector2 dir)
     {
-        PlayerInteract getDirection = Player.GetComponent<PlayerInteract>();
-        Direction = getDirection.throwingDirection;
+        //PlayerInteract getDirection = Player.GetComponent<PlayerInteract>();
+        Direction = dir;
     }
     // Sets 
     public void Throw()

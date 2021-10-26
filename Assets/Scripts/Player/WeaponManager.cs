@@ -7,14 +7,15 @@ public class WeaponManager : MonoBehaviour
     public bool alreadyHolding = false;    
     public int weaponType = 0;
     public int playerNumber = 2;
-
+    Vector2 direction;
+    public Vector2 throwingDirection;
     public Transform meleeHurtbox;
     public float meleeRange = 1f;
     public float meleeDamage = 10f;
     public float meleeSpeed = 2f;       // Adjusts time before next attack is ready
     float nextMeleeAttackTime = 0f;
     // public Animator meleeAnim;
-
+    public GameObject holdingWeapon;
     // public Transform splashSourSpot;
     public Transform splashSweetSpot;
     public float sweetSpotRadius = 1f;
@@ -24,9 +25,33 @@ public class WeaponManager : MonoBehaviour
     float nextSplashAttackTime = 0f;
     // public Animator splashAnim;
 
+    public GameObject meleePrefab;
+    public GameObject shotgubPrefab;
+    ItemBehavior item;
+
     private void Update()
     {
-        switch(weaponType)
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            direction = Vector2.left * 100;
+            throwingDirection = Vector2.left;
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            direction = Vector2.up * 100;
+            throwingDirection = Vector2.up;
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            direction = Vector2.right * 100;
+            throwingDirection = Vector2.right;
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            direction = Vector2.down * 100;
+            throwingDirection = Vector2.down;
+        }
+        switch (weaponType)
         {
             case 1:
                 Debug.Log("I am holding a Melee Weapon!");
@@ -62,12 +87,36 @@ public class WeaponManager : MonoBehaviour
                 break;
         }
 
-        /*if(Input.GetButtonDown("Drop" + playerNumber) && alreadyHolding)
-        {
+        if (Input.GetButtonDown("Drop" + playerNumber) && alreadyHolding)
+        {                    
             
-            weaponType = 0;
-            alreadyHolding = false;
-        }*/
+
+            switch(weaponType)
+            {
+                case 1:
+                    weaponType = 0;
+                    alreadyHolding = false;
+                    GameObject mel = Instantiate(meleePrefab, transform.position, Quaternion.identity);
+                    item = mel.GetComponent<ItemBehavior>();
+                    item.Throw();
+                    item.dirInit(throwingDirection);
+
+                    break;
+
+                case 2:
+                    weaponType = 0;
+                    alreadyHolding = false;
+                    GameObject sho = Instantiate(shotgubPrefab, transform.position, Quaternion.identity);
+                    item = sho.GetComponent<ItemBehavior>();
+                    item.Throw();
+                    weaponType = 0;
+                    alreadyHolding = false;
+                    item.dirInit(throwingDirection);
+                    break;
+            }
+
+
+        }
     }
 
     private void MeleeAttack()

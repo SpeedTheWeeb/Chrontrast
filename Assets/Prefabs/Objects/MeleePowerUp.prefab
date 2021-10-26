@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4777115852897054416}
   - component: {fileID: 4777115852897054418}
   - component: {fileID: 1320730765}
+  - component: {fileID: 990698044}
   m_Layer: 0
   m_Name: MeleePowerUp
   m_TagString: Untagged
@@ -112,3 +113,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &990698044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4777115852897054419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e74e03363d5bf4896c6a7124fdc64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawn: {fileID: 0}
+  speed: 20
+  timer: 1
+  isMedieval: 0
+  Direction: {x: 0, y: 0}
