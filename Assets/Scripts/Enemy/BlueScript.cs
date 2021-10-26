@@ -38,6 +38,11 @@ public class BlueScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.tag == "Bullet")
+        {
+            GetComponent<EnemyHealth>().TakeDamage(50);
+
+        }
         if (other.gameObject.name == "Blue Stop")
         {
             forward = false;

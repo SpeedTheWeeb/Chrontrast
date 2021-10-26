@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2229189421873999049}
   - component: {fileID: 6686297243593594870}
   - component: {fileID: 54720978785739077}
-  - component: {fileID: 1316461886663271325}
+  - component: {fileID: 8689881369017920052}
   m_Layer: 0
   m_Name: Blue2D
   m_TagString: Enemy
@@ -149,7 +149,7 @@ MonoBehaviour:
   stopSpot: 0
   bullet: {fileID: 4178815753567730303, guid: be205f040edc35b4baf9a9da66207748, type: 3}
   timer: 4
---- !u!114 &1316461886663271325
+--- !u!114 &8689881369017920052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 514315005102724664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba4482f52bc88a342921c0ddb0faf6d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 442e855f1e4f5764386a51f1925c8c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitObj: {fileID: 762555304240144639, guid: f077f3ca657618544a640fb5d9936769, type: 3}
+  maxHealth: 100
