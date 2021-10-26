@@ -21,7 +21,7 @@ public class Wall : MonoBehaviour
     }
         void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Projectile") || collision.gameObject.CompareTag("Bullet")) //Skal ændre til entity hvis vi vælger dette system
+        if (collision.gameObject.CompareTag("Projectile")) //Skal ændre til entity hvis vi vælger dette system
         {
             hitsTaken += 1;
             Destroy(collision.gameObject);
