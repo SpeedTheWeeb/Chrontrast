@@ -7,7 +7,6 @@ public class WeaponManager : MonoBehaviour
     public bool alreadyHolding = false;    
     public int weaponType = 4;
     public int playerNumber = 2;
-    public LayerMask enemyLayers;
 
     public Transform meleeHurtbox;
     public float meleeRange = 1f;
@@ -16,13 +15,7 @@ public class WeaponManager : MonoBehaviour
     float nextMeleeAttackTime = 0f;
     // public Animator meleeAnim;
 
-
-    private void Start()
-    {
-        
-    }
-
-   private void Update()
+    private void Update()
     {
         switch(weaponType)
         {
@@ -54,7 +47,7 @@ public class WeaponManager : MonoBehaviour
                 }*/
                 break;
 
-            case 4:
+            default:
                 Debug.Log("I am not holding any Weapon!");
                 break;
         }
@@ -62,16 +55,20 @@ public class WeaponManager : MonoBehaviour
 
     private void MeleeAttack()
     {
+        Debug.Log("I am swinging my sword!");
         // play animation
         // Animator.SetTrigger("MeleeAttack");
 
         // Detects enemies in range
-        Collider[] meleeEnemies = Physics.OverlapSphere(meleeHurtbox.position, meleeRange, enemyLayers);
+        Collider2D[] meleeEnemies = Physics2D.OverlapCircleAll(meleeHurtbox.position, meleeRange);        
 
         // Applies damage
-        foreach(Collider enemy in meleeEnemies)
+        foreach(Collider2D enemy in meleeEnemies)
         {
-            enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage);
+            if(enemy.CompareTag("Enemy"))
+            {                
+                enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage);
+            }
         }
     }
 
