@@ -14,7 +14,7 @@ public class SpawningScript : MonoBehaviour
     int blues;
     int greens;
     public bool isSpawning;
-
+    Vector3 rPos, bPos, gPos;
     public GameObject RedObj;
     public GameObject BlueObj;
     public GameObject GreenObj;
@@ -24,7 +24,7 @@ public class SpawningScript : MonoBehaviour
         isSpawning = false;
         currentWave = 0;
         enemyInfo = JsonUtility.FromJson<JsonList>(jsonText.text);
-        InitWave();
+        InitWave(1);
     }
 
     // Update is called once per frame
@@ -32,24 +32,23 @@ public class SpawningScript : MonoBehaviour
     {
 
     }
-    public void InitWave()
+    public void InitWave(int Wave)
     {
         currentWave += 1;
         Debug.Log(currentWave);
         try
         {
-            reds = enemyInfo.WaveInfo[currentWave - 1].Red_Spawn;
-            blues = enemyInfo.WaveInfo[currentWave - 1].Blue_Spawn;
-            greens = enemyInfo.WaveInfo[currentWave - 1].Green_Spawn;
+            reds = enemyInfo.WaveInfo[Wave - 1].Red_Spawn;
+            blues = enemyInfo.WaveInfo[Wave - 1].Blue_Spawn;
+            greens = enemyInfo.WaveInfo[Wave - 1].Green_Spawn;
 
-            totalEnemies = enemyInfo.WaveInfo[currentWave - 1].Red_Spawn + enemyInfo.WaveInfo[currentWave - 1].Blue_Spawn + enemyInfo.WaveInfo[currentWave - 1].Green_Spawn;
+            totalEnemies = enemyInfo.WaveInfo[Wave - 1].Red_Spawn + enemyInfo.WaveInfo[Wave - 1].Blue_Spawn + enemyInfo.WaveInfo[Wave - 1].Green_Spawn;
 
             spawnEnemies();
         }
         catch(IndexOutOfRangeException)
         {
             Debug.Log("Woo Win");
-            throw null;
         }
     }
 
@@ -66,48 +65,84 @@ public class SpawningScript : MonoBehaviour
             //Red Spawning
             for (int r = 0; r < randomR; r++)
             {
-                int rNumber = UnityEngine.Random.Range(1, 3);
-                float srNumber = UnityEngine.Random.Range(-3, 4);
+                int rNumber = UnityEngine.Random.Range(1, 5);
                 spawnSide = GameObject.Find("Enemy Spawn " + rNumber);
 
-                Vector3 pos = new Vector3(
-                    spawnSide.transform.position.x,
-                    spawnSide.transform.position.y + srNumber,
-                    spawnSide.transform.position.z);
+                if (rNumber <= 2)
+                {
+                    float srNumber = UnityEngine.Random.Range(-4, 4);
+                    rPos = new Vector3(
+                        spawnSide.transform.position.x,
+                        spawnSide.transform.position.y + srNumber,
+                        spawnSide.transform.position.z);
+                }
+                else
+                {
+                    float srNumber = UnityEngine.Random.Range(-15, 15);
+                    rPos = new Vector3(
+                        spawnSide.transform.position.x + srNumber,
+                        spawnSide.transform.position.y,
+                        spawnSide.transform.position.z);
 
-                GameObject redClone = Instantiate(RedObj, pos, Quaternion.identity);
+                }
+                GameObject redClone = Instantiate(RedObj, rPos, Quaternion.identity);
                 redClone.GetComponent<RedScript>().stopSpot = rNumber;
             }
 
             //Blue Spawning
             for (int b = 0; b < randomB; b++)
             {
-                int bNumber = UnityEngine.Random.Range(1, 3);
-                float sbNumber = UnityEngine.Random.Range(-3, 4);
+                int bNumber = UnityEngine.Random.Range(1, 5);
                 spawnSide = GameObject.Find("Enemy Spawn " + bNumber);
 
-                Vector3 pos = new Vector3(
-                    spawnSide.transform.position.x,
-                    spawnSide.transform.position.y + sbNumber,
-                    spawnSide.transform.position.z);
+                if (bNumber <= 2)
+                {
+                    float sbNumber = UnityEngine.Random.Range(-4, 4);
+                    bPos = new Vector3(
+                        spawnSide.transform.position.x,
+                        spawnSide.transform.position.y + sbNumber,
+                        spawnSide.transform.position.z);
+                }
+                else
+                {
+                    float sbNumber = UnityEngine.Random.Range(-15, 15);
+                    bPos = new Vector3(
+                        spawnSide.transform.position.x + sbNumber,
+                        spawnSide.transform.position.y,
+                        spawnSide.transform.position.z);
 
-                GameObject blueClone = Instantiate(BlueObj, pos, Quaternion.identity);
+                    
+                }
+
+                GameObject blueClone = Instantiate(BlueObj, bPos, Quaternion.identity);
                 blueClone.GetComponent<BlueScript>().stopSpot = bNumber;
             }
 
             //Green Spawning
             for (int g = 0; g < randomG; g++)
             {
-                int gNumber = UnityEngine.Random.Range(1, 3);
-                float sgNumber = UnityEngine.Random.Range(-3, 4);
+                int gNumber = UnityEngine.Random.Range(1, 5);
+
                 spawnSide = GameObject.Find("Enemy Spawn " + gNumber);
 
-                Vector3 pos = new Vector3(
-                    spawnSide.transform.position.x,
-                    spawnSide.transform.position.y + sgNumber,
-                    spawnSide.transform.position.z);
+                if(gNumber <= 2)
+                {                
+                    float sgNumber = UnityEngine.Random.Range(-4, 4);
+                    gPos = new Vector3(
+                        spawnSide.transform.position.x,
+                        spawnSide.transform.position.y + sgNumber,
+                        spawnSide.transform.position.z);
+                }
+                else
+                {
+                    float sgNumber = UnityEngine.Random.Range(-15, 15);
+                    gPos = new Vector3(
+                        spawnSide.transform.position.x + sgNumber,
+                        spawnSide.transform.position.y,
+                        spawnSide.transform.position.z);
 
-                GameObject GreenClone = Instantiate(GreenObj, pos, Quaternion.identity);
+                }
+                GameObject GreenClone = Instantiate(GreenObj, gPos, Quaternion.identity);
                 GreenClone.GetComponent<GreenScript>().stopSpot = gNumber;
             }
             greens -= randomG;
