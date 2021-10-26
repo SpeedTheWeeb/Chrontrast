@@ -7,6 +7,9 @@ TagManager:
   - Bullet
   - Objective
   - Enemy
+  - Projectile
+  - Rift
+  - Wall
   layers:
   - Default
   - TransparentFX

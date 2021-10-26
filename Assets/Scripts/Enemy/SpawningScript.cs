@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class SpawningScript : MonoBehaviour
 {
     public int currentWave;
@@ -12,6 +13,7 @@ public class SpawningScript : MonoBehaviour
     int reds;
     int blues;
     int greens;
+    public bool isSpawning;
 
     public GameObject RedObj;
     public GameObject BlueObj;
@@ -19,7 +21,9 @@ public class SpawningScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentWave = 1;
+        isSpawning = false;
+        currentWave = 0;
+        enemyInfo = JsonUtility.FromJson<JsonList>(jsonText.text);
         InitWave();
     }
 
@@ -30,31 +34,40 @@ public class SpawningScript : MonoBehaviour
     }
     public void InitWave()
     {
-        enemyInfo = JsonUtility.FromJson<JsonList>(jsonText.text);
+        currentWave += 1;
+        Debug.Log(currentWave);
+        try
+        {
+            reds = enemyInfo.WaveInfo[currentWave - 1].Red_Spawn;
+            blues = enemyInfo.WaveInfo[currentWave - 1].Blue_Spawn;
+            greens = enemyInfo.WaveInfo[currentWave - 1].Green_Spawn;
 
-        reds = enemyInfo.WaveInfo[currentWave - 1].Red_Spawn;
-        blues = enemyInfo.WaveInfo[currentWave - 1].Blue_Spawn;
-        greens = enemyInfo.WaveInfo[currentWave - 1].Green_Spawn;
+            totalEnemies = enemyInfo.WaveInfo[currentWave - 1].Red_Spawn + enemyInfo.WaveInfo[currentWave - 1].Blue_Spawn + enemyInfo.WaveInfo[currentWave - 1].Green_Spawn;
 
-        totalEnemies = enemyInfo.WaveInfo[currentWave - 1].Red_Spawn + enemyInfo.WaveInfo[currentWave - 1].Blue_Spawn + enemyInfo.WaveInfo[currentWave - 1].Green_Spawn;
-
-        spawnEnemies();
+            spawnEnemies();
+        }
+        catch(IndexOutOfRangeException)
+        {
+            Debug.Log("Woo Win");
+            throw null;
+        }
     }
 
     public void spawnEnemies()
     {
         if (totalEnemies > 0)
         {
+            isSpawning = true;
             Debug.Log(totalEnemies);
-            int randomR = Random.Range(1, reds + 1);
-            int randomG = Random.Range(1, greens + 1);
-            int randomB = Random.Range(1, blues + 1);
+            int randomR = UnityEngine.Random.Range(1, reds + 1);
+            int randomG = UnityEngine.Random.Range(1, greens + 1);
+            int randomB = UnityEngine.Random.Range(1, blues + 1);
 
             //Red Spawning
             for (int r = 0; r < randomR; r++)
             {
-                int rNumber = Random.Range(1, 3);
-                float srNumber = Random.Range(-3, 4);
+                int rNumber = UnityEngine.Random.Range(1, 3);
+                float srNumber = UnityEngine.Random.Range(-3, 4);
                 spawnSide = GameObject.Find("Enemy Spawn " + rNumber);
 
                 Vector3 pos = new Vector3(
@@ -69,8 +82,8 @@ public class SpawningScript : MonoBehaviour
             //Blue Spawning
             for (int b = 0; b < randomB; b++)
             {
-                int bNumber = Random.Range(1, 3);
-                float sbNumber = Random.Range(-3, 4);
+                int bNumber = UnityEngine.Random.Range(1, 3);
+                float sbNumber = UnityEngine.Random.Range(-3, 4);
                 spawnSide = GameObject.Find("Enemy Spawn " + bNumber);
 
                 Vector3 pos = new Vector3(
@@ -85,8 +98,8 @@ public class SpawningScript : MonoBehaviour
             //Green Spawning
             for (int g = 0; g < randomG; g++)
             {
-                int gNumber = Random.Range(1, 3);
-                float sgNumber = Random.Range(-3, 4);
+                int gNumber = UnityEngine.Random.Range(1, 3);
+                float sgNumber = UnityEngine.Random.Range(-3, 4);
                 spawnSide = GameObject.Find("Enemy Spawn " + gNumber);
 
                 Vector3 pos = new Vector3(
@@ -103,6 +116,10 @@ public class SpawningScript : MonoBehaviour
             totalEnemies -= randomB + randomG + randomR;
             Debug.Log(totalEnemies);
             Invoke("spawnEnemies", 10f);
+        }
+        else
+        {
+            isSpawning = false;
         }
     }
 }
