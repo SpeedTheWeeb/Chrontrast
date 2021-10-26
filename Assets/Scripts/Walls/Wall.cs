@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Wall : MonoBehaviour
 {
     // Hits needed to break
     public int hitsNeeded = 3;
@@ -19,14 +19,15 @@ public class NewBehaviourScript : MonoBehaviour
     {
 
     }
-
-    void OnCollisionEnter2D(Collision2D collisionInfo)
+        void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collisionInfo.collider.tag == "projectile") //Skal ændre til entity hvis vi vælger dette system
+        if (collision.gameObject.CompareTag("Projectile") || collision.gameObject.CompareTag("Bullet")) //Skal ændre til entity hvis vi vælger dette system
         {
             hitsTaken += 1;
+            Destroy(collision.gameObject);
 
-            if (hitsTaken >= hitsNeeded) {
+            if (hitsTaken >= hitsNeeded) 
+            {
             Destroy (gameObject);
             }
         }
