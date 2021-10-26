@@ -24,7 +24,7 @@ public class SpawningScript : MonoBehaviour
         isSpawning = false;
         currentWave = 0;
         enemyInfo = JsonUtility.FromJson<JsonList>(jsonText.text);
-        InitWave();
+        InitWave(1);
     }
 
     // Update is called once per frame
@@ -32,24 +32,23 @@ public class SpawningScript : MonoBehaviour
     {
 
     }
-    public void InitWave()
+    public void InitWave(int Wave)
     {
         currentWave += 1;
         Debug.Log(currentWave);
         try
         {
-            reds = enemyInfo.WaveInfo[currentWave - 1].Red_Spawn;
-            blues = enemyInfo.WaveInfo[currentWave - 1].Blue_Spawn;
-            greens = enemyInfo.WaveInfo[currentWave - 1].Green_Spawn;
+            reds = enemyInfo.WaveInfo[Wave - 1].Red_Spawn;
+            blues = enemyInfo.WaveInfo[Wave - 1].Blue_Spawn;
+            greens = enemyInfo.WaveInfo[Wave - 1].Green_Spawn;
 
-            totalEnemies = enemyInfo.WaveInfo[currentWave - 1].Red_Spawn + enemyInfo.WaveInfo[currentWave - 1].Blue_Spawn + enemyInfo.WaveInfo[currentWave - 1].Green_Spawn;
+            totalEnemies = enemyInfo.WaveInfo[Wave - 1].Red_Spawn + enemyInfo.WaveInfo[Wave - 1].Blue_Spawn + enemyInfo.WaveInfo[Wave - 1].Green_Spawn;
 
             spawnEnemies();
         }
         catch(IndexOutOfRangeException)
         {
             Debug.Log("Woo Win");
-            throw null;
         }
     }
 
