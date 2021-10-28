@@ -136,7 +136,7 @@ public class PlayerInteract : MonoBehaviour
     private void Drop()
     {
         Item.Throw();
-        Item.dirInit(currentPlayer);
+        Item.dirInit(throwingDirection);
         pickupObject.transform.parent = null;
         isHolding = false;
     }
