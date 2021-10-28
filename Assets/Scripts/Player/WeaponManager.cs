@@ -1,32 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    public bool alreadyHolding = false;    
-    public int weaponType = 0;
-    public int playerNumber = 2;
+    public bool alreadyHolding = false; // Checks if player is or isn't holding a Weapon Power-Up
+    public int weaponType = 0;          // initial "unarmed" state
+    public Transform firePoint;         // Reference point for raycast and Projectile spawn     
+    public int playerNumber;
     Vector2 direction;
     public Vector2 throwingDirection;
-    public Transform meleeHurtbox;
-    public float meleeRange = 1f;
-    public float meleeDamage = 10f;
-    public float meleeSpeed = 2f;       // Adjusts time before next attack is ready
-    float nextMeleeAttackTime = 0f;
+
+    public Transform meleeHurtbox;      // Reference point for Overlap Circle
+    public float meleeRange = 1f;       // Radius for Overlap Circle
+    public float meleeDamage = 10f;     // Damage applied to Tag: Enemies inside Overlap Circle
+    public float meleeSpeed = 2f;       // Attacks pr. second
+    float nextMeleeAttackTime = 0f;     // Initialized cooldown for melee attacks
     // public Animator meleeAnim;
-    public GameObject holdingWeapon;
-    // public Transform splashSourSpot;
-    public Transform splashSweetSpot;
-    public float sweetSpotRadius = 1f;
-    // public float sourSpotDamage = 5f;
-    public float sweetSpotDamage = 15f;
-    public float splashSpeed = 2f;       // Adjusts time before next attack is ready
-    float nextSplashAttackTime = 0f;
+
+    public GameObject grenadePrefab;    // Holds projectile prefab
+    public float grenadeRadius = 3f;    // Range before projectile explodes
+    public float splashSpeed = .5f;     // Attacks pr. second
+    float nextSplashAttackTime = 0f;    // Initialized cooldown for splash attacks
     // public Animator splashAnim;
 
+    public LineRenderer sniperSight;    // Holds lasersight effect
+    public float sniperDamage = 5f;     // Damage applied to Tag: Enemies on raycast path
+    public float sniperSpeed = 1f;      // Attacks pr. second
+    float nextSniperAttackTime = 0f;    // Initialized cooldown for sniper attacks
+    // public Animator sniperAnim;
+
+    public GameObject holdingWeapon;
+
     public GameObject meleePrefab;
-    public GameObject shotgubPrefab;
+    public GameObject shotgunPrefab;
+    public GameObject sniperPrefab;
     ItemBehavior item;
 
     private void Update()
@@ -67,19 +76,32 @@ public class WeaponManager : MonoBehaviour
 
             case 2:
                 Debug.Log("I am holding a Splash Weapon!");
-                if (Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding)
+                if (Time.time >= nextSplashAttackTime)
                 {
-                    SweetSpotSplashAttack();
-                    nextSplashAttackTime = Time.time + 1f / splashSpeed;
+                    if (Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding)
+                    {
+                        SplashAttack();
+                        nextSplashAttackTime = Time.time + 1f / splashSpeed;
+                    }
                 }
                 break;
 
             case 3:
                 Debug.Log("I am holding a Sniper Weapon!");
-                /*if (Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding)
+                if(Time.time >= nextSniperAttackTime)
                 {
-                    SniperAttack();
-                }*/
+                    if(Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding)
+                    {
+                        sniperSight.enabled = true;
+                    }
+
+                    if (Input.GetButtonUp("Fire" + playerNumber) && alreadyHolding)
+                    {
+                        SniperAttack();
+                        nextSniperAttackTime = Time.time + 1f / sniperSpeed;
+                        sniperSight.enabled = false;
+                    }
+                }
                 break;
 
             default:
@@ -88,9 +110,7 @@ public class WeaponManager : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Drop" + playerNumber) && alreadyHolding)
-        {                    
-            
-
+        {                               
             switch(weaponType)
             {
                 case 1:
@@ -100,22 +120,26 @@ public class WeaponManager : MonoBehaviour
                     item = mel.GetComponent<ItemBehavior>();
                     item.Throw();
                     item.dirInit(throwingDirection);
-
                     break;
 
                 case 2:
                     weaponType = 0;
                     alreadyHolding = false;
-                    GameObject sho = Instantiate(shotgubPrefab, transform.position, Quaternion.identity);
+                    GameObject sho = Instantiate(shotgunPrefab, transform.position, Quaternion.identity);
                     item = sho.GetComponent<ItemBehavior>();
-                    item.Throw();
+                    item.Throw();                    
+                    item.dirInit(throwingDirection);
+                    break;
+
+                case 3:
                     weaponType = 0;
                     alreadyHolding = false;
+                    GameObject sni = Instantiate(sniperPrefab, transform.position, Quaternion.identity);
+                    item = sni.GetComponent<ItemBehavior>();
+                    item.Throw();
                     item.dirInit(throwingDirection);
                     break;
             }
-
-
         }
     }
 
@@ -138,34 +162,35 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    private void SweetSpotSplashAttack()
+    private void SplashAttack()
     {
         Debug.Log("I am shooting Bawls of Fiyah!");
+        Instantiate(grenadePrefab, firePoint.position, firePoint.rotation);
+    }   
+
+    void SniperAttack()
+    {
+        Debug.Log("I am no-scoping shit!");
         // play animation
-        // Animator.SetTrigger("MeleeAttack");
+        // Animator.SetTrigger("SniperAttack");
 
         // Detects enemies in range
-        Collider2D[] sweetSpotEnemies = Physics2D.OverlapCircleAll(splashSweetSpot.position, sweetSpotRadius);
-
-        // Applies damage
-        foreach (Collider2D enemy in sweetSpotEnemies)
+        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up);
+        if(hitInfo)
         {
-            if (enemy.CompareTag("Enemy"))
+            Debug.Log("I hit " + hitInfo);
+            EnemyHealth enemy = hitInfo.transform.GetComponent<EnemyHealth>();
+            if(enemy != null)
             {
-                enemy.GetComponent<EnemyHealth>().TakeDamage(sweetSpotDamage);
+                enemy.TakeDamage(sniperDamage);
             }
         }
-    }   
+    }
 
     private void OnDrawGizmos()
     {
         if (meleeHurtbox == null)
             return;
-        Gizmos.DrawWireSphere(meleeHurtbox.position, meleeRange);
-
-
-        if (splashSweetSpot == null)
-            return;
-        Gizmos.DrawWireSphere(splashSweetSpot.position, sweetSpotRadius);
+        Gizmos.DrawWireSphere(meleeHurtbox.position, meleeRange);        
     }
 }
