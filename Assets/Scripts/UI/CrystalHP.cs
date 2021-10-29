@@ -6,9 +6,11 @@ public class CrystalHP : MonoBehaviour
 {
     public Text TextUI;
     public int crystalhealth;
+    public CameraShake cameraShake;
     private void Start()
     {
         crystalhealth = 100;
+       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,6 +19,7 @@ public class CrystalHP : MonoBehaviour
             crystalhealth = crystalhealth - 1;
             TextUI.text = "Crystal HP: " + crystalhealth;
             Destroy(collision.gameObject);
+            StartCoroutine(cameraShake.Shake(.15f, .2f));
         }
         if (collision.gameObject.CompareTag("Bullet"))
         {
