@@ -78,7 +78,7 @@ public class SpawningScript : MonoBehaviour
                 }
                 else
                 {
-                    float srNumber = UnityEngine.Random.Range(-5, 5);
+                    float srNumber = UnityEngine.Random.Range(-3, 3);
                     rPos = new Vector3(
                         spawnSide.transform.position.x + srNumber,
                         spawnSide.transform.position.y,
@@ -97,7 +97,7 @@ public class SpawningScript : MonoBehaviour
 
                 if (bNumber <= 2)
                 {
-                    float sbNumber = UnityEngine.Random.Range(-4, 4);
+                    float sbNumber = UnityEngine.Random.Range(-3, 3);
                     bPos = new Vector3(
                         spawnSide.transform.position.x,
                         spawnSide.transform.position.y + sbNumber,
@@ -135,7 +135,7 @@ public class SpawningScript : MonoBehaviour
                 }
                 else
                 {
-                    float sgNumber = UnityEngine.Random.Range(-5, 5);
+                    float sgNumber = UnityEngine.Random.Range(-3, 3);
                     gPos = new Vector3(
                         spawnSide.transform.position.x + sgNumber,
                         spawnSide.transform.position.y,
