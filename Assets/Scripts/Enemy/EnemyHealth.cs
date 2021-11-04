@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
     public float maxHealth = 100f;
     Text text;
     SpawningScript Spawning;
-    float currentHealth;
+    public float currentHealth;
 
     private void Start()
     {
