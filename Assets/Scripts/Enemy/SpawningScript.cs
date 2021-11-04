@@ -65,7 +65,7 @@ public class SpawningScript : MonoBehaviour
             //Red Spawning
             for (int r = 0; r < randomR; r++)
             {
-                int rNumber = UnityEngine.Random.Range(1, 7);
+                int rNumber = UnityEngine.Random.Range(1, 5);
                 spawnSide = GameObject.Find("Enemy Spawn " + rNumber);
 
                 if (rNumber <= 2)
@@ -78,7 +78,7 @@ public class SpawningScript : MonoBehaviour
                 }
                 else
                 {
-                    float srNumber = UnityEngine.Random.Range(-3, 3);
+                    float srNumber = UnityEngine.Random.Range(-15, 15);
                     rPos = new Vector3(
                         spawnSide.transform.position.x + srNumber,
                         spawnSide.transform.position.y,
@@ -92,12 +92,12 @@ public class SpawningScript : MonoBehaviour
             //Blue Spawning
             for (int b = 0; b < randomB; b++)
             {
-                int bNumber = UnityEngine.Random.Range(1, 7);
+                int bNumber = UnityEngine.Random.Range(1, 5);
                 spawnSide = GameObject.Find("Enemy Spawn " + bNumber);
 
                 if (bNumber <= 2)
                 {
-                    float sbNumber = UnityEngine.Random.Range(-3, 3);
+                    float sbNumber = UnityEngine.Random.Range(-4, 4);
                     bPos = new Vector3(
                         spawnSide.transform.position.x,
                         spawnSide.transform.position.y + sbNumber,
@@ -105,7 +105,7 @@ public class SpawningScript : MonoBehaviour
                 }
                 else
                 {
-                    float sbNumber = UnityEngine.Random.Range(-5, 5);
+                    float sbNumber = UnityEngine.Random.Range(-15, 15);
                     bPos = new Vector3(
                         spawnSide.transform.position.x + sbNumber,
                         spawnSide.transform.position.y,
@@ -121,7 +121,7 @@ public class SpawningScript : MonoBehaviour
             //Green Spawning
             for (int g = 0; g < randomG; g++)
             {
-                int gNumber = UnityEngine.Random.Range(1, 7);
+                int gNumber = UnityEngine.Random.Range(1, 5);
 
                 spawnSide = GameObject.Find("Enemy Spawn " + gNumber);
 
@@ -135,7 +135,7 @@ public class SpawningScript : MonoBehaviour
                 }
                 else
                 {
-                    float sgNumber = UnityEngine.Random.Range(-3, 3);
+                    float sgNumber = UnityEngine.Random.Range(-15, 15);
                     gPos = new Vector3(
                         spawnSide.transform.position.x + sgNumber,
                         spawnSide.transform.position.y,
