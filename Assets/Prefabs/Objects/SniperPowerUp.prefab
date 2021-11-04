@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   m_Color: {r: 1, g: 0, b: 0.9968686, a: 1}
   m_FlipX: 0
@@ -130,6 +130,7 @@ MonoBehaviour:
   speed: 20
   timer: 1
   isMedieval: 0
+  weapon_type: 
   Direction: {x: 0, y: 0}
 --- !u!114 &1753198870576446360
 MonoBehaviour:
@@ -147,4 +148,5 @@ MonoBehaviour:
   speed: 20
   timer: 1
   isMedieval: 0
+  weapon_type: 
   Direction: {x: 0, y: 0}
