@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6559976525064793333}
   - component: {fileID: 6559976525064793332}
   - component: {fileID: 6559976525064793335}
+  - component: {fileID: 7038638808437321163}
   - component: {fileID: 6559976525064793334}
   - component: {fileID: 4533380576377971334}
   m_Layer: 0
@@ -134,6 +135,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7038638808437321163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6559976525064793329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5453d50260d12a49bdb24bfcdb45a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alreadyHolding: 0
+  weaponType: 0
+  firePoint: {fileID: 0}
+  playerNumber: 0
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
+  throwingDirection: {x: 0, y: 0}
+  meleeHurtbox: {fileID: 0}
+  meleeRange: 1
+  meleeDamage: 10
+  meleeSpeed: 2
+  grenadePrefab: {fileID: 0}
+  grenadeRadius: 3
+  splashSpeed: 0.5
+  sniperSight: {fileID: 0}
+  sniperDamage: 5
+  sniperSpeed: 1
+  holdingWeapon: {fileID: 0}
+  meleePrefab: {fileID: 0}
+  shotgunPrefab: {fileID: 0}
+  sniperPrefab: {fileID: 0}
 --- !u!114 &6559976525064793334
 MonoBehaviour:
   m_ObjectHideFlags: 0
