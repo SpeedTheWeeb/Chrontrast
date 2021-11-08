@@ -129,5 +129,5 @@ MonoBehaviour:
   speed: 20
   timer: 1
   isMedieval: 0
-  weapon_type: 
+  weapon_type: CR
   Direction: {x: 0, y: 0}

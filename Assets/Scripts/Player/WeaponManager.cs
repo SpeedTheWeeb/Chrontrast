@@ -9,6 +9,7 @@ public class WeaponManager : MonoBehaviour
     public int weaponType = 0;          // initial "unarmed" state
     public Transform firePoint;         // Reference point for raycast and Projectile spawn     
     public int playerNumber;
+    public LayerMask enemyMask;
     Vector2 direction;
     public Vector2 throwingDirection;
 
@@ -150,7 +151,7 @@ public class WeaponManager : MonoBehaviour
         // Animator.SetTrigger("MeleeAttack");
 
         // Detects enemies in range
-        Collider2D[] meleeEnemies = Physics2D.OverlapCircleAll(meleeHurtbox.position, meleeRange);        
+        Collider2D[] meleeEnemies = Physics2D.OverlapCircleAll(meleeHurtbox.position, meleeRange, enemyMask);        
 
         // Applies damage
         foreach(Collider2D enemy in meleeEnemies)
@@ -175,7 +176,7 @@ public class WeaponManager : MonoBehaviour
         // Animator.SetTrigger("SniperAttack");
 
         // Detects enemies in range
-        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up);
+        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up, enemyMask);
         if(hitInfo)
         {
             Debug.Log("I hit " + hitInfo);
