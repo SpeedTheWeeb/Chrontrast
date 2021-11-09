@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2802337646713575696}
   - component: {fileID: 3858139795580098369}
   m_Layer: 7
-  m_Name: Green2D
+  m_Name: Green2DMed
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

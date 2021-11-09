@@ -2375,6 +2375,30 @@ PrefabInstance:
       propertyPath: WaveInfo
       value: 
       objectReference: {fileID: 307912402}
+    - target: {fileID: 9223053040563369286, guid: f077f3ca657618544a640fb5d9936769, type: 3}
+      propertyPath: RedObjFan
+      value: 
+      objectReference: {fileID: 2473382592472144783, guid: 9af3b7d905bc30748877f9bc8c081c94, type: 3}
+    - target: {fileID: 9223053040563369286, guid: f077f3ca657618544a640fb5d9936769, type: 3}
+      propertyPath: RedObjMed
+      value: 
+      objectReference: {fileID: 462621949098890694, guid: 2551c19057834154b824774080b2b3ce, type: 3}
+    - target: {fileID: 9223053040563369286, guid: f077f3ca657618544a640fb5d9936769, type: 3}
+      propertyPath: BlueObjFan
+      value: 
+      objectReference: {fileID: 569054253218633354, guid: 7192b4ca48a7dfe44be747ef2135fa83, type: 3}
+    - target: {fileID: 9223053040563369286, guid: f077f3ca657618544a640fb5d9936769, type: 3}
+      propertyPath: BlueObjMed
+      value: 
+      objectReference: {fileID: 514315005102724664, guid: ca40cd2c8b5f66b40898f00a8426de23, type: 3}
+    - target: {fileID: 9223053040563369286, guid: f077f3ca657618544a640fb5d9936769, type: 3}
+      propertyPath: GreenObjFan
+      value: 
+      objectReference: {fileID: 2966486908792514967, guid: 8bb135ff796a68a40901cc9a46db93fb, type: 3}
+    - target: {fileID: 9223053040563369286, guid: f077f3ca657618544a640fb5d9936769, type: 3}
+      propertyPath: GreenObjMed
+      value: 
+      objectReference: {fileID: 8492076318093884177, guid: 5a3759a3db439f041be6c64692c2eb0f, type: 3}
     - target: {fileID: 9223053040563369287, guid: f077f3ca657618544a640fb5d9936769, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2445,11 +2469,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9223053040563369337, guid: f077f3ca657618544a640fb5d9936769, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9223053040563369337, guid: f077f3ca657618544a640fb5d9936769, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.28
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9223053040563369338, guid: f077f3ca657618544a640fb5d9936769, type: 3}
       propertyPath: TextUI
