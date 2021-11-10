@@ -15,9 +15,13 @@ public class SpawningScript : MonoBehaviour
     int greens;
     public bool isSpawning;
     Vector3 rPos, bPos, gPos;
-    public GameObject RedObj;
-    public GameObject BlueObj;
-    public GameObject GreenObj;
+    public GameObject RedObjFan;
+    public GameObject RedObjMed;
+    public GameObject BlueObjFan;
+    public GameObject BlueObjMed;
+    public GameObject GreenObjFan;
+    public GameObject GreenObjMed;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -58,19 +62,20 @@ public class SpawningScript : MonoBehaviour
         {
             isSpawning = true;
             Debug.Log(totalEnemies);
-            int randomR = UnityEngine.Random.Range(1, reds + 1);
-            int randomG = UnityEngine.Random.Range(1, greens + 1);
-            int randomB = UnityEngine.Random.Range(1, blues + 1);
+            int randomR = UnityEngine.Random.Range(0, reds + 1);
+            int randomG = UnityEngine.Random.Range(0, greens + 1);
+            int randomB = UnityEngine.Random.Range(0, blues + 1);
 
             //Red Spawning
             for (int r = 0; r < randomR; r++)
             {
                 int rNumber = UnityEngine.Random.Range(1, 7);
+                
                 spawnSide = GameObject.Find("Enemy Spawn " + rNumber);
 
                 if (rNumber <= 2)
                 {
-                    float srNumber = UnityEngine.Random.Range(-4, 4);
+                    float srNumber = UnityEngine.Random.Range(-5, 5);
                     rPos = new Vector3(
                         spawnSide.transform.position.x,
                         spawnSide.transform.position.y + srNumber,
@@ -85,8 +90,15 @@ public class SpawningScript : MonoBehaviour
                         spawnSide.transform.position.z);
 
                 }
-                GameObject redClone = Instantiate(RedObj, rPos, Quaternion.identity);
-                redClone.GetComponent<RedScript>().stopSpot = rNumber;
+
+                if(rNumber % 2 == 0)
+                {
+                    GameObject redClone = Instantiate(RedObjFan, rPos, Quaternion.identity);
+                }
+                else
+                {
+                    GameObject redClone = Instantiate(RedObjMed, rPos, Quaternion.identity);
+                }
             }
 
             //Blue Spawning
@@ -105,7 +117,7 @@ public class SpawningScript : MonoBehaviour
                 }
                 else
                 {
-                    float sbNumber = UnityEngine.Random.Range(-5, 5);
+                    float sbNumber = UnityEngine.Random.Range(-4, 4);
                     bPos = new Vector3(
                         spawnSide.transform.position.x + sbNumber,
                         spawnSide.transform.position.y,
@@ -114,8 +126,14 @@ public class SpawningScript : MonoBehaviour
                     
                 }
 
-                GameObject blueClone = Instantiate(BlueObj, bPos, Quaternion.identity);
-                blueClone.GetComponent<BlueScript>().stopSpot = bNumber;
+                if (bNumber % 2 == 0)
+                {
+                    GameObject blueClone = Instantiate(BlueObjFan, bPos, Quaternion.identity);
+                }
+                else
+                {
+                    GameObject blueClone = Instantiate(BlueObjMed, bPos, Quaternion.identity);
+                }
             }
 
             //Green Spawning
@@ -127,7 +145,7 @@ public class SpawningScript : MonoBehaviour
 
                 if(gNumber <= 2)
                 {                
-                    float sgNumber = UnityEngine.Random.Range(-4, 4);
+                    float sgNumber = UnityEngine.Random.Range(-5, 5);
                     gPos = new Vector3(
                         spawnSide.transform.position.x,
                         spawnSide.transform.position.y + sgNumber,
@@ -142,14 +160,20 @@ public class SpawningScript : MonoBehaviour
                         spawnSide.transform.position.z);
 
                 }
-                GameObject GreenClone = Instantiate(GreenObj, gPos, Quaternion.identity);
-                GreenClone.GetComponent<GreenScript>().stopSpot = gNumber;
+
+                if (gNumber % 2 == 0)
+                {
+                    GameObject GreenClone = Instantiate(GreenObjFan, gPos, Quaternion.identity);
+                }
+                else
+                {
+                    GameObject GreenClone = Instantiate(GreenObjMed, gPos, Quaternion.identity);
+                }
             }
             greens -= randomG;
             reds -= randomR;
             blues -= randomB;
             totalEnemies -= randomB + randomG + randomR;
-            Debug.Log(totalEnemies);
             Invoke("spawnEnemies", 10f);
         }
         else

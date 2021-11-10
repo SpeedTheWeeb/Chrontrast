@@ -16,15 +16,18 @@ public class CrystalHP : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Projectile")) //Skal ændre til entity hvis vi vælger dette system
         {
-            crystalhealth = crystalhealth - 1;
-            TextUI.text = "Crystal HP: " + crystalhealth;
+            HP(1);
             Destroy(collision.gameObject);
-            StartCoroutine(cameraShake.Shake(.15f, .2f));
         }
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(collision.gameObject);
         }
     }
-
+    public void HP(int damage)
+    {
+            crystalhealth = crystalhealth - damage;
+            TextUI.text = "Crystal HP: " + crystalhealth;
+            StartCoroutine(cameraShake.Shake(.15f, .2f));
+    }
 }
