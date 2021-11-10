@@ -4,22 +4,28 @@ using UnityEngine.UI;
 
 public class Gamemanager : MonoBehaviour
 {
-    public gameoverscreen gameoverscreen;
-    public bool GameEnd = false;
+    //public gameoverscreen gameoverscreen;
+
+    public static bool GameEnd = false;
+
+    public GameObject gameOverMenuUI;
+
     public void Endgame() // afslutter spillet ved at aktivere restart.
     {
         if (GameEnd == false)
         {
-            Debug.Log("game over");
+            Debug.Log("Game over");
             GameEnd = true;
-            gameoverscreen.Setup();
+            Time.timeScale = 0f;
+            gameOverMenuUI.SetActive(true);
+            //gameoverscreen.Setup();
         }
     }
-    public void Restart()// Bruges ikke i nuværende version
-    {
-        SceneManager.LoadScene("Game Scene"); //ændres til startskærm når vi har sådan en
+    //public void Restart()// Bruges ikke i nuvï¿½rende version
+    //{
+        //SceneManager.LoadScene("Game Scene"); //ï¿½ndres til startskï¿½rm nï¿½r vi har sï¿½dan en
 
 
-        //Her kan nemt tilføjes en main menu button!
-    }
+        //Her kan nemt tilfï¿½jes en main menu button!
+    //}
 }

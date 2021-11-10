@@ -14,7 +14,7 @@ public class CrystalHP : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Projectile")) //Skal ændre til entity hvis vi vælger dette system
+        if (collision.gameObject.CompareTag("Projectile")) //Skal ï¿½ndre til entity hvis vi vï¿½lger dette system
         {
             HP(1);
             Destroy(collision.gameObject);
@@ -29,5 +29,10 @@ public class CrystalHP : MonoBehaviour
             crystalhealth = crystalhealth - damage;
             TextUI.text = "Crystal HP: " + crystalhealth;
             StartCoroutine(cameraShake.Shake(.15f, .2f));
+            
+            if (crystalhealth == 0)
+            {
+                FindObjectOfType<Gamemanager>().Endgame();
+            }
     }
 }
