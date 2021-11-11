@@ -179,7 +179,7 @@ public class WeaponManager : MonoBehaviour
         RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up, enemyMask);
         if(hitInfo)
         {
-            Debug.Log("I hit " + hitInfo);
+            Debug.Log("I hit " + hitInfo.collider.gameObject.name);
             EnemyHealth enemy = hitInfo.transform.GetComponent<EnemyHealth>();
             if(enemy != null)
             {

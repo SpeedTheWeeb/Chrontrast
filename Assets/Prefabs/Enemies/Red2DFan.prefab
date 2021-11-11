@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4735266517691995342}
   - component: {fileID: 3505454737756706011}
   - component: {fileID: 346442905434654076}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Red2DFan
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -160,3 +160,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0

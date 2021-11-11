@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8062692362716863272}
   - component: {fileID: 3292085641983456631}
   - component: {fileID: 1753198868830551099}
-  - component: {fileID: 1753198870576446360}
   m_Layer: 0
   m_Name: SniperPowerUp
   m_TagString: Untagged
@@ -115,24 +114,6 @@ CapsuleCollider2D:
   m_Size: {x: 1, y: 2}
   m_Direction: 0
 --- !u!114 &1753198868830551099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8062692362716863273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e74e03363d5bf4896c6a7124fdc64a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpawn: {fileID: 0}
-  speed: 20
-  timer: 1
-  isMedieval: 0
-  weapon_type: 
-  Direction: {x: 0, y: 0}
---- !u!114 &1753198870576446360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
