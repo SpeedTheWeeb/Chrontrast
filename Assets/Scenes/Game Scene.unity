@@ -719,7 +719,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.2901961}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1554,7 +1554,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.2901961}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2248,7 +2248,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.2901961}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3668,7 +3668,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.2901961}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3939,7 +3939,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.2901961}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4095,7 +4095,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b60882fb59dbbf469bc5ded95b9c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameEnd: 0
   gameOverMenuUI: {fileID: 1312760186}
 --- !u!4 &1442585697
 Transform:
@@ -4510,7 +4509,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.2901961}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5029,7 +5028,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.2901961}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.45490196}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5402,6 +5401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884087874}
   - component: {fileID: 1884087873}
+  - component: {fileID: 1884087872}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -5409,6 +5409,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1884087872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884087871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!114 &1884087873
 MonoBehaviour:
   m_ObjectHideFlags: 0
