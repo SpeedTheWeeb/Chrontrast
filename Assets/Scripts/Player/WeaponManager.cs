@@ -176,7 +176,7 @@ public class WeaponManager : MonoBehaviour
         // Animator.SetTrigger("SniperAttack");
 
         // Detects enemies in range
-        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up, enemyMask);
+        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right, enemyMask);
         if(hitInfo)
         {
             Debug.Log("I hit " + hitInfo.collider.gameObject.name);
