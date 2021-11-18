@@ -19,28 +19,30 @@ public class Grenade : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (explosionRadius > 0)
+        if(hitInfo.CompareTag("Enemy"))
         {
-            Collider2D[] splashEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, enemyMask);
-
-            foreach(Collider2D enemy in splashEnemies)
+            if (explosionRadius > 0)
             {
-                if (enemy.CompareTag("Enemy"))
+                Collider2D[] splashEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, enemyMask);
+
+                foreach(Collider2D enemy in splashEnemies)
                 {
-                    Vector2 closestPoint = enemy.ClosestPoint(transform.position);
-                    float distance = Vector3.Distance(closestPoint, transform.position);
+                    if (enemy.CompareTag("Enemy"))
+                    {
+                        Vector2 closestPoint = enemy.ClosestPoint(transform.position);
+                        float distance = Vector3.Distance(closestPoint, transform.position);
 
-                    float damagePercent = Mathf.InverseLerp(explosionRadius, 0, distance);
-                    enemy.GetComponent<EnemyHealth>().TakeDamage(maxDamage * damagePercent);
-                }                
+                        float damagePercent = Mathf.InverseLerp(explosionRadius, 0, distance);
+                        enemy.GetComponent<EnemyHealth>().TakeDamage(maxDamage * damagePercent);
+                    }                
+                }
+            }  
+
+            else
+            {
+
             }
-        }  
-
-        else
-        {
-
         }
-        
         // Needs a limited travel range to not outperform Sniper, and a check to see if enemy is hit by a Direct Hit
 
         Destroy(gameObject);

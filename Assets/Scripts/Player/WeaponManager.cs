@@ -18,7 +18,7 @@ public class WeaponManager : MonoBehaviour
 
     public Transform meleeHurtbox;      // Reference point for Overlap Circle
     public float meleeRange = 1f;       // Radius for Overlap Circle
-    public float meleeDamage = 10f;     // Damage applied to Tag: Enemies inside Overlap Circle
+    public float meleeDamage = 100f;     // Damage applied to Tag: Enemies inside Overlap Circle
     public float meleeSpeed = 2f;       // Attacks pr. second
     float nextMeleeAttackTime = 0f;     // Initialized cooldown for melee attacks
     // public Animator meleeAnim;
@@ -50,45 +50,57 @@ public class WeaponManager : MonoBehaviour
             case 1:
                 if (Input.GetKeyDown(KeyCode.A))
                 {
-                    direction = Vector2.left * 100;
-                    throwingDirection = Vector2.left;
+                    direction = Vector2.left ;
+                    throwingDirection = Vector2.left * 100;
+                    meleeHurtbox.position = new Vector2(transform.position.x - 1.5f, transform.position.y);
+                    //rotatePoint.eulerAngles = new Vector3(0, 0, 90);
                 }
                 else if (Input.GetKeyDown(KeyCode.W))
                 {
-                    direction = Vector2.up * 100;
-                    throwingDirection = Vector2.up;
+                    direction = Vector2.up;
+                    throwingDirection = Vector2.up * 100;
+                    meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y+1.5f);
+                    //rotatePoint.eulerAngles = new Vector3(0, 90, 0);
                 }
                 else if (Input.GetKeyDown(KeyCode.D))
                 {
-                    direction = Vector2.right * 100;
-                    throwingDirection = Vector2.right;
+                    direction = Vector2.right;
+                    throwingDirection = Vector2.right * 100;
+                    meleeHurtbox.position = new Vector2(transform.position.x+1.5f, transform.position.y);
+                    //rotatePoint.eulerAngles = new Vector3(0, 0, -90);
                 }
                 else if (Input.GetKeyDown(KeyCode.S))
                 {
-                    direction = Vector2.down * 100;
-                    throwingDirection = Vector2.down;
+                    direction = Vector2.down;
+                    throwingDirection = Vector2.down * 100;
+                    meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y-1.5f);
+                    //rotatePoint.eulerAngles = new Vector3(0, -90, 0);
                 }
                 break;
             case 2:
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
-                    direction = Vector2.left * 100;
-                    throwingDirection = Vector2.left;
+                    direction = Vector2.left;
+                    throwingDirection = Vector2.left * 100;
+                    meleeHurtbox.position = new Vector2(transform.position.x - 1.5f, transform.position.y);
                 }
                 else if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
-                    direction = Vector2.up * 100;
-                    throwingDirection = Vector2.up;
+                    direction = Vector2.up;
+                    throwingDirection = Vector2.up * 100;
+                    meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
-                    direction = Vector2.right * 100;
-                    throwingDirection = Vector2.right;
+                    direction = Vector2.right;
+                    throwingDirection = Vector2.right * 100;
+                    meleeHurtbox.position = new Vector2(transform.position.x + 1.5f, transform.position.y);
                 }
                 else if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
-                    direction = Vector2.down * 100;
-                    throwingDirection = Vector2.down;
+                    direction = Vector2.down;
+                    throwingDirection = Vector2.down * 100;
+                    meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y - 1.5f);
                 }
                 break;
 
@@ -100,7 +112,6 @@ public class WeaponManager : MonoBehaviour
             switch (weaponType)
             {
                 case 1:
-                    Debug.Log("I am holding a Melee Weapon!");
                     if (Time.time >= nextMeleeAttackTime)
                     {
                         MeleeAttack();
@@ -109,7 +120,6 @@ public class WeaponManager : MonoBehaviour
                     break;
 
                 case 2:
-                    Debug.Log("I am holding a Splash Weapon!");
                     if (Time.time >= nextSplashAttackTime)
                     {
                         SplashAttack();
@@ -118,7 +128,6 @@ public class WeaponManager : MonoBehaviour
                     break;
 
                 case 3:
-                    Debug.Log("I am holding a Sniper Weapon!");
                     if (Time.time >= nextSniperAttackTime)
                     {
                         if (Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding)
@@ -133,10 +142,6 @@ public class WeaponManager : MonoBehaviour
                             sniperSight.enabled = false;
                         }
                     }
-                    break;
-
-                default:
-                    Debug.Log("I am not holding any Weapon!");
                     break;
             }
         }
@@ -268,7 +273,7 @@ public class WeaponManager : MonoBehaviour
     private void SplashAttack()
     {
         Debug.Log("I am shooting Bawls of Fiyah!");
-        Instantiate(grenadePrefab, firePoint.position, firePoint.rotation);
+        Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
     }   
 
     void SniperAttack()
@@ -278,7 +283,7 @@ public class WeaponManager : MonoBehaviour
         // Animator.SetTrigger("SniperAttack");
 
         // Detects enemies in range
-        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up, enemyMask);
+        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, direction, enemyMask);
         if(hitInfo)
         {
             Debug.Log("I hit " + hitInfo.collider.gameObject.name);

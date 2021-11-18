@@ -1921,6 +1921,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 903515611678133328, guid: 2d5a3365f6a2c334aa82e3c710a2dd98, type: 3}
     - target: {fileID: 8488685446140833777, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
+      propertyPath: rotatePoint
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8488685446140833777, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
       propertyPath: playerNumber
       value: 2
       objectReference: {fileID: 0}
@@ -2665,6 +2669,10 @@ PrefabInstance:
       propertyPath: meleePrefab
       value: 
       objectReference: {fileID: 903515611678133328, guid: 2d5a3365f6a2c334aa82e3c710a2dd98, type: 3}
+    - target: {fileID: 8488685446140833777, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
+      propertyPath: rotatePoint
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8488685446140833777, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
       propertyPath: sniperPrefab
       value: 
