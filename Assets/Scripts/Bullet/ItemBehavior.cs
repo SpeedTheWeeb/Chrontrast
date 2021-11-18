@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemBehavior : MonoBehaviour
 {
     public GameObject bulletSpawn;
-    public float speed = 20f;
+    public float speed = 10f;
     public float timer = 1f;
     private bool isThrown = false;
     //public Vector2 throwingDirection;
@@ -65,18 +65,26 @@ public class ItemBehavior : MonoBehaviour
             {
                 //When the timer has ran out it resets itself and the condition allowing the item to move is set to false
                 isThrown = false;
-                timer = 1f;
+                timer = 0.5f;
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.CompareTag("Wall"))
+        if (collision.transform.CompareTag("Wall"))
         {
             isThrown = false;
         }
     }
+
+    //private void OnCollisionEnter2D(Collider2D collision)
+    //{
+    //    if(collision.CompareTag("Wall"))
+    //    {
+    //        isThrown = false;
+    //    }
+    //}
     //If the item exits a 2d collider...
     void OnTriggerExit2D(Collider2D other)
     {
