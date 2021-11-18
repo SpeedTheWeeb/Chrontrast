@@ -69,11 +69,19 @@ public class ItemBehavior : MonoBehaviour
             }
         }
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Debug.Log("Stop");
+            isThrown = false;
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall"))
         {
+            Debug.Log("Stop");
             isThrown = false;
         }
     }

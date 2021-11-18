@@ -13,6 +13,9 @@ public class WeaponManager : MonoBehaviour
     Vector2 direction;
     public Vector2 throwingDirection;
 
+    public bool trigger;
+    public GameObject weaponHover;
+
     public Transform meleeHurtbox;      // Reference point for Overlap Circle
     public float meleeRange = 1f;       // Radius for Overlap Circle
     public float meleeDamage = 10f;     // Damage applied to Tag: Enemies inside Overlap Circle
@@ -41,107 +44,206 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            direction = Vector2.left * 100;
-            throwingDirection = Vector2.left;
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            direction = Vector2.up * 100;
-            throwingDirection = Vector2.up;
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            direction = Vector2.right * 100;
-            throwingDirection = Vector2.right;
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            direction = Vector2.down * 100;
-            throwingDirection = Vector2.down;
-        }
-        switch (weaponType)
+        //Direction
+        switch (playerNumber)
         {
             case 1:
-                Debug.Log("I am holding a Melee Weapon!");
-                if(Time.time >=nextMeleeAttackTime)
+                if (Input.GetKeyDown(KeyCode.A))
                 {
-                    if (Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding)
+                    direction = Vector2.left * 100;
+                    throwingDirection = Vector2.left;
+                }
+                else if (Input.GetKeyDown(KeyCode.W))
+                {
+                    direction = Vector2.up * 100;
+                    throwingDirection = Vector2.up;
+                }
+                else if (Input.GetKeyDown(KeyCode.D))
+                {
+                    direction = Vector2.right * 100;
+                    throwingDirection = Vector2.right;
+                }
+                else if (Input.GetKeyDown(KeyCode.S))
+                {
+                    direction = Vector2.down * 100;
+                    throwingDirection = Vector2.down;
+                }
+                break;
+            case 2:
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    direction = Vector2.left * 100;
+                    throwingDirection = Vector2.left;
+                }
+                else if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    direction = Vector2.up * 100;
+                    throwingDirection = Vector2.up;
+                }
+                else if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    direction = Vector2.right * 100;
+                    throwingDirection = Vector2.right;
+                }
+                else if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    direction = Vector2.down * 100;
+                    throwingDirection = Vector2.down;
+                }
+                break;
+
+        }
+        
+        //Fire
+        if (Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding)
+        {
+            switch (weaponType)
+            {
+                case 1:
+                    Debug.Log("I am holding a Melee Weapon!");
+                    if (Time.time >= nextMeleeAttackTime)
                     {
                         MeleeAttack();
                         nextMeleeAttackTime = Time.time + 1f / meleeSpeed; // Counts how many times pr second you can swing.
                     }
-                }
-                break;
+                    break;
 
-            case 2:
-                Debug.Log("I am holding a Splash Weapon!");
-                if (Time.time >= nextSplashAttackTime)
-                {
-                    if (Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding)
+                case 2:
+                    Debug.Log("I am holding a Splash Weapon!");
+                    if (Time.time >= nextSplashAttackTime)
                     {
                         SplashAttack();
                         nextSplashAttackTime = Time.time + 1f / splashSpeed;
                     }
-                }
-                break;
-
-            case 3:
-                Debug.Log("I am holding a Sniper Weapon!");
-                if(Time.time >= nextSniperAttackTime)
-                {
-                    if(Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding)
-                    {
-                        sniperSight.enabled = true;
-                    }
-
-                    if (Input.GetButtonUp("Fire" + playerNumber) && alreadyHolding)
-                    {
-                        SniperAttack();
-                        nextSniperAttackTime = Time.time + 1f / sniperSpeed;
-                        sniperSight.enabled = false;
-                    }
-                }
-                break;
-
-            default:
-                Debug.Log("I am not holding any Weapon!");
-                break;
-        }
-
-        if (Input.GetButtonDown("Drop" + playerNumber) && alreadyHolding)
-        {                               
-            switch(weaponType)
-            {
-                case 1:
-                    weaponType = 0;
-                    alreadyHolding = false;
-                    GameObject mel = Instantiate(meleePrefab, transform.position, Quaternion.identity);
-                    item = mel.GetComponent<ItemBehavior>();
-                    item.Throw();
-                    item.dirInit(throwingDirection);
-                    break;
-
-                case 2:
-                    weaponType = 0;
-                    alreadyHolding = false;
-                    GameObject sho = Instantiate(shotgunPrefab, transform.position, Quaternion.identity);
-                    item = sho.GetComponent<ItemBehavior>();
-                    item.Throw();                    
-                    item.dirInit(throwingDirection);
                     break;
 
                 case 3:
-                    weaponType = 0;
-                    alreadyHolding = false;
-                    GameObject sni = Instantiate(sniperPrefab, transform.position, Quaternion.identity);
-                    item = sni.GetComponent<ItemBehavior>();
-                    item.Throw();
-                    item.dirInit(throwingDirection);
+                    Debug.Log("I am holding a Sniper Weapon!");
+                    if (Time.time >= nextSniperAttackTime)
+                    {
+                        if (Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding)
+                        {
+                            sniperSight.enabled = true;
+                        }
+
+                        if (Input.GetButtonUp("Fire" + playerNumber) && alreadyHolding)
+                        {
+                            SniperAttack();
+                            nextSniperAttackTime = Time.time + 1f / sniperSpeed;
+                            sniperSight.enabled = false;
+                        }
+                    }
+                    break;
+
+                default:
+                    Debug.Log("I am not holding any Weapon!");
                     break;
             }
         }
+        
+        //Drop
+        if (Input.GetButtonDown("Drop" + playerNumber))
+        {
+            Debug.Log(alreadyHolding);
+            if(alreadyHolding)
+            {
+                switch(weaponType)
+                {
+                    case 1:
+                        weaponType = 0;
+                        alreadyHolding = false;
+                        GameObject mel = Instantiate(meleePrefab, transform.position, Quaternion.identity);
+                        item = mel.GetComponent<ItemBehavior>();
+                        item.Throw();
+                        item.dirInit(throwingDirection);
+                        break;
+
+                    case 2:
+                        weaponType = 0;
+                        alreadyHolding = false;
+                        GameObject sho = Instantiate(shotgunPrefab, transform.position, Quaternion.identity);
+                        item = sho.GetComponent<ItemBehavior>();
+                        item.Throw();                    
+                        item.dirInit(throwingDirection);
+                        break;
+
+                    case 3:
+                        weaponType = 0;
+                        alreadyHolding = false;
+                        GameObject sni = Instantiate(sniperPrefab, transform.position, Quaternion.identity);
+                        item = sni.GetComponent<ItemBehavior>();
+                        item.Throw();
+                        item.dirInit(throwingDirection);
+                        break;
+                }
+            }
+            else if(trigger)
+            {
+                chooseWeapon(weaponHover);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Weapons"))
+        {
+            trigger = true;
+            weaponHover = collision.gameObject;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Weapons"))
+        {
+            trigger = false;
+            weaponHover = null;
+        }
+    }
+
+    void chooseWeapon(GameObject weapon)
+    {
+        weaponType = 0;
+        switch (weapon.name)
+        {
+            case "MeleePowerUp":
+                weaponType = 1;
+                alreadyHolding = true;
+                break;
+
+            case "MeleePowerUp(Clone)":
+                weaponType = 1;
+                alreadyHolding = true;
+                break;
+
+            case "ShotgunPowerUp":
+                weaponType = 2;
+                alreadyHolding = true;
+                break;
+
+            case "ShotgunPowerUp(Clone)":
+                weaponType = 2;
+                alreadyHolding = true;
+                break;
+
+            case "SniperPowerUp":
+                weaponType = 3;
+                alreadyHolding = true;
+                break;
+
+
+            case "SniperPowerUp(Clone)":
+                weaponType = 3;
+                alreadyHolding = true;
+                break;
+        }
+        Pickup(weapon);
+    }
+
+    void Pickup(GameObject pl)
+    {
+        Destroy(pl);
     }
 
     private void MeleeAttack()
