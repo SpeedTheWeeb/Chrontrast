@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawn: {fileID: 0}
-  speed: 10
+  speed: 0.1
   timer: 0.7
   isMedieval: 1
   weapon_type: MR

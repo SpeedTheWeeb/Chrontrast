@@ -11,10 +11,16 @@ public class Grenade : MonoBehaviour
     public float explosionRadius = 4f;  // radius for explosion range
     public float directHit = 5f;        // added damage from the projectile itself
     public Rigidbody2D r2d;             // Reference to Rigidbody2D
-    
+
+
     void Start()
     {
-        r2d.velocity = transform.up * speed;
+        
+    }
+
+    public void Move(Vector2 dir)
+    {
+        r2d.velocity = dir * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
@@ -42,9 +48,11 @@ public class Grenade : MonoBehaviour
             {
 
             }
+
+            Destroy(gameObject);
         }
         // Needs a limited travel range to not outperform Sniper, and a check to see if enemy is hit by a Direct Hit
 
-        Destroy(gameObject);
+        
     }   
 }

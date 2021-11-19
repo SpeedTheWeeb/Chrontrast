@@ -53,6 +53,7 @@ public class WeaponManager : MonoBehaviour
                     direction = Vector2.left ;
                     throwingDirection = Vector2.left * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x - 1.5f, transform.position.y);
+                    firePoint.position = new Vector2(transform.position.x - .5f, transform.position.y);
                     //rotatePoint.eulerAngles = new Vector3(0, 0, 90);
                 }
                 else if (Input.GetKeyDown(KeyCode.W))
@@ -60,6 +61,7 @@ public class WeaponManager : MonoBehaviour
                     direction = Vector2.up;
                     throwingDirection = Vector2.up * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y+1.5f);
+                    firePoint.position = new Vector2(transform.position.x , transform.position.y + .5f);
                     //rotatePoint.eulerAngles = new Vector3(0, 90, 0);
                 }
                 else if (Input.GetKeyDown(KeyCode.D))
@@ -67,13 +69,15 @@ public class WeaponManager : MonoBehaviour
                     direction = Vector2.right;
                     throwingDirection = Vector2.right * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x+1.5f, transform.position.y);
+                    firePoint.position = new Vector2(transform.position.x + .5f, transform.position.y);
                     //rotatePoint.eulerAngles = new Vector3(0, 0, -90);
                 }
                 else if (Input.GetKeyDown(KeyCode.S))
                 {
                     direction = Vector2.down;
                     throwingDirection = Vector2.down * 100;
-                    meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y-1.5f);
+                    meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y - 1.5f);
+                    firePoint.position = new Vector2(transform.position.x, transform.position.y - .5f);
                     //rotatePoint.eulerAngles = new Vector3(0, -90, 0);
                 }
                 break;
@@ -83,24 +87,28 @@ public class WeaponManager : MonoBehaviour
                     direction = Vector2.left;
                     throwingDirection = Vector2.left * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x - 1.5f, transform.position.y);
+                    firePoint.position = new Vector2(transform.position.x - .5f, transform.position.y);
                 }
                 else if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     direction = Vector2.up;
                     throwingDirection = Vector2.up * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
+                    firePoint.position = new Vector2(transform.position.x , transform.position.y + .5f);
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     direction = Vector2.right;
                     throwingDirection = Vector2.right * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x + 1.5f, transform.position.y);
+                    firePoint.position = new Vector2(transform.position.x + .5f, transform.position.y);
                 }
                 else if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     direction = Vector2.down;
                     throwingDirection = Vector2.down * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y - 1.5f);
+                    firePoint.position = new Vector2(transform.position.x, transform.position.y - .5f);
                 }
                 break;
 
@@ -273,7 +281,9 @@ public class WeaponManager : MonoBehaviour
     private void SplashAttack()
     {
         Debug.Log("I am shooting Bawls of Fiyah!");
-        Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
+        GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
+        Grenade g = grenade.GetComponent<Grenade>();
+        g.Move(direction);
     }   
 
     void SniperAttack()
