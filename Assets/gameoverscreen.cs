@@ -13,8 +13,8 @@ public class gameoverscreen : MonoBehaviour
 
     public void RestartButton() 
     {
-        SceneManager.LoadScene("Game Scene"); //ændres til startskærm når vi har sådan en
-
+        SceneManager.LoadScene("Game Scene"); //ï¿½ndres til startskï¿½rm nï¿½r vi har sï¿½dan en
+        Time.timeScale = 1f;
     }
     
 

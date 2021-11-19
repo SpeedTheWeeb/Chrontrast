@@ -39,7 +39,6 @@ public class SpawningScript : MonoBehaviour
     public void InitWave(int Wave)
     {
         currentWave += 1;
-        Debug.Log(currentWave);
         try
         {
             reds = enemyInfo.WaveInfo[Wave - 1].Red_Spawn;
@@ -61,7 +60,6 @@ public class SpawningScript : MonoBehaviour
         if (totalEnemies > 0)
         {
             isSpawning = true;
-            Debug.Log(totalEnemies);
             int randomR = UnityEngine.Random.Range(0, reds + 1);
             int randomG = UnityEngine.Random.Range(0, greens + 1);
             int randomB = UnityEngine.Random.Range(0, blues + 1);

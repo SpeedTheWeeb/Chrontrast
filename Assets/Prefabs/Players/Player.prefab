@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8488685446140833782}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &806315790
 GameObject:
@@ -59,7 +59,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8488685446140833782}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &806315792
 LineRenderer:
@@ -182,12 +182,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8488685446020216747}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8488685446140833782}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8488685446140833739
 GameObject:
@@ -221,9 +221,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8488685446020216746}
   - {fileID: 276045722}
   - {fileID: 806315791}
+  - {fileID: 8488685446020216746}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -306,21 +306,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alreadyHolding: 0
   weaponType: 0
+  firePoint: {fileID: 276045722}
   playerNumber: 1
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
   throwingDirection: {x: 0, y: 0}
+  rotatePoint: {fileID: 0}
+  trigger: 0
+  weaponHover: {fileID: 0}
   meleeHurtbox: {fileID: 8488685446020216746}
   meleeRange: 1
   meleeDamage: 10
   meleeSpeed: 2
-  grenadePrefab: {fileID: 0}
+  grenadePrefab: {fileID: 1471240923876166099, guid: 75b3178cdbb0afa488f38a13532cc071, type: 3}
+  grenadeRadius: 3
   splashSpeed: 0.5
-  firePoint: {fileID: 276045722}
   sniperSight: {fileID: 806315792}
   sniperDamage: 5
   sniperSpeed: 0.5
   holdingWeapon: {fileID: 0}
-  meleePrefab: {fileID: 4777115852897054419, guid: 2d5a3365f6a2c334aa82e3c710a2dd98, type: 3}
-  shotgubPrefab: {fileID: 8624660369737479331, guid: 42a8d4cc6a499db4b9457edcd41869e4, type: 3}
+  meleePrefab: {fileID: 903515611678133328, guid: 2d5a3365f6a2c334aa82e3c710a2dd98, type: 3}
+  shotgunPrefab: {fileID: 5467579585818397648, guid: 42a8d4cc6a499db4b9457edcd41869e4, type: 3}
+  sniperPrefab: {fileID: 791785181497957979, guid: a61c6e20e8a4512458c34b12cfb22796, type: 3}
 --- !u!50 &9208132983894626424
 Rigidbody2D:
   serializedVersion: 4

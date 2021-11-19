@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - Rift
   - Wall
+  - Weapons
   layers:
   - Default
   - TransparentFX
