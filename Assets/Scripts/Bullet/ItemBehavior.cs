@@ -5,8 +5,8 @@ using UnityEngine;
 public class ItemBehavior : MonoBehaviour
 {
     public GameObject bulletSpawn;
-    public float speed = 10f;
-    public float timer = 1f;
+    public float speed = 0.1f;
+    public float timer = 0.7f;
     private bool isThrown = false;
     //public Vector2 throwingDirection;
     public bool isMedieval;
@@ -69,22 +69,25 @@ public class ItemBehavior : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        Debug.Log(col.gameObject.tag);
+
+        if (col.gameObject.tag == "Wall")
         {
             Debug.Log("Stop");
             isThrown = false;
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            Debug.Log("Stop");
-            isThrown = false;
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Debug.Log("StopC");
+    //    if (collision.gameObject.tag == "Wall")
+    //    {
+    //        Debug.Log("Stop");
+    //        isThrown = false;
+    //    }
+    //}
 
     //private void OnCollisionEnter2D(Collider2D collision)
     //{
