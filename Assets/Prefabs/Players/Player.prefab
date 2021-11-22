@@ -219,7 +219,7 @@ Transform:
   m_GameObject: {fileID: 8488685446140833739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.54, z: 1}
   m_Children:
   - {fileID: 276045722}
   - {fileID: 806315791}
@@ -266,9 +266,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 63d38c54bb525254da9de0c8825a5ddb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -310,25 +310,27 @@ MonoBehaviour:
   playerNumber: 1
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   throwingDirection: {x: 0, y: 0}
-  rotatePoint: {fileID: 0}
   trigger: 0
   weaponHover: {fileID: 0}
   meleeHurtbox: {fileID: 8488685446020216746}
   meleeRange: 1
-  meleeDamage: 10
+  meleeDamage: 100
   meleeSpeed: 2
   grenadePrefab: {fileID: 1471240923876166099, guid: 75b3178cdbb0afa488f38a13532cc071, type: 3}
   grenadeRadius: 3
   splashSpeed: 0.5
   sniperSight: {fileID: 806315792}
-  sniperDamage: 5
+  sniperDamage: 50
   sniperSpeed: 0.5
   holdingWeapon: {fileID: 0}
-  meleePrefab: {fileID: 903515611678133328, guid: 2d5a3365f6a2c334aa82e3c710a2dd98, type: 3}
-  shotgunPrefab: {fileID: 5467579585818397648, guid: 42a8d4cc6a499db4b9457edcd41869e4, type: 3}
-  sniperPrefab: {fileID: 791785181497957979, guid: a61c6e20e8a4512458c34b12cfb22796, type: 3}
+  FmeleePrefab: {fileID: 903515611678133328, guid: 2d5a3365f6a2c334aa82e3c710a2dd98, type: 3}
+  FshotgunPrefab: {fileID: 2991470460223862588, guid: 88154ff3d21d8b04ab29601faacdb79f, type: 3}
+  FsniperPrefab: {fileID: 791785181497957979, guid: a61c6e20e8a4512458c34b12cfb22796, type: 3}
+  MmeleePrefab: {fileID: 1997230935330283647, guid: 33e4a7bd1178e4841845e08df44fefee, type: 3}
+  MshotgunPrefab: {fileID: 5467579585818397648, guid: 42a8d4cc6a499db4b9457edcd41869e4, type: 3}
+  MsniperPrefab: {fileID: 6341785793439922039, guid: 03ae99e82dd996d43b674699866767e1, type: 3}
 --- !u!50 &9208132983894626424
 Rigidbody2D:
   serializedVersion: 4

@@ -37,11 +37,17 @@ public class WeaponManager : MonoBehaviour
 
     public GameObject holdingWeapon;
 
-    public GameObject meleePrefab;
-    public GameObject shotgunPrefab;
-    public GameObject sniperPrefab;
+    public GameObject FmeleePrefab;
+    public GameObject FshotgunPrefab;
+    public GameObject FsniperPrefab;
+    public GameObject MmeleePrefab;
+    public GameObject MshotgunPrefab;
+    public GameObject MsniperPrefab;
     ItemBehavior item;
 
+    private string itemName;
+
+    private SpriteRenderer sprite;
     private void Update()
     {
         //Direction
@@ -157,38 +163,74 @@ public class WeaponManager : MonoBehaviour
         //Drop
         if (Input.GetButtonDown("Drop" + playerNumber))
         {
-            Debug.Log(alreadyHolding);
+            Debug.Log(itemName);
             if (alreadyHolding)
             {
-                switch (weaponType)
+                if(itemName.Contains("Future"))
                 {
-                    case 1:
-                        weaponType = 0;
-                        alreadyHolding = false;
-                        GameObject mel = Instantiate(meleePrefab, transform.position, Quaternion.identity);
-                        item = mel.GetComponent<ItemBehavior>();
-                        item.Throw();
-                        item.dirInit(throwingDirection);
-                        break;
+                    switch (weaponType)
+                    {
+                        case 1:
+                            weaponType = 0;
+                            alreadyHolding = false;
+                            GameObject mel = Instantiate(FmeleePrefab, transform.position, Quaternion.identity);
+                            item = mel.GetComponent<ItemBehavior>();
+                            item.Throw();
+                            item.dirInit(throwingDirection);
+                            break;
 
-                    case 2:
-                        weaponType = 0;
-                        alreadyHolding = false;
-                        GameObject sho = Instantiate(shotgunPrefab, transform.position, Quaternion.identity);
-                        item = sho.GetComponent<ItemBehavior>();
-                        item.Throw();
-                        item.dirInit(throwingDirection);
-                        break;
+                        case 2:
+                            weaponType = 0;
+                            alreadyHolding = false;
+                            GameObject sho = Instantiate(FshotgunPrefab, transform.position, Quaternion.identity);
+                            item = sho.GetComponent<ItemBehavior>();
+                            item.Throw();
+                            item.dirInit(throwingDirection);
+                            break;
 
-                    case 3:
-                        weaponType = 0;
-                        alreadyHolding = false;
-                        GameObject sni = Instantiate(sniperPrefab, transform.position, Quaternion.identity);
-                        item = sni.GetComponent<ItemBehavior>();
-                        item.Throw();
-                        item.dirInit(throwingDirection);
-                        break;
+                        case 3:
+                            weaponType = 0;
+                            alreadyHolding = false;
+                            GameObject sni = Instantiate(FsniperPrefab, transform.position, Quaternion.identity);
+                            item = sni.GetComponent<ItemBehavior>();
+                            item.Throw();
+                            item.dirInit(throwingDirection);
+                            break;
+                    }
                 }
+                else if(itemName.Contains("Med"))
+                {
+                    switch (weaponType)
+                    {
+                        case 1:
+                            weaponType = 0;
+                            alreadyHolding = false;
+                            GameObject mel = Instantiate(MmeleePrefab, transform.position, Quaternion.identity);
+                            item = mel.GetComponent<ItemBehavior>();
+                            item.Throw();
+                            item.dirInit(throwingDirection);
+                            break;
+
+                        case 2:
+                            weaponType = 0;
+                            alreadyHolding = false;
+                            GameObject sho = Instantiate(MshotgunPrefab, transform.position, Quaternion.identity);
+                            item = sho.GetComponent<ItemBehavior>();
+                            item.Throw();
+                            item.dirInit(throwingDirection);
+                            break;
+
+                        case 3:
+                            weaponType = 0;
+                            alreadyHolding = false;
+                            GameObject sni = Instantiate(MsniperPrefab, transform.position, Quaternion.identity);
+                            item = sni.GetComponent<ItemBehavior>();
+                            item.Throw();
+                            item.dirInit(throwingDirection);
+                            break;
+                    }
+                }
+
             }
             else if (trigger)
             {
@@ -217,40 +259,23 @@ public class WeaponManager : MonoBehaviour
 
     void chooseWeapon(GameObject weapon)
     {
+        itemName = weapon.GetComponent<SpriteRenderer>().sprite.name;
         weaponType = 0;
-        switch (weapon.name)
+
+        if(weapon.name.Contains("Melee"))
         {
-            case "MeleePowerUp":
-                weaponType = 1;
-                alreadyHolding = true;
-                break;
-
-            case "MeleePowerUp(Clone)":
-                weaponType = 1;
-                alreadyHolding = true;
-                break;
-
-            case "ShotgunPowerUp":
-                weaponType = 2;
-                alreadyHolding = true;
-                break;
-
-            case "ShotgunPowerUp(Clone)":
-                weaponType = 2;
-                alreadyHolding = true;
-                break;
-
-            case "SniperPowerUp":
-                weaponType = 3;
-                alreadyHolding = true;
-                break;
-
-
-            case "SniperPowerUp(Clone)":
-                weaponType = 3;
-                alreadyHolding = true;
-                break;
+            weaponType = 1;
         }
+        else if(weapon.name.Contains("Shotgun"))
+        {
+            weaponType = 2;
+        }
+        else if(weapon.name.Contains("Sniper"))
+        {
+            weaponType = 3;
+        }
+        
+        alreadyHolding = true;
         Pickup(weapon);
     }
 
