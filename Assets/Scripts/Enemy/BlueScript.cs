@@ -10,11 +10,7 @@ public class BlueScript : MonoBehaviour
     bool isArrived = false;
     public GameObject bullet;
     public float timer = 4f;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
 
     // Update is called once per frame
     void Update()

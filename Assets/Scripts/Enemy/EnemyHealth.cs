@@ -37,12 +37,12 @@ public class EnemyHealth : MonoBehaviour
         if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 1)
         {
             Invoke("StartNextWave", 10f);
+            
         }
     }
 
     void StartNextWave()
     {
-
         int currentWave = Spawning.currentWave;
         Spawning.InitWave(currentWave + 1);
     }

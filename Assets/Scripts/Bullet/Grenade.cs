@@ -13,10 +13,6 @@ public class Grenade : MonoBehaviour
     public Rigidbody2D r2d;             // Reference to Rigidbody2D
     float timer = 5f;
 
-    void Start()
-    {
-        
-    }
     private void Update()
     {
         timer -= Time.deltaTime;
