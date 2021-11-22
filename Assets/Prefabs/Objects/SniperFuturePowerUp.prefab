@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 791785181497957976}
   - component: {fileID: 5239733536653750277}
   - component: {fileID: 791785181497957977}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SniperFuturePowerUp
   m_TagString: Weapons
   m_Icon: {fileID: 0}
@@ -97,8 +97,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.41421124, y: 0.20450394}
+  m_Offset: {x: -1.7259168e-10, y: -0.0014478042}
+  m_Size: {x: 0.41421136, y: 0.23056425}
   m_Direction: 1
 --- !u!114 &791785181497957977
 MonoBehaviour:

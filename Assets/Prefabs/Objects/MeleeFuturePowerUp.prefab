@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 903515611678133331}
   - component: {fileID: 5675194309539815950}
   - component: {fileID: 5675194307716610239}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MeleeFuturePowerUp
   m_TagString: Weapons
   m_Icon: {fileID: 0}
@@ -98,8 +98,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 0.5}
-  m_Direction: 0
+  m_Size: {x: 0.37634817, y: 0.19859813}
+  m_Direction: 1
 --- !u!114 &5675194307716610239
 MonoBehaviour:
   m_ObjectHideFlags: 0

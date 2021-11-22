@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    public bool alreadyHolding = false; // Checks if player is or isn't holding a Weapon Power-Up
+    private bool alreadyHolding = false; // Checks if player is or isn't holding a Weapon Power-Up
     public int weaponType = 0;          // initial "unarmed" state
     public Transform firePoint;         // Reference point for raycast and Projectile spawn     
     public int playerNumber;
@@ -14,7 +14,7 @@ public class WeaponManager : MonoBehaviour
     public Vector2 throwingDirection;
 
     public bool trigger;
-    public GameObject weaponHover;
+    private GameObject weaponHover;
 
     public Transform meleeHurtbox;      // Reference point for Overlap Circle
     public float meleeRange = 1f;       // Radius for Overlap Circle
@@ -30,7 +30,7 @@ public class WeaponManager : MonoBehaviour
     // public Animator splashAnim;
 
     public LineRenderer sniperSight;    // Holds lasersight effect
-    public float sniperDamage = 5f;     // Damage applied to Tag: Enemies on raycast path
+    public float sniperDamage = 100f;     // Damage applied to Tag: Enemies on raycast path
     public float sniperSpeed = 1f;      // Attacks pr. second
     float nextSniperAttackTime = 0f;    // Initialized cooldown for sniper attacks
     // public Animator sniperAnim;
@@ -47,7 +47,6 @@ public class WeaponManager : MonoBehaviour
 
     private string itemName;
 
-    private SpriteRenderer sprite;
     private void Update()
     {
         //Direction
@@ -60,7 +59,8 @@ public class WeaponManager : MonoBehaviour
                     throwingDirection = Vector2.left * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x - 1.5f, transform.position.y);
                     firePoint.position = new Vector2(transform.position.x - .5f, transform.position.y);
-                    //rotatePoint.eulerAngles = new Vector3(0, 0, 90);
+
+                    sniperSight.transform.rotation = Quaternion.Euler(Vector3.forward * 90);
                 }
                 else if (Input.GetKeyDown(KeyCode.W))
                 {
@@ -68,7 +68,8 @@ public class WeaponManager : MonoBehaviour
                     throwingDirection = Vector2.up * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
                     firePoint.position = new Vector2(transform.position.x, transform.position.y + .5f);
-                    //rotatePoint.eulerAngles = new Vector3(0, 90, 0);
+
+                    sniperSight.transform.rotation = Quaternion.Euler(Vector3.up * 90);
                 }
                 else if (Input.GetKeyDown(KeyCode.D))
                 {
@@ -76,7 +77,8 @@ public class WeaponManager : MonoBehaviour
                     throwingDirection = Vector2.right * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x + 1.5f, transform.position.y);
                     firePoint.position = new Vector2(transform.position.x + .5f, transform.position.y);
-                    //rotatePoint.eulerAngles = new Vector3(0, 0, -90);
+
+                    sniperSight.transform.rotation = Quaternion.Euler(Vector3.back * 90);
                 }
                 else if (Input.GetKeyDown(KeyCode.S))
                 {
@@ -84,7 +86,8 @@ public class WeaponManager : MonoBehaviour
                     throwingDirection = Vector2.down * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y - 1.5f);
                     firePoint.position = new Vector2(transform.position.x, transform.position.y - .5f);
-                    //rotatePoint.eulerAngles = new Vector3(0, -90, 0);
+
+                    sniperSight.transform.rotation = Quaternion.Euler(Vector3.up * -90);
                 }
                 break;
             case 2:
@@ -94,6 +97,7 @@ public class WeaponManager : MonoBehaviour
                     throwingDirection = Vector2.left * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x - 1.5f, transform.position.y);
                     firePoint.position = new Vector2(transform.position.x - .5f, transform.position.y);
+
                 }
                 else if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
@@ -101,6 +105,7 @@ public class WeaponManager : MonoBehaviour
                     throwingDirection = Vector2.up * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
                     firePoint.position = new Vector2(transform.position.x, transform.position.y + .5f);
+
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
@@ -108,6 +113,7 @@ public class WeaponManager : MonoBehaviour
                     throwingDirection = Vector2.right * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x + 1.5f, transform.position.y);
                     firePoint.position = new Vector2(transform.position.x + .5f, transform.position.y);
+
                 }
                 else if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
@@ -115,13 +121,13 @@ public class WeaponManager : MonoBehaviour
                     throwingDirection = Vector2.down * 100;
                     meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y - 1.5f);
                     firePoint.position = new Vector2(transform.position.x, transform.position.y - .5f);
+
                 }
                 break;
 
         }
-
         //Fire
-        if (Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding)
+        if (Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding && weaponType != 3)
         {
             switch (weaponType)
             {
@@ -140,30 +146,22 @@ public class WeaponManager : MonoBehaviour
                         nextSplashAttackTime = Time.time + 1f / splashSpeed;
                     }
                     break;
-
-                case 3:
-                    if (Time.time >= nextSniperAttackTime)
-                    {
-                        if (Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding)
-                        {
-                            sniperSight.enabled = true;
-                        }
-
-                        if (Input.GetButtonUp("Fire" + playerNumber) && alreadyHolding)
-                        {
-                            SniperAttack();
-                            nextSniperAttackTime = Time.time + 1f / sniperSpeed;
-                            sniperSight.enabled = false;
-                        }
-                    }
-                    break;
             }
+        }
+        else if(Input.GetButton("Fire" + playerNumber) && alreadyHolding && weaponType == 3)
+        {
+                sniperSight.enabled = true;
+        }
+        else if(Input.GetButtonUp("Fire" + playerNumber) && alreadyHolding && weaponType == 3)
+        {
+                SniperAttack();
+                sniperSight.enabled = false;
+                nextSniperAttackTime = Time.time + 1f / sniperSpeed;
         }
 
         //Drop
         if (Input.GetButtonDown("Drop" + playerNumber))
         {
-            Debug.Log(itemName);
             if (alreadyHolding)
             {
                 if(itemName.Contains("Future"))
@@ -313,18 +311,19 @@ public class WeaponManager : MonoBehaviour
 
     void SniperAttack()
     {
-        Debug.Log("I am no-scoping shit!");
         // play animation
         // Animator.SetTrigger("SniperAttack");
 
         // Detects enemies in range
         RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, throwingDirection, enemyMask);
+        Debug.DrawRay(firePoint.position, throwingDirection);
         if (hitInfo)
         {
-            Debug.Log("I hit " + hitInfo.collider.gameObject.name);
-            EnemyHealth enemy = hitInfo.transform.GetComponent<EnemyHealth>();
+            EnemyHealth enemy = hitInfo.collider.transform.GetComponent<EnemyHealth>();
+
             if (enemy != null)
             {
+
                 enemy.TakeDamage(sniperDamage);
             }
         }

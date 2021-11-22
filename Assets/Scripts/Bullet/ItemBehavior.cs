@@ -76,12 +76,8 @@ public class ItemBehavior : MonoBehaviour
             Debug.Log("Stop");
             isThrown = false;
         }
-    }
-    //If the item exits a 2d collider...
-    void OnTriggerExit2D(Collider2D other)
-    {
-        //and that 2d collider is tagged with "Rift"
-        if (other.gameObject.CompareTag("Rift"))
+
+        if (col.gameObject.CompareTag("Rift"))
         {
             //and if it is not medieval it must be future side
             if (!isMedieval)

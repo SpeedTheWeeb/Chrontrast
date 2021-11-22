@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5467579585818397651}
   - component: {fileID: 696658421403493774}
   - component: {fileID: 4346057492138994882}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShotgunMedievalPowerUp
   m_TagString: Weapons
   m_Icon: {fileID: 0}
