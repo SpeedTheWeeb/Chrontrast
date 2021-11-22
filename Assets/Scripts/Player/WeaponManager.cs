@@ -12,6 +12,7 @@ public class WeaponManager : MonoBehaviour
     public LayerMask enemyMask;
     Vector2 direction;
     public Vector2 throwingDirection;
+    public GameObject rotatePoint;
 
     public bool trigger;
     private GameObject weaponHover;
@@ -50,82 +51,9 @@ public class WeaponManager : MonoBehaviour
     private void Update()
     {
         //Direction
-        switch (playerNumber)
-        {
-            case 1:
-                if (Input.GetKeyDown(KeyCode.A))
-                {
-                    direction = Vector2.left;
-                    throwingDirection = Vector2.left * 100;
-                    meleeHurtbox.position = new Vector2(transform.position.x - 1.5f, transform.position.y);
-                    firePoint.position = new Vector2(transform.position.x - .5f, transform.position.y);
+        throwingDirection = rotatePoint.transform.up * 100;
+        direction = rotatePoint.transform.up;
 
-                    sniperSight.transform.rotation = Quaternion.Euler(Vector3.forward * 90);
-                }
-                else if (Input.GetKeyDown(KeyCode.W))
-                {
-                    direction = Vector2.up;
-                    throwingDirection = Vector2.up * 100;
-                    meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
-                    firePoint.position = new Vector2(transform.position.x, transform.position.y + .5f);
-
-                    sniperSight.transform.rotation = Quaternion.Euler(Vector3.up * 90);
-                }
-                else if (Input.GetKeyDown(KeyCode.D))
-                {
-                    direction = Vector2.right;
-                    throwingDirection = Vector2.right * 100;
-                    meleeHurtbox.position = new Vector2(transform.position.x + 1.5f, transform.position.y);
-                    firePoint.position = new Vector2(transform.position.x + .5f, transform.position.y);
-
-                    sniperSight.transform.rotation = Quaternion.Euler(Vector3.back * 90);
-                }
-                else if (Input.GetKeyDown(KeyCode.S))
-                {
-                    direction = Vector2.down;
-                    throwingDirection = Vector2.down * 100;
-                    meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y - 1.5f);
-                    firePoint.position = new Vector2(transform.position.x, transform.position.y - .5f);
-
-                    sniperSight.transform.rotation = Quaternion.Euler(Vector3.up * -90);
-                }
-                break;
-            case 2:
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    direction = Vector2.left;
-                    throwingDirection = Vector2.left * 100;
-                    meleeHurtbox.position = new Vector2(transform.position.x - 1.5f, transform.position.y);
-                    firePoint.position = new Vector2(transform.position.x - .5f, transform.position.y);
-
-                }
-                else if (Input.GetKeyDown(KeyCode.UpArrow))
-                {
-                    direction = Vector2.up;
-                    throwingDirection = Vector2.up * 100;
-                    meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
-                    firePoint.position = new Vector2(transform.position.x, transform.position.y + .5f);
-
-                }
-                else if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    direction = Vector2.right;
-                    throwingDirection = Vector2.right * 100;
-                    meleeHurtbox.position = new Vector2(transform.position.x + 1.5f, transform.position.y);
-                    firePoint.position = new Vector2(transform.position.x + .5f, transform.position.y);
-
-                }
-                else if (Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    direction = Vector2.down;
-                    throwingDirection = Vector2.down * 100;
-                    meleeHurtbox.position = new Vector2(transform.position.x, transform.position.y - 1.5f);
-                    firePoint.position = new Vector2(transform.position.x, transform.position.y - .5f);
-
-                }
-                break;
-
-        }
         //Fire
         if (Input.GetButtonDown("Fire" + playerNumber) && alreadyHolding && weaponType != 3)
         {
@@ -162,8 +90,11 @@ public class WeaponManager : MonoBehaviour
         //Drop
         if (Input.GetButtonDown("Drop" + playerNumber))
         {
+            
+
             if (alreadyHolding)
             {
+                
                 if(itemName.Contains("Future"))
                 {
                     switch (weaponType)
@@ -171,7 +102,7 @@ public class WeaponManager : MonoBehaviour
                         case 1:
                             weaponType = 0;
                             alreadyHolding = false;
-                            GameObject mel = Instantiate(FmeleePrefab, transform.position, Quaternion.identity);
+                            GameObject mel = Instantiate(FmeleePrefab, rotatePoint.transform.position, Quaternion.identity);
                             item = mel.GetComponent<ItemBehavior>();
                             item.Throw();
                             item.dirInit(throwingDirection);
@@ -315,8 +246,9 @@ public class WeaponManager : MonoBehaviour
         // Animator.SetTrigger("SniperAttack");
 
         // Detects enemies in range
-        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, throwingDirection, enemyMask);
-        Debug.DrawRay(firePoint.position, throwingDirection);
+        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, direction, enemyMask);
+        Debug.DrawRay(firePoint.position, direction);
+        //Debug.DrawRay(firePoint.position, throwingDirection);
         if (hitInfo)
         {
             EnemyHealth enemy = hitInfo.collider.transform.GetComponent<EnemyHealth>();

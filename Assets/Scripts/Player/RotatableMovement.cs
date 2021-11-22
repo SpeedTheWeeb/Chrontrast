@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RotatableMovement : MonoBehaviour
 {
+    public GameObject test;
     public int playerNumber = 1;
     private GameObject currentPlayer = null;
     Rigidbody2D rb2d;
@@ -14,7 +15,7 @@ public class RotatableMovement : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        currentPlayer = GameObject.Find("P" + playerNumber);
+        currentPlayer = GameObject.Find("Player " + playerNumber);
     }
 
     void Update()
@@ -43,7 +44,7 @@ public class RotatableMovement : MonoBehaviour
 
     void RotatePlayer()
     {
-        float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        float angle = Mathf.Atan2(horizontalInput, verticalInput) * Mathf.Rad2Deg;
+        test.transform.rotation = Quaternion.AngleAxis(angle*-1, Vector3.forward);
     }
 }

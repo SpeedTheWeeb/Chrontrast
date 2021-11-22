@@ -11,7 +11,7 @@ public class Grenade : MonoBehaviour
     public float explosionRadius = 4f;  // radius for explosion range
     public float directHit = 5f;        // added damage from the projectile itself
     public Rigidbody2D r2d;             // Reference to Rigidbody2D
-    float timer = 6f;
+    float timer = 5f;
 
     void Start()
     {
