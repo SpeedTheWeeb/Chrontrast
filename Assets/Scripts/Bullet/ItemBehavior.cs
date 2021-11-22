@@ -19,7 +19,7 @@ public class ItemBehavior : MonoBehaviour
     private Sprite Sprite_medieval_medium;
     private Sprite Sprite_future_long;
     private Sprite Sprite_medieval_long;
-
+    //Assets/Resources/Sprites/Weapons/Weapon_Future_MediumRange.png
     //to get the throwing direction i need to access the script of the parent og the game object that has this script
     //but i only want to get that after this game object has been picked up otherwise there is not parent.
 
@@ -28,11 +28,11 @@ public class ItemBehavior : MonoBehaviour
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         Sprite_future_melee = Resources.Load<Sprite>("Sprites/Weapons/Weapon_Future_Melee");
-        Sprite_medieval_melee = Resources.Load<Sprite>("Sprites/Weapons/sword");
-        Sprite_future_medium = Resources.Load<Sprite>("Sprites/Weapons/Weapon_Future_Medium Range");
-        Sprite_medieval_medium = Resources.Load<Sprite>("Sprites/Weapons/wand");
-        Sprite_future_long = Resources.Load<Sprite>("Sprites/Weapons/Weapon_Future_Long Range");
-        Sprite_medieval_long = Resources.Load<Sprite>("Sprites/Weapons/bow");
+        Sprite_medieval_melee = Resources.Load<Sprite>("Sprites/Weapons/swordMed");
+        Sprite_future_medium = Resources.Load<Sprite>("Sprites/Weapons/Weapon_Future_MediumRange");
+        Sprite_medieval_medium = Resources.Load<Sprite>("Sprites/Weapons/wandMed");
+        Sprite_future_long = Resources.Load<Sprite>("Sprites/Weapons/Weapon_Future_LongRange");
+        Sprite_medieval_long = Resources.Load<Sprite>("Sprites/Weapons/bowMed");
     }
     
     public void Init(GameObject spawn)
@@ -71,31 +71,12 @@ public class ItemBehavior : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col.gameObject.tag);
-
         if (col.gameObject.tag == "Wall")
         {
             Debug.Log("Stop");
             isThrown = false;
         }
     }
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Debug.Log("StopC");
-    //    if (collision.gameObject.tag == "Wall")
-    //    {
-    //        Debug.Log("Stop");
-    //        isThrown = false;
-    //    }
-    //}
-
-    //private void OnCollisionEnter2D(Collider2D collision)
-    //{
-    //    if(collision.CompareTag("Wall"))
-    //    {
-    //        isThrown = false;
-    //    }
-    //}
     //If the item exits a 2d collider...
     void OnTriggerExit2D(Collider2D other)
     {
@@ -103,7 +84,7 @@ public class ItemBehavior : MonoBehaviour
         if (other.gameObject.CompareTag("Rift"))
         {
             //and if it is not medieval it must be future side
-            if (isMedieval == false)
+            if (!isMedieval)
             {
                 // if it exits the rift after having been on the future side, it must now be on the medieval side..
                 // and isMedieval is changed, and so is the color
@@ -119,7 +100,7 @@ public class ItemBehavior : MonoBehaviour
                 {
                     spriteRenderer.sprite = Sprite_medieval_long;
                 }
-                isMedieval = !isMedieval;
+                isMedieval = false;
             }
             // if it is medieval
             else
@@ -138,7 +119,7 @@ public class ItemBehavior : MonoBehaviour
                 {
                     spriteRenderer.sprite = Sprite_future_long;
                 }
-                isMedieval = !isMedieval;
+                isMedieval = true;
             }
 
         }

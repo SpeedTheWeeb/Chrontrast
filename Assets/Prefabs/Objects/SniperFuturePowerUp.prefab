@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5239733536653750277}
   - component: {fileID: 791785181497957977}
   m_Layer: 0
-  m_Name: SniperPowerUp
+  m_Name: SniperFuturePowerUp
   m_TagString: Weapons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,5 +116,5 @@ MonoBehaviour:
   speed: 0.1
   timer: 0.7
   isMedieval: 0
-  weapon_type: 
+  weapon_type: LR
   Direction: {x: 0, y: 0}
