@@ -18,7 +18,7 @@ public class WeaponManager : MonoBehaviour
     private GameObject weaponHover;
 
     public Transform meleeHurtbox;      // Reference point for Overlap Circle
-    public float meleeRange = 1f;       // Radius for Overlap Circle
+    public float meleeRange = 3f;       // Radius for Overlap Circle
     public float meleeDamage = 100f;     // Damage applied to Tag: Enemies inside Overlap Circle
     public float meleeSpeed = 2f;       // Attacks pr. second
     float nextMeleeAttackTime = 0f;     // Initialized cooldown for melee attacks
@@ -31,7 +31,7 @@ public class WeaponManager : MonoBehaviour
     // public Animator splashAnim;
 
     public LineRenderer sniperSight;    // Holds lasersight effect
-    public float sniperDamage = 100f;     // Damage applied to Tag: Enemies on raycast path
+    public float sniperDamage = 1f;     // Damage applied to Tag: Enemies on raycast path
     public float sniperSpeed = 1f;      // Attacks pr. second
     float nextSniperAttackTime = 0f;    // Initialized cooldown for sniper attacks
     // public Animator sniperAnim;
