@@ -46,5 +46,5 @@ public class EnemyHealth : MonoBehaviour
         int currentWave = Spawning.currentWave;
         Spawning.InitWave(currentWave + 1);
     }
-
+    
 }

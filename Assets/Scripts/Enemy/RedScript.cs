@@ -53,15 +53,15 @@ public class RedScript : MonoBehaviour
         {
             Wall wallScript = (Wall)other.GetComponent("Wall");
             int hits = wallScript.hitsTaken;
-            if(hits < 10)
+            if(hits / 100 < 0.33)
             {
                 speed = speed * 0.75f;
             }
-            else if(hits < 20 && hits > 10)
+            else if(hits / 100 > 0.33 && hits / 100 < 0.66)
             {
                 speed = speed * 0.5f;
             }
-            else if (hits > 20)
+            else if (hits / 100 > 0.66)
             {
                 speed = speed * 0.25f;
             }
