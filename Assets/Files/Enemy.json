@@ -12,7 +12,24 @@
     "Red_Spawn": 1,
     "Blue_Spawn": 10,
     "Green_Spawn": 1
-  }
-    
+  },
+  {
+    "Wave": 3,
+    "Red_Spawn": 15,
+    "Blue_Spawn": 0,
+    "Green_Spawn": 0
+  },
+  {
+    "Wave": 4,
+    "Red_Spawn": 10,
+    "Blue_Spawn": 0,
+    "Green_Spawn": 10
+  },
+  {
+    "Wave": 5,
+    "Red_Spawn": 15,
+    "Blue_Spawn": 15,
+    "Green_Spawn": 15
+  } 
 ]  
 }
