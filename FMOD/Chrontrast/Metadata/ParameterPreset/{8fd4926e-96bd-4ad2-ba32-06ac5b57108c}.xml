@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{8fd4926e-96bd-4ad2-ba32-06ac5b57108c}">
+		<property name="name">
+			<value>Brass</value>
+		</property>
+		<relationship name="folder">
+			<destination>{8b18372b-832a-4c10-83c9-90878f844583}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{772ec614-9774-48df-88e5-7688974ca1ff}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{772ec614-9774-48df-88e5-7688974ca1ff}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

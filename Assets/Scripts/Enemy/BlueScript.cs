@@ -9,7 +9,7 @@ public class BlueScript : MonoBehaviour
     bool forward = true;
     bool isArrived = false;
     public GameObject bullet;
-    public float timer = 4f;
+    public float attackSpeed = 4f;
 
 
     // Update is called once per frame
@@ -24,11 +24,11 @@ public class BlueScript : MonoBehaviour
 
         if(isArrived)
         {
-            timer -= Time.deltaTime;
-            if(timer <= 0)
+            attackSpeed -= Time.deltaTime;
+            if(attackSpeed <= 0)
             {
                 Instantiate(bullet, transform.position, Quaternion.identity);
-                timer = 2f;
+                attackSpeed = 2f;
             }
         }
     }

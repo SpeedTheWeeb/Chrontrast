@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{75e56a8c-c799-4240-993f-7d17979086db}">
+		<property name="name">
+			<value>Prep-Wave</value>
+		</property>
+		<relationship name="folder">
+			<destination>{8b18372b-832a-4c10-83c9-90878f844583}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{e4edee7f-207f-455d-8513-761f77c0b9c8}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{e4edee7f-207f-455d-8513-761f77c0b9c8}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
