@@ -105,6 +105,9 @@
 		<property name="timelockedOffset">
 			<value>7.3999999999999986</value>
 		</property>
+		<relationship name="fadeOutCurve">
+			<destination>{a250f875-ce0d-4123-8edf-7bd44c273f9e}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{2a50ea99-cb01-4b50-bba7-36887972ed7f}</destination>
 		</relationship>
@@ -159,6 +162,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{59794d2c-c132-4467-b98b-4c03fb92789e}" />
 	<object class="MixerBusFader" id="{290f57f3-72eb-4362-b69d-834efea00a53}" />
+	<object class="FadeCurve" id="{a250f875-ce0d-4123-8edf-7bd44c273f9e}">
+		<relationship name="startPoint">
+			<destination>{f33e0b3a-4b23-4d93-b017-d8455066dfa6}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{eb4f80ab-6ff1-4bab-8711-de3a0ed41a38}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{9d72410b-2069-4b6c-a391-129f43b1b6c6}">
 		<relationship name="effects">
 			<destination>{0ef70120-be77-4284-898f-fbb9c4d37a82}</destination>
@@ -190,6 +201,25 @@
 	<object class="MixerBusPanner" id="{36f26bac-21b9-4ab8-bded-0269ac03f88f}" />
 	<object class="MixerBusFader" id="{ea658059-146e-46f3-9b0f-a73531644f27}" />
 	<object class="SpatialiserEffect" id="{74a43b14-16c3-4696-881c-48a2f98d8647}" />
+	<object class="AutomationPoint" id="{f33e0b3a-4b23-4d93-b017-d8455066dfa6}">
+		<property name="position">
+			<value>2</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+		<property name="curveShape">
+			<value>0.25471893</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{eb4f80ab-6ff1-4bab-8711-de3a0ed41a38}">
+		<property name="position">
+			<value>4.9000000000000004</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{0ef70120-be77-4284-898f-fbb9c4d37a82}" />
 	<object class="AutomationPoint" id="{3f5cab04-ccba-419e-98d5-092b7b855480}">
 		<property name="position">

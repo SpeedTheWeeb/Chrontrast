@@ -10,14 +10,16 @@ public class Gamemanager : MonoBehaviour
 
     public GameObject gameOverMenuUI;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        GameEnd = false;
+        GameEnd = false;        
     }
 
     public void Endgame() // afslutter spillet ved at aktivere restart.
-    {
+    {        
         if (GameEnd == false)
         {
             Debug.Log("Game over");

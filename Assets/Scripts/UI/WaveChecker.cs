@@ -10,11 +10,12 @@ public class WaveChecker : MonoBehaviour
     public Text WaveUI;
     public Text downTimer;
     float timer = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
         GameObject crystal = GameObject.Find("Crystal");
-        Spawning = (SpawningScript)crystal.GetComponent("SpawningScript");
+        Spawning = (SpawningScript)crystal.GetComponent("SpawningScript");        
     }
 
     // Update is called once per frame
