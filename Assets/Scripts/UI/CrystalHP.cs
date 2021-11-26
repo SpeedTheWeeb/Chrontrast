@@ -26,13 +26,21 @@ public class CrystalHP : MonoBehaviour
     }
     public void HP(int damage)
     {
-            crystalhealth = crystalhealth - damage;
-            TextUI.text = "Crystal HP: " + crystalhealth;
-            StartCoroutine(cameraShake.Shake(.15f, .2f));
+        crystalhealth = crystalhealth - damage;
+        TextUI.text = "Crystal HP: " + crystalhealth;
+        StartCoroutine(cameraShake.Shake(.15f, .2f));
+        FMODUnity.RuntimeManager.PlayOneShot("event:/sfx/props/crystal/damaged");
             
-            if (crystalhealth == 0)
-            {
-                FindObjectOfType<Gamemanager>().Endgame();
-            }
+        if (crystalhealth <= 0)
+        {
+            Invoke("EndGame", 5f);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/sfx/props/crystal/destroyed");
+            // play animation crystal shatter
+            Time.timeScale = 0;
+        }
+    }
+    void EndGame()
+    {
+        FindObjectOfType<Gamemanager>().Endgame(); // invoke to postpone game over screen until animation and sfx for the shattered crystal is finished
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{047993ac-e0ac-488d-8a2e-91d40d02ca11}">
+		<property name="name">
+			<value>Choir</value>
+		</property>
+		<relationship name="folder">
+			<destination>{8b18372b-832a-4c10-83c9-90878f844583}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{6fe4db1e-5ad4-4bdd-983d-3478709a35e3}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{6fe4db1e-5ad4-4bdd-983d-3478709a35e3}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
