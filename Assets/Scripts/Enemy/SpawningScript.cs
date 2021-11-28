@@ -231,7 +231,7 @@ public class SpawningScript : MonoBehaviour
             choir = 1f;
         }
 
-        if (currentWave >= 1) // Finale starts every time FixedUpdate is Called :(
+        if (currentWave >= 5) // Finale starts every time FixedUpdate is Called :(
         {
             bgmMain.getPlaybackState(out PLAYBACK_STATE pbsMain);
             if(pbsMain == PLAYBACK_STATE.PLAYING)

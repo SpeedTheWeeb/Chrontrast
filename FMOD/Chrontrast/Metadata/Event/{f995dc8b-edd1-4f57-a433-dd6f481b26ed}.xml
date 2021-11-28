@@ -57,7 +57,11 @@
 			<destination>{d912f00b-638c-474a-8f3d-cf28fc135464}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{266a7aee-4bc6-48b5-a616-4f443601a662}" />
+	<object class="EventAutomatableProperties" id="{266a7aee-4bc6-48b5-a616-4f443601a662}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{68a7a2fc-c2b3-4102-9844-6bf46d07ef48}" />
 	<object class="GroupTrack" id="{b8cabc65-39f6-423c-b510-0633dd7760e6}">
 		<relationship name="modules">
@@ -220,11 +224,8 @@
 	<object class="MixerBusFader" id="{d0b289d3-258e-4d10-9fdf-eea4e5add702}" />
 	<object class="MixerBusFader" id="{8a7c3dcc-9b98-43a2-99e2-622be6ce60d7}" />
 	<object class="ThreeEQEffect" id="{05ad9ee6-1434-42a0-961d-93ababa1682e}">
-		<property name="midGain">
-			<value>-5</value>
-		</property>
 		<property name="highGain">
-			<value>-3.5</value>
+			<value>-3</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{f24a2230-91d3-4ab2-8d04-5a44171e416a}" />
