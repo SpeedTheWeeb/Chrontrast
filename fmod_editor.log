@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000002B9397953B8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000024ABE512638 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -18,3 +18,71 @@
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 3
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 11400992
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 68384
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000DEA03FF2F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFD214960E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFD214960B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD214961B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD21496270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000024A33FEDF48
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='CrystalHit', format=5, channels=2, frequency=48000, lengthbytes=34304, lengthpcm=97802, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.997955.
+[LOG] SoundI::release                          :  (0000024ABC62CCD8)
+[LOG] SoundI::release                          :     SP Finale SNES 5 Harp (0000024A56B96C28)
+[LOG] SoundI::release                          :  (0000024ABC62B5D8)
+[LOG] SoundI::release                          :     SP Finale SNES 4 Brass (0000024A56B9C248)
+[LOG] SoundI::release                          :  (0000024ABC62CB68)
+[LOG] SoundI::release                          :     SP Finale Synth 2 Bass (0000024A354DCFB8)
+[LOG] SoundI::release                          :  (0000024ABC62C438)
+[LOG] SoundI::release                          :     SP Finale Synth 3 Choir (0000024A56B999A8)
+[LOG] SoundI::release                          :  (0000024ABC62C888)
+[LOG] SoundI::release                          :     SP Finale SNES 3 Choir (0000024A56B97E08)
+[LOG] SoundI::release                          :  (0000024ABC62CE48)
+[LOG] SoundI::release                          :     SP Finale SNES 2 Bass (0000024A56B99668)
+[LOG] SoundI::release                          :  (0000024ABC62AA58)
+[LOG] SoundI::release                          :     SP Finale SNES 1 Drums (0000024A56B9B888)
+[LOG] SoundI::release                          :  (0000024ABC62C2C8)
+[LOG] SoundI::release                          :     SP Finale Synth 1 Drums (0000024A56190D78)
+[LOG] SoundI::release                          :  (0000024ABC62C9F8)
+[LOG] SoundI::release                          :     SP Finale Synth 4 Brass (0000024A56B9B548)
+[LOG] SoundI::release                          :  (0000024ABC62A608)
+[LOG] SoundI::release                          :     SP Finale Synth 5 Harp (0000024A561932D8)
+[LOG] SoundI::release                          :  (0000024ABC62AEA8)
+[LOG] SoundI::release                          :     CrystalHit (0000024A56B99808)
+[LOG] SoundI::release                          :  (0000024ABC62C158)
+[LOG] SoundI::release                          :     SP Synth 1 Drums (00000249E3059598)
+[LOG] SoundI::release                          :  (0000024ABC629D68)
+[LOG] SoundI::release                          :     SP Synth 3 Choir (0000024A56B95D88)
+[LOG] SoundI::release                          :  (0000024ABC629078)
+[LOG] SoundI::release                          :     SP Synth 4 Brass (0000024A56B96DC8)
+[LOG] SoundI::release                          :  (0000024ABC6294C8)
+[LOG] SoundI::release                          :     SP SNES 5 Harp (0000024A56B9AEC8)
+[LOG] SoundI::release                          :  (0000024ABC6297A8)
+[LOG] SoundI::release                          :     SP SNES 1 Drums (0000024A56B9B6E8)
+[LOG] SoundI::release                          :  (0000024ABC629358)
+[LOG] SoundI::release                          :     SP Synth 5 Harp (0000024A354DB278)
+[LOG] SoundI::release                          :  (0000024ABC62B018)
+[LOG] SoundI::release                          :     SP SNES 2 Bass (00000249E30593F8)
+[LOG] SoundI::release                          :  (0000024ABC62A8E8)
+[LOG] SoundI::release                          :     SP SNES 4 Brass (0000024A56B99188)
+[LOG] SoundI::release                          :  (0000024ABC62A328)
+[LOG] SoundI::release                          :     SP SNES 3 Choir (0000024A56B9B208)
+[LOG] SoundI::release                          :  (0000024ABC62B2F8)
+[LOG] SoundI::release                          :     SP Synth 2 Bass (00000249E3059258)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
