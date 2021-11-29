@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FMOD.Studio;
+using FMODUnity;
+
 public class SpawningScript : MonoBehaviour
 {
     public int currentWave;
@@ -21,20 +24,40 @@ public class SpawningScript : MonoBehaviour
     public GameObject BlueObjMed;
     public GameObject GreenObjFan;
     public GameObject GreenObjMed;
+
+    //FMOD
+
+    EventInstance bgmMain;
+    EventInstance bgmFinale;
+    float phase;
+    float choir;
+    float brass;
+    float harp;
     
     // Start is called before the first frame update
     void Start()
     {
         isSpawning = false;
+
+        //FMOD
+        bgmMain = RuntimeManager.CreateInstance("event:/bgm/main");
+        bgmFinale = RuntimeManager.CreateInstance("event:/bgm/finale");
+        phase = 0f;
+        choir = 0f;
+        brass = 0f;
+        harp = 0f;
+        bgmMain.start();
+
         currentWave = 0;
         enemyInfo = JsonUtility.FromJson<JsonList>(jsonText.text);
         InitWave(1);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-
+        BGM();
+        Debug.Log("Wave: " + currentWave);
     }
     public void InitWave(int Wave)
     {
@@ -177,6 +200,49 @@ public class SpawningScript : MonoBehaviour
         else
         {
             isSpawning = false;
+        }
+    }
+
+    public void BGM()
+    {
+        bgmMain.setParameterByName("Prep-Wave", phase);
+        bgmMain.setParameterByName("Choir", choir);
+        bgmMain.setParameterByName("Brass", brass);
+        bgmMain.setParameterByName("Harp", harp);
+
+        if (isSpawning == false)
+            phase = 0f;
+        else
+            phase = 1f;
+
+        if (currentWave == 2)
+        {
+            choir = 1f;
+        }
+        else if (currentWave == 3)
+        {
+            choir = 1f;
+            brass = 1f;
+        }
+        else if (currentWave == 4)
+        {
+            harp = 1f;
+            brass = 1f;
+            choir = 1f;
+        }
+
+        if (currentWave >= 5) // Finale starts every time FixedUpdate is Called :(
+        {
+            bgmMain.getPlaybackState(out PLAYBACK_STATE pbsMain);
+            if(pbsMain == PLAYBACK_STATE.PLAYING)
+                bgmMain.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+            bgmFinale.getPlaybackState(out PLAYBACK_STATE pbsFinale);
+                            
+            if (pbsFinale != PLAYBACK_STATE.PLAYING)
+            {                
+                bgmFinale.start();                
+            }                        
         }
     }
 }

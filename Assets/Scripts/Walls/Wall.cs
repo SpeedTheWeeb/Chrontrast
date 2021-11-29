@@ -19,7 +19,7 @@ public class Wall : MonoBehaviour
     {
 
     }
-        void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Projectile")) //Skal ændre til entity hvis vi vælger dette system
         {
@@ -28,7 +28,7 @@ public class Wall : MonoBehaviour
 
             if (hitsTaken >= hitsNeeded) 
             {
-            Destroy (gameObject);
+                gameObject.SetActive(false);
             }
         }
     }
