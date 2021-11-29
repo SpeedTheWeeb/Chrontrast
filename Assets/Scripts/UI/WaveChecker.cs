@@ -21,7 +21,7 @@ public class WaveChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0 && Spawning.totalEnemies <= 0)
         {
             downTimer.enabled = true;
             timer -= Time.deltaTime;

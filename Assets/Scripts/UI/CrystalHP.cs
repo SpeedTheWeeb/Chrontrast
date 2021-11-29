@@ -35,14 +35,18 @@ public class CrystalHP : MonoBehaviour
 
         if (crystalhealth <= 0)
         {
-            Invoke("EndGame", 0.5f);
+            //Invoke("EndGame", 0.5f);
             RuntimeManager.PlayOneShot("event:/sfx/props/crystal/destroyed");
+            StartCoroutine(EndGame());
+            
             // play animation crystal shatter
-            Time.timeScale = 0.1f;
+            Time.timeScale = 0f;
         }
     }
-    void EndGame()
+    IEnumerator EndGame()
     {
+        yield return new WaitForSecondsRealtime(2f);
         FindObjectOfType<Gamemanager>().Endgame(); // invoke to postpone game over screen until animation and sfx for the shattered crystal is finished
+        
     }
 }

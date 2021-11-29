@@ -3581,7 +3581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8488685446140833777, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
       propertyPath: meleeDamage
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8488685446140833777, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
       propertyPath: meleePrefab
@@ -3593,7 +3593,7 @@ PrefabInstance:
       objectReference: {fileID: 1091120103}
     - target: {fileID: 8488685446140833777, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
       propertyPath: sniperDamage
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8488685446140833777, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
       propertyPath: sniperPrefab
@@ -7621,6 +7621,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 791785181497957927, guid: a61c6e20e8a4512458c34b12cfb22796, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.1499996
+      objectReference: {fileID: 0}
+    - target: {fileID: 791785181497957927, guid: a61c6e20e8a4512458c34b12cfb22796, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.1499996
+      objectReference: {fileID: 0}
+    - target: {fileID: 791785181497957927, guid: a61c6e20e8a4512458c34b12cfb22796, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.450963
       objectReference: {fileID: 0}
@@ -7658,6 +7666,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 791785181497957927, guid: a61c6e20e8a4512458c34b12cfb22796, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 791785181497957976, guid: a61c6e20e8a4512458c34b12cfb22796, type: 3}
+      propertyPath: m_DrawMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 791785181497957979, guid: a61c6e20e8a4512458c34b12cfb22796, type: 3}

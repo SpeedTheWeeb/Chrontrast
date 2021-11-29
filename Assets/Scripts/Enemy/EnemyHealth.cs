@@ -9,42 +9,40 @@ public class EnemyHealth : MonoBehaviour
     Text text;
     SpawningScript Spawning;
     public float currentHealth;
-
+    Color ogColor;
+    public SpriteRenderer render;
     private void Start()
     {
         currentHealth = maxHealth;
-        GameObject crystal = GameObject.Find("Crystal");
-        Spawning = (SpawningScript)crystal.GetComponent("SpawningScript");
+        render = GetComponent<SpriteRenderer>();
+        ogColor = render.color;
     }
 
     public void TakeDamage(float damage)
     {
+        
         currentHealth -= damage;
-
+        Flash();
         if (currentHealth <= 0)
             Die();
+    }
+
+    void Flash()
+    {
+        Color col = new Color(255/255f, 125/255f, 125/255f);
+        render.color = col;
+        Invoke("ResetFlash", 0.3f);
+    }
+    private void ResetFlash()
+    {
+        render.color = ogColor;
     }
 
     void Die()
     {
         Debug.Log("Enemy died!");
 
-        // animator.SetBool("IsDead", true)
-
         Destroy(gameObject);
-
-        //Check enemy amount after every kill, when there are no more left, run code
-        if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 1)
-        {
-            Invoke("StartNextWave", 10f);
-            
-        }
-    }
-
-    void StartNextWave()
-    {
-        int currentWave = Spawning.currentWave;
-        Spawning.InitWave(currentWave + 1);
     }
     
 }
