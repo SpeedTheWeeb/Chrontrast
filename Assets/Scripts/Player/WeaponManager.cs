@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -48,6 +50,29 @@ public class WeaponManager : MonoBehaviour
 
     private string itemName;
 
+    EventInstance sfxPickup; // FMOD Pickup SFX
+    EventInstance sfxThrow; //FMOD Throw SFX
+
+    private void Start()
+    {
+        switch (playerNumber)
+        {
+            case 1:
+                sfxPickup = RuntimeManager.CreateInstance("event:/sfx/player/future/pickup");
+                RuntimeManager.AttachInstanceToGameObject(sfxPickup, transform, GetComponent<Rigidbody2D>());
+                sfxThrow = RuntimeManager.CreateInstance("event:/sfx/player/future/throw");
+                RuntimeManager.AttachInstanceToGameObject(sfxThrow, transform, GetComponent<Rigidbody2D>());
+                break;
+
+            case 2:
+                sfxPickup = RuntimeManager.CreateInstance("event:/sfx/player/past/pickup");
+                RuntimeManager.AttachInstanceToGameObject(sfxPickup, transform, GetComponent<Rigidbody2D>());
+                sfxThrow = RuntimeManager.CreateInstance("event:/sfx/player/past/throw");
+                RuntimeManager.AttachInstanceToGameObject(sfxThrow, transform, GetComponent<Rigidbody2D>());
+                break;
+        }           
+    }
+
     private void Update()
     {
         //Direction
@@ -90,12 +115,16 @@ public class WeaponManager : MonoBehaviour
         //Drop
         if (Input.GetButtonDown("Drop" + playerNumber))
         {
+            if (!alreadyHolding)
+            {
+                sfxPickup.start();
+                sfxPickup.release();
+            }
             
-
             if (alreadyHolding)
             {
-                
-                if(itemName.Contains("Future"))
+
+                if (itemName.Contains("Future"))
                 {
                     switch (weaponType)
                     {
@@ -160,10 +189,12 @@ public class WeaponManager : MonoBehaviour
                     }
                 }
 
+                sfxThrow.start();
+                sfxThrow.release();
             }
             else if (trigger)
             {
-                chooseWeapon(weaponHover);
+                ChooseWeapon(weaponHover);                
             }
         }
     }
@@ -186,7 +217,7 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    void chooseWeapon(GameObject weapon)
+    void ChooseWeapon(GameObject weapon)
     {
         itemName = weapon.GetComponent<SpriteRenderer>().sprite.name;
         weaponType = 0;
@@ -206,6 +237,7 @@ public class WeaponManager : MonoBehaviour
         
         alreadyHolding = true;
         Pickup(weapon);
+        
     }
 
     void Pickup(GameObject pl)

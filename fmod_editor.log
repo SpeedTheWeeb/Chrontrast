@@ -9,7 +9,7 @@
 [LOG] DownMix::init                            : done.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 00000225A68A8228 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001BDBB696278 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -20,86 +20,114 @@
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 3
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 11400992
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 68384
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000C64D7FF418
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF95E8860E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF95E8860B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF95E8861B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF95E886270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000225C7D0AD08
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='CrystalHit', format=5, channels=2, frequency=48000, lengthbytes=34304, lengthpcm=97802, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.997955.
 [LOG] SystemI::createSound                     : filename = FMOD/Chrontrast/Build/Desktop/Master.bank : mode 02010082
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] Thread::initThread                       : Init FMOD nonblocking thread (0). Affinity: 0x8000000000000003, Priority: 0xFFFF7FFC, Stack Size: 114688, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
-[LOG] SystemI::createSound                     : setdata soundi = 00000225198225A8 : node = 000002251680A0E0
-[LOG] SystemI::createSound                     : add node to async list : head = 0000022519AD21C8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000225198225A8
+[LOG] SystemI::createSound                     : setdata soundi = 000001BDE1BD73F8 : node = 000001BDE2078C70
+[LOG] SystemI::createSound                     : add node to async list : head = 000001BD2CD47B78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001BDE1BD73F8
 [LOG] SystemI::createSoundInternal             :     Create name='FMOD/Chrontrast/Build/Desktop/Master.bank', mode=0x02010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 11400992
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 68384
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 11487808
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 71744
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002251680A1F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001BDE2078D80
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 7400
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 5860
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='CrystalBreak', format=5, channels=2, frequency=48000, lengthbytes=113536, lengthpcm=719725, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.962036.
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ThrowGrunts', format=5, channels=2, frequency=48000, lengthbytes=15328, lengthpcm=492773, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.899109.
 [LOG] Thread::initThread                       :     Init FMOD file thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFC, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000225198225A8
-[LOG] SoundI::release                          : CrystalBreak (00000225198225A8)
-[LOG] SoundI::release                          :     CrystalBreak (000002253A8F1498)
-[LOG] SoundI::release                          :     CrystalBreak (0000022512065A58)
-[LOG] SoundI::release                          :  (000002253AF93798)
-[LOG] SoundI::release                          :     SP Finale SNES 5 Harp (00000225172C9098)
-[LOG] SoundI::release                          :  (000002253AF96148)
-[LOG] SoundI::release                          :     SP Finale SNES 4 Brass (00000225172CA0D8)
-[LOG] SoundI::release                          :  (000002253AF983C8)
-[LOG] SoundI::release                          :     SP Finale Synth 2 Bass (00000225172C9A58)
-[LOG] SoundI::release                          :  (000002253AF95738)
-[LOG] SoundI::release                          :     SP Finale Synth 3 Choir (000002253A637AE8)
-[LOG] SoundI::release                          :  (000002253AF973F8)
-[LOG] SoundI::release                          :     SP Finale SNES 3 Choir (00000225172C9D98)
-[LOG] SoundI::release                          :  (000002253AF958A8)
-[LOG] SoundI::release                          :     SP Finale SNES 2 Bass (000002253A6399C8)
-[LOG] SoundI::release                          :  (000002253AF97B28)
-[LOG] SoundI::release                          :     SP Finale SNES 1 Drums (000002253A637C88)
-[LOG] SoundI::release                          :  (000002253AF952E8)
-[LOG] SoundI::release                          :     SP Finale Synth 1 Drums (00000225172CA418)
-[LOG] SoundI::release                          :  (000002253AF962B8)
-[LOG] SoundI::release                          :     SP Finale Synth 4 Brass (00000225172C8EF8)
-[LOG] SoundI::release                          :  (000002253AF979B8)
-[LOG] SoundI::release                          :     SP Finale Synth 5 Harp (00000225172C9BF8)
-[LOG] SoundI::release                          :  (000002253AF98818)
-[LOG] SoundI::release                          :     CrystalHit (000002253AA148D8)
-[LOG] SoundI::release                          :  (000002253AF96708)
-[LOG] SoundI::release                          :     SP Synth 1 Drums (00000225172C9578)
-[LOG] SoundI::release                          :  (000002253AF955C8)
-[LOG] SoundI::release                          :     SP Synth 3 Choir (00000225172C8BB8)
-[LOG] SoundI::release                          :  (000002253AF98AF8)
-[LOG] SoundI::release                          :     SP Synth 4 Brass (000002253A63AA08)
-[LOG] SoundI::release                          :  (000002253AF93A78)
-[LOG] SoundI::release                          :     SP SNES 5 Harp (000002253A638648)
-[LOG] SoundI::release                          :  (000002253AF97F78)
-[LOG] SoundI::release                          :     SP SNES 1 Drums (00000225172C9238)
-[LOG] SoundI::release                          :  (000002253AF96878)
-[LOG] SoundI::release                          :     SP Synth 5 Harp (00000225172C8D58)
-[LOG] SoundI::release                          :  (000002253AF94BB8)
-[LOG] SoundI::release                          :     SP SNES 2 Bass (00000225172C93D8)
-[LOG] SoundI::release                          :  (000002253AF95FD8)
-[LOG] SoundI::release                          :     SP SNES 4 Brass (00000225172CA5B8)
-[LOG] SoundI::release                          :  (000002253AF95E68)
-[LOG] SoundI::release                          :     SP SNES 3 Choir (00000225172C8A18)
-[LOG] SoundI::release                          :  (000002253AF97848)
-[LOG] SoundI::release                          :     SP Synth 2 Bass (00000225172C98B8)
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001BDE1BD73F8
+[LOG] SoundI::release                          : ThrowGrunts (000001BDE1BD73F8)
+[LOG] SoundI::release                          :     ThrowGrunts (000001BD51B5F2E8)
+[LOG] SoundI::release                          :     ThrowGrunts (000001BDE1BDB5C8)
+[LOG] SystemI::createSound                     : filename = FMOD/Chrontrast/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001BDE1BD73F8 : node = 000001BDB66C8640
+[LOG] SystemI::createSound                     : add node to async list : head = 000001BD2CD47B78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001BDE1BD73F8
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD/Chrontrast/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 11487808
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 71744
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001BDB66C8750
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 5860
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ThrowGrunts', format=5, channels=2, frequency=48000, lengthbytes=15328, lengthpcm=492773, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.899109.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001BDE1BD73F8
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 11487808
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 71744
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000096A909F3D8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF8F02660E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF8F02660B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF8F02661B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF8F0266270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001BDDFEE4B48
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='CrystalHit', format=5, channels=2, frequency=48000, lengthbytes=34304, lengthpcm=97802, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.997955.
+[LOG] SoundI::release                          :  (000001BDE2261398)
+[LOG] SoundI::release                          :     SP Finale SNES 5 Harp (000001BD28234BE8)
+[LOG] SoundI::release                          :  (000001BDDCF439B8)
+[LOG] SoundI::release                          :     SP Finale SNES 4 Brass (000001BD28233D48)
+[LOG] SoundI::release                          :  (000001BDDCF43C98)
+[LOG] SoundI::release                          :     SP Finale Synth 2 Bass (000001BD282348A8)
+[LOG] SoundI::release                          :  (000001BDE2261F18)
+[LOG] SoundI::release                          :     SP Finale Synth 3 Choir (000001BD2B9AF918)
+[LOG] SoundI::release                          :  (000001BDDCF43118)
+[LOG] SoundI::release                          :     SP Finale SNES 3 Choir (000001BD28233BA8)
+[LOG] SoundI::release                          :  (000001BDE2262088)
+[LOG] SoundI::release                          :     SP Finale SNES 2 Bass (000001BD2B9AF778)
+[LOG] SoundI::release                          :  (000001BDE2261508)
+[LOG] SoundI::release                          :     SP Finale SNES 1 Drums (000001BD2B9AE3F8)
+[LOG] SoundI::release                          :  (000001BDDCF43E08)
+[LOG] SoundI::release                          :     SP Finale Synth 1 Drums (000001BD282331E8)
+[LOG] SoundI::release                          :  (000001BDDCF43848)
+[LOG] SoundI::release                          :     SP Finale Synth 4 Brass (000001BD28234568)
+[LOG] SoundI::release                          :  (000001BDDCF43288)
+[LOG] SoundI::release                          :     SP Finale Synth 5 Harp (000001BD28233388)
+[LOG] SoundI::release                          :  (000001BD2EF5F4E8)
+[LOG] SoundI::release                          :     FuturePickUp (000001BD28233868)
+[LOG] SoundI::release                          :  (000001BDDCF436D8)
+[LOG] SoundI::release                          :     FutureThrow (000001BD282343C8)
+[LOG] SoundI::release                          :  (000001BD2EF5F098)
+[LOG] SoundI::release                          :     PastPickUp (000001BD28233048)
+[LOG] SoundI::release                          :  (000001BDEB0B41F8)
+[LOG] SoundI::release                          :     CrystalHit (000001BD51B64AA8)
+[LOG] SoundI::release                          :  (000001BD2EF5F208)
+[LOG] SoundI::release                          :     SP Synth 1 Drums (000001BD282336C8)
+[LOG] SoundI::release                          :  (000001BDDCF43568)
+[LOG] SoundI::release                          :     SP Synth 3 Choir (000001BD28234088)
+[LOG] SoundI::release                          :  (000001BDE2261958)
+[LOG] SoundI::release                          :     SP Synth 4 Brass (000001BD2B9AE0B8)
+[LOG] SoundI::release                          :  (000001BDE22617E8)
+[LOG] SoundI::release                          :     SP SNES 5 Harp (000001BD2B9AEA78)
+[LOG] SoundI::release                          :  (000001BDE2261678)
+[LOG] SoundI::release                          :     SP SNES 1 Drums (000001BD28232EA8)
+[LOG] SoundI::release                          :  (000001BD2EF5F938)
+[LOG] SoundI::release                          :     SP Synth 5 Harp (000001BD28233EE8)
+[LOG] SoundI::release                          :  (000001BD2EF5F378)
+[LOG] SoundI::release                          :     SP SNES 2 Bass (000001BD28234A48)
+[LOG] SoundI::release                          :  (000001BDDCF43B28)
+[LOG] SoundI::release                          :     SP SNES 4 Brass (000001BD28233A08)
+[LOG] SoundI::release                          :  (000001BDDCF433F8)
+[LOG] SoundI::release                          :     SP SNES 3 Choir (000001BD28233528)
+[LOG] SoundI::release                          : ThrowGrunts (000001BDE1BD73F8)
+[LOG] SoundI::release                          :     ThrowGrunts (000001BD51B5EAC8)
+[LOG] SoundI::release                          :     ThrowGrunts (000001BDE1BD58F8)
+[LOG] SoundI::release                          :  (000001BD2EF5FD88)
+[LOG] SoundI::release                          :     SP Synth 2 Bass (000001BD28234228)
+[LOG] SoundI::release                          :  (000001BDE2261AC8)
+[LOG] SoundI::release                          :     PastThrow (000001BD2B9AEF58)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
