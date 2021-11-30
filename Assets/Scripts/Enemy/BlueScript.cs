@@ -24,7 +24,6 @@ public class BlueScript : MonoBehaviour
 
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, Random.Range(-10, 11), 0), vel);
         }
-
         if(isArrived)
         {
             attackSpeed -= Time.deltaTime;

@@ -149,6 +149,7 @@ MonoBehaviour:
   stopSpot: 0
   bullet: {fileID: 4178815753567730303, guid: be205f040edc35b4baf9a9da66207748, type: 3}
   timer: 4
+  sfxShoot: event:/sfx/enemies/future/rammer/attack
 --- !u!114 &3858139795580098369
 MonoBehaviour:
   m_ObjectHideFlags: 0

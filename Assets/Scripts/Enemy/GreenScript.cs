@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class GreenScript : MonoBehaviour
 {
@@ -11,27 +13,24 @@ public class GreenScript : MonoBehaviour
     public GameObject bullet;
     public float timer = 4f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string sfxShoot;
 
     // Update is called once per frame
     void Update()
     {
-        if (forward)
+        if(forward)
         {
             float vel = speed * Time.deltaTime;
 
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, Random.Range(-10, 11), 0), vel);
         }
-        if (isArrived)
+        if(isArrived)
         {
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
                 Instantiate(bullet, transform.position, Quaternion.identity);
+                RuntimeManager.PlayOneShot(sfxShoot);
                 timer = 2f;
             }
         }
