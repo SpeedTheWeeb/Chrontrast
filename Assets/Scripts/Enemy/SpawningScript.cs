@@ -217,7 +217,7 @@ public class SpawningScript : MonoBehaviour
 
         if (currentWave == 2)
         {
-            choir = 1f;
+            brass = 1f;
         }
         else if (currentWave == 3)
         {
@@ -227,8 +227,8 @@ public class SpawningScript : MonoBehaviour
         else if (currentWave == 4)
         {
             harp = 1f;
-            brass = 1f;
             choir = 1f;
+            brass = 1f;
         }
 
         if (currentWave >= 5) // Finale starts every time FixedUpdate is Called :(

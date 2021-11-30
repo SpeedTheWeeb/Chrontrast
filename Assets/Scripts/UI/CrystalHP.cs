@@ -32,7 +32,7 @@ public class CrystalHP : MonoBehaviour
         TextUI.text = "Crystal HP: " + crystalhealth;
         StartCoroutine(cameraShake.Shake(.15f, .2f));
         RuntimeManager.PlayOneShot("event:/sfx/props/crystal/damaged");
-            
+
         if (crystalhealth <= 0)
         {
             //Invoke("EndGame", 0.5f);
