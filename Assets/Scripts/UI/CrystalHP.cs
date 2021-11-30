@@ -8,11 +8,16 @@ public class CrystalHP : MonoBehaviour
 {
     public Text TextUI;
     public int crystalhealth;
-    public CameraShake cameraShake;   
+    public CameraShake cameraShake;
+
+    EventInstance gameOverLoop;
+    PLAYBACK_STATE playbackState;
 
     private void Start()
     {
         crystalhealth = 100;
+        gameOverLoop = RuntimeManager.CreateInstance("event:/bgm/game_over");
+        gameOverLoop.getPlaybackState(out playbackState);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -47,6 +52,6 @@ public class CrystalHP : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(2f);
         FindObjectOfType<Gamemanager>().Endgame(); // invoke to postpone game over screen until animation and sfx for the shattered crystal is finished
-        
+        gameOverLoop.start();        
     }
 }

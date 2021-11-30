@@ -259,14 +259,49 @@ public class WeaponManager : MonoBehaviour
         {
             if (enemy.CompareTag("Enemy"))
             {
+                switch (playerNumber)
+                {
+                    case 1:
+                        RuntimeManager.PlayOneShot("event:/sfx/player/future/melee/hit");
+                        Debug.Log("event:/sfx/player/future/melee/hit");
+                        break;
+                    case 2:
+                        RuntimeManager.PlayOneShot("event:/sfx/player/past/melee/hit");
+                        Debug.Log("event:/sfx/player/past/melee/hit");
+                        break;
+                }                
                 enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage);
+            }
+            else
+            {
+                switch (playerNumber)
+                {
+                    case 1:
+                        RuntimeManager.PlayOneShot("event:/sfx/player/future/melee/miss");
+                        Debug.Log("event:/sfx/player/future/melee/miss");
+                        break;
+                    case 2:
+                        RuntimeManager.PlayOneShot("event:/sfx/player/past/melee/miss");
+                        Debug.Log("event:/sfx/player/past/melee/miss");
+                        break;
+                }
             }
         }
     }
 
     private void SplashAttack()
     {
-        Debug.Log("I am shooting Bawls of Fiyah!");
+        switch (playerNumber)
+        {
+            case 1:
+                RuntimeManager.PlayOneShot("event:/sfx/player/future/explosive/shoot");
+                Debug.Log("event:/sfx/player/future/explosive/shoot");
+                break;
+            case 2:
+                RuntimeManager.PlayOneShot("event:/sfx/player/past/eplosive/shoot");
+                Debug.Log("event:/sfx/player/past/eplosive/shoot");
+                break;
+        }
         GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
         Grenade g = grenade.GetComponent<Grenade>();
         g.Move(direction);
@@ -287,8 +322,32 @@ public class WeaponManager : MonoBehaviour
 
             if (enemy != null)
             {
-
+                switch (playerNumber)
+                {
+                    case 1:
+                        RuntimeManager.PlayOneShot("event:/sfx/player/future/sniper/hit");
+                        Debug.Log("event:/sfx/player/future/sniper/hit");
+                        break;
+                    case 2:
+                        RuntimeManager.PlayOneShot("event:/sfx/player/past/sniper/hit");
+                        Debug.Log("event:/sfx/player/past/sniper/hit");
+                        break;
+                }
                 enemy.TakeDamage(sniperDamage);
+            }            
+        }
+        else
+        {
+            switch (playerNumber)
+            {
+                case 1:
+                    RuntimeManager.PlayOneShot("event:/sfx/player/future/sniper/miss");
+                    Debug.Log("event:/sfx/player/future/sniper/miss");
+                    break;
+                case 2:
+                    RuntimeManager.PlayOneShot("event:/sfx/player/past/sniper/miss");
+                    Debug.Log("event:/sfx/player/past/sniper/miss");
+                    break;
             }
         }
     }

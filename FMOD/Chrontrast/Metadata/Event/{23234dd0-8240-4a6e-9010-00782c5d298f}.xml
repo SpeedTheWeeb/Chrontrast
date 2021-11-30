@@ -5,7 +5,7 @@
 			<value>hit</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{35a054ab-9429-4f44-85f5-1a1b28fa41fb}</destination>
@@ -56,7 +56,11 @@
 			<destination>{d912f00b-638c-474a-8f3d-cf28fc135464}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{a69dbc49-794b-44a2-9753-f98ad6baed23}" />
+	<object class="EventAutomatableProperties" id="{a69dbc49-794b-44a2-9753-f98ad6baed23}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{c09e59d8-638a-4660-b4fb-c167c038ce40}" />
 	<object class="GroupTrack" id="{80909569-9f99-4740-b5fb-b338cc994fc0}">
 		<relationship name="mixerGroup">
@@ -98,7 +102,6 @@
 	<object class="MixerBusEffectChain" id="{f2b7647b-4adc-4bcd-a362-9d6f2499ceaf}">
 		<relationship name="effects">
 			<destination>{c5ea789b-d275-473e-a40b-503c589e1ceb}</destination>
-			<destination>{07076e5a-81fa-4688-b9e7-a77c89b7a269}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{16a5fa3d-d941-4bf6-9785-1e3030d4af11}" />
@@ -110,6 +113,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{4d425e6d-bc79-4e82-9e17-f35b8bf691c7}" />
 	<object class="MixerBusFader" id="{c5ea789b-d275-473e-a40b-503c589e1ceb}" />
-	<object class="SpatialiserEffect" id="{07076e5a-81fa-4688-b9e7-a77c89b7a269}" />
 	<object class="MixerBusFader" id="{b0d4ff50-8843-44ac-97d5-5cd98c3763b6}" />
 </objects>

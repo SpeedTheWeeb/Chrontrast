@@ -6,16 +6,18 @@ public class RotatableMovement : MonoBehaviour
 {
     public GameObject test;
     public int playerNumber = 1;
-    private GameObject currentPlayer = null;
-    Rigidbody2D rb2d;
-
-    private float horizontalInput = 0;
-    private float verticalInput = 0;
     public float speedMultiplier = 10;
+
+    GameObject currentPlayer = null;
+    Rigidbody2D rb2d;
+    float horizontalInput = 0;
+    float verticalInput = 0;
+    Animator animator;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         currentPlayer = GameObject.Find("Player " + playerNumber);
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -39,7 +41,7 @@ public class RotatableMovement : MonoBehaviour
     private void MovePlayer()
     {
         Vector3 directionVector = new Vector3(horizontalInput, verticalInput, 0);
-        rb2d.velocity = directionVector.normalized * speedMultiplier;
+        rb2d.velocity = directionVector.normalized * speedMultiplier;        
     }
 
     void RotatePlayer()
