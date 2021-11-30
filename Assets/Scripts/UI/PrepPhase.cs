@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PrepPhase : MonoBehaviour
 {
+    UnityEngine.Object[] Powerups;
     SpawningScript spawnWave;
-    public int nextW;
+    public int nextW = 1;
     bool isPrep = false;
     public Text WaveUI;
     public Text downTimer;
@@ -17,7 +18,8 @@ public class PrepPhase : MonoBehaviour
     {
         GameObject crystal = GameObject.Find("Crystal");
         spawnWave = (SpawningScript)crystal.GetComponent("SpawningScript");
-        
+        Powerups = Resources.LoadAll("Powerups");
+
     }
 
     // Update is called once per frame
