@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: {fileID: 4976728203444720179}
-  playerNumber: 1
+  playerNumber: 2
   speedMultiplier: 10
 --- !u!114 &7924719899836006235
 MonoBehaviour:

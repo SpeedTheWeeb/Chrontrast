@@ -298,8 +298,8 @@ public class WeaponManager : MonoBehaviour
                 Debug.Log("event:/sfx/player/future/explosive/shoot");
                 break;
             case 2:
-                RuntimeManager.PlayOneShot("event:/sfx/player/past/eplosive/shoot");
-                Debug.Log("event:/sfx/player/past/eplosive/shoot");
+                RuntimeManager.PlayOneShot("event:/sfx/player/past/explosive/shoot");
+                Debug.Log("event:/sfx/player/past/explosive/shoot");
                 break;
         }
         GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
