@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class WaveChecker : MonoBehaviour
 {
+    PrepPhase prep;
     SpawningScript Spawning;
     public Text WaveUI;
     public Text downTimer;
@@ -15,7 +16,9 @@ public class WaveChecker : MonoBehaviour
     void Start()
     {
         GameObject crystal = GameObject.Find("Crystal");
-        Spawning = (SpawningScript)crystal.GetComponent("SpawningScript");        
+        GameObject init = GameObject.Find("InitObj");
+        Spawning = (SpawningScript)crystal.GetComponent("SpawningScript");
+        prep = (PrepPhase)init.GetComponent("PrepPhase");
     }
 
     // Update is called once per frame
@@ -23,21 +26,11 @@ public class WaveChecker : MonoBehaviour
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0 && Spawning.totalEnemies <= 0)
         {
-            downTimer.enabled = true;
-            timer -= Time.deltaTime;
-            downTimer.text = Math.Floor(timer).ToString();
-            if (timer <= 0)
-            {
-                downTimer.enabled = false;
-                timer = 10f;
-                StartNextWave();
-            }
+            StartNextWave();
         }
     }
     void StartNextWave()
     {
-        int nextWave = Spawning.currentWave + 1;
-        WaveUI.text = "Wave " + nextWave;
-        Spawning.InitWave(nextWave);
+        prep.StartPrep();
     }
 }

@@ -149,6 +149,7 @@ MonoBehaviour:
   stopSpot: 0
   bullet: {fileID: 4178815753567730303, guid: be205f040edc35b4baf9a9da66207748, type: 3}
   attackSpeed: 4
+  sfxShoot: event:/sfx/enemies/future/sniper/attack
 --- !u!114 &8689881369017920052
 MonoBehaviour:
   m_ObjectHideFlags: 0
