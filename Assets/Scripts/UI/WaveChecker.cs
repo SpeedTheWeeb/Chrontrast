@@ -8,10 +8,7 @@ public class WaveChecker : MonoBehaviour
 {
     PrepPhase prep;
     SpawningScript Spawning;
-    public Text WaveUI;
-    public Text downTimer;
-    float timer = 10f;
-
+    bool NotPrepTime = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,16 +18,23 @@ public class WaveChecker : MonoBehaviour
         prep = (PrepPhase)init.GetComponent("PrepPhase");
     }
 
+    
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0 && Spawning.totalEnemies <= 0)
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0 && Spawning.totalEnemies <= 0 && NotPrepTime)
         {
             StartNextWave();
         }
     }
     void StartNextWave()
     {
+        NotPrepTime = false;
         prep.StartPrep();
+        Invoke("ResetPrepTime", 35f);
+    }
+    void ResetPrepTime()
+    {
+        NotPrepTime = true;
     }
 }
