@@ -11,8 +11,8 @@ public class PrepPhase : MonoBehaviour
     bool isPrep = false;
     public Text WaveUI;
     public Text downTimer;
-    float timer = 10f;
-
+    float timer = 30f;
+    public GameObject PowerupSpawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,21 +27,17 @@ public class PrepPhase : MonoBehaviour
     {
         if(isPrep)
         {
+            PowerupSpawn.SetActive(true);
             downTimer.enabled = true;
             timer -= Time.deltaTime;
             downTimer.text = Math.Floor(timer).ToString();
             if (timer <= 0)
             {
                 downTimer.enabled = false;
-                timer = 10f;
+                timer = 30f;
                 nextWave();
             }
         }
-    }
-
-    void SpawnPowerUp()
-    {
-
     }
 
     public void StartPrep()
@@ -52,7 +48,12 @@ public class PrepPhase : MonoBehaviour
 
     void nextWave()
     {
+        PowerupSpawn.SetActive(false);
         WaveUI.text = "Wave " + nextW;
         spawnWave.InitWave(nextW);
+    }
+    void SpawnPowerUp()
+    {
+
     }
 }

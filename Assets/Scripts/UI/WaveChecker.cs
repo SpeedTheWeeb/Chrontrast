@@ -8,9 +8,6 @@ public class WaveChecker : MonoBehaviour
 {
     PrepPhase prep;
     SpawningScript Spawning;
-    public Text WaveUI;
-    public Text downTimer;
-    float timer = 10f;
 
     // Start is called before the first frame update
     void Start()
