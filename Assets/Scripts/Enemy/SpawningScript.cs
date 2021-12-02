@@ -57,7 +57,6 @@ public class SpawningScript : MonoBehaviour
     void FixedUpdate()
     {
         BGM();
-        Debug.Log("Wave: " + currentWave);
     }
     public void InitWave(int Wave)
     {
@@ -195,7 +194,7 @@ public class SpawningScript : MonoBehaviour
             reds -= randomR;
             blues -= randomB;
             totalEnemies -= randomB + randomG + randomR;
-            Invoke("spawnEnemies", 10f);
+            Invoke("spawnEnemies", 5f);
         }
         else
         {
