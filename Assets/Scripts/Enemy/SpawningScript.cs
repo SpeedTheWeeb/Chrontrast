@@ -27,8 +27,8 @@ public class SpawningScript : MonoBehaviour
 
     //FMOD
 
-    EventInstance bgmMain;
-    EventInstance bgmFinale;
+    public EventInstance bgmMain;
+    public EventInstance bgmFinale;
     float phase;
     float choir;
     float brass;
