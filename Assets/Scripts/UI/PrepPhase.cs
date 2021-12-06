@@ -45,18 +45,25 @@ public class PrepPhase : MonoBehaviour
     {
         if(isPrep)
         {
-            
-            downTimer.enabled = true;
-            timer -= Time.deltaTime;
-            downTimer.text = Math.Floor(timer).ToString();
-            if (timer <= 0)
-            {
-                downTimer.enabled = false;
-                timer = 30f;
-                nextWave();
-            }
+            StartCoroutine(Countdown());
         }
     }
+
+    IEnumerator Countdown()
+    {
+        downTimer.enabled = true;
+
+        for(int t = 30; t>=0; t--)
+        {
+            downTimer.text = Math.Floor(timer).ToString();
+            yield return new WaitForSeconds(1);
+        }
+
+        downTimer.enabled = false;
+        nextWave();
+
+    }
+
     public void StartPrep()
     {
         nextW = spawnWave.currentWave + 1;

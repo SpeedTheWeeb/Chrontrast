@@ -60,15 +60,17 @@ public class ItemBehavior : MonoBehaviour
         {
             //GetComponent<Rigidbody2D>().AddForce(Direction * speed);
             transform.Translate(Direction * speed * Time.deltaTime);
-            timer -= Time.deltaTime;
-            if(timer <= 0f)
-            {
-                //When the timer has ran out it resets itself and the condition allowing the item to move is set to false
-                isThrown = false;
-                timer = 0.5f;
-            }
+
+            //Stops the moving after a while
+            Invoke("throwMove", timer);
         }
     }
+
+    void throwMove()
+    {
+        isThrown = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Wall")

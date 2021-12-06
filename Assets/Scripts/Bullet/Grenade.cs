@@ -16,13 +16,14 @@ public class Grenade : MonoBehaviour
 
     private void Update()
     {
-        detonationTimer -= Time.deltaTime;
-        if (detonationTimer <= 0f)
-        {
-            Explosive();
-            Destroy(gameObject);
-        }
 
+
+    }
+
+    void Detonate()
+    {
+        Explosive();
+        Destroy(gameObject);
     }
 
     public void Move(Vector2 dir)
