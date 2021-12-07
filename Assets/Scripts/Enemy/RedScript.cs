@@ -32,15 +32,19 @@ public class RedScript : MonoBehaviour
         }
         if(isArrived)
         {
-            
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                crystalHP.HP(1);
-                timer = 2f;
-            }
+            StartCoroutine(Attack());
         }
     }
+
+    IEnumerator Attack()
+    {
+        while(isArrived)
+        {
+            crystalHP.HP(1);
+            yield return new WaitForSeconds(timer);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         
