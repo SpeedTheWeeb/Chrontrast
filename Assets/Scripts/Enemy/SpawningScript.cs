@@ -214,23 +214,20 @@ public class SpawningScript : MonoBehaviour
         else
             phase = 1f;
 
-        if (currentWave == 2)
+        if (currentWave >= 2 && currentWave < 5)
         {
             brass = 1f;
         }
-        else if (currentWave == 3)
+        if (currentWave >= 3 && currentWave < 5)
         {
             choir = 1f;
-            brass = 1f;
         }
-        else if (currentWave == 4)
+        if (currentWave >= 4 && currentWave < 5)
         {
             harp = 1f;
-            choir = 1f;
-            brass = 1f;
         }
 
-        if (currentWave >= 5) // Finale starts every time FixedUpdate is Called :(
+        if (currentWave >= 5)
         {
             bgmMain.getPlaybackState(out PLAYBACK_STATE pbsMain);
             if(pbsMain == PLAYBACK_STATE.PLAYING)
