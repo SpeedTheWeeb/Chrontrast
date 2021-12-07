@@ -7,12 +7,13 @@ public class RotatableMovement : MonoBehaviour
     public GameObject test;
     public int playerNumber = 1;
     public float speedMultiplier = 10;
+    
 
     GameObject currentPlayer = null;
     Rigidbody2D rb2d;
     float horizontalInput = 0;
     float verticalInput = 0;
-    Animator animator;
+    public Animator animator;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -35,7 +36,32 @@ public class RotatableMovement : MonoBehaviour
     private void GetPlayerInput()
     {
         horizontalInput = Input.GetAxisRaw("HorizontalP" + playerNumber);
+        
         verticalInput = Input.GetAxisRaw("VerticalP" + playerNumber);
+
+        //ANIMATION HERUNDER:
+        animator.SetFloat("VelocityV", verticalInput); 
+        animator.SetFloat("VelocityH", horizontalInput);
+
+        //SKRÅ venstre
+        if ((horizontalInput < 0 && verticalInput < 0)||(horizontalInput < 0 && verticalInput >0)) {
+            animator.SetBool("strayleft", true);
+        }
+        else { animator.SetBool("strayleft", false); }
+
+        //SKRÅ højre
+        if ((horizontalInput > 0 && verticalInput < 0) || (horizontalInput > 0 && verticalInput > 0))
+        {
+            animator.SetBool("StrayRight", true);
+        }
+        else { animator.SetBool("StrayRight", false); }
+
+        //IDLE
+        if (horizontalInput == 0 && verticalInput == 0) {
+            animator.SetBool("isidle", true);
+        }
+        else { animator.SetBool("isidle", false); }
+        
     }
 
     private void MovePlayer()
