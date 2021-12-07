@@ -26,13 +26,17 @@ public class GreenScript : MonoBehaviour
         }
         if(isArrived)
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                Instantiate(bullet, transform.position, Quaternion.identity);
-                RuntimeManager.PlayOneShot(sfxShoot);
-                timer = 2f;
-            }
+            StartCoroutine(Attack());
+        }
+    }
+    IEnumerator Attack()
+    {
+        while (isArrived)
+        {
+            Instantiate(bullet, transform.position, Quaternion.identity);
+            RuntimeManager.PlayOneShot(sfxShoot);
+
+            yield return new WaitForSeconds(timer);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

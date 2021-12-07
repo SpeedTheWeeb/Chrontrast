@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
+    WeaponManager weapon;
     public GameObject player;
     string PUType;
     string PUName;
@@ -23,7 +24,16 @@ public class Powerup : MonoBehaviour
     }
     public void activatePU()
     {
+        weapon = player.GetComponent<WeaponManager>();
         GetPowerup();
+        Destroy(gameObject);
+        switch(player.name)
+        {
+            case "P1":
+                break;
+            case "P2":
+                break;
+        }
     }
 
     void GetPowerup()
@@ -47,14 +57,21 @@ public class Powerup : MonoBehaviour
         switch(PUName)
         {
             case "ATS":
+                weapon.sniperASMod +=  2f;
+                weapon.splashASMod +=  5f;
+                weapon.meleeASMod +=  3f;
                 break;
             case "Stronger":
+                weapon.sniperDmgMod += 2f;
+                weapon.splashDmgMod += 20f;
+                weapon.meleeDmgMod +=  5f;
                 break;
         }
     }
 
     void Utility()
     {
+        //TODO
         switch (PUName)
         {
             case "Freeze":
@@ -69,6 +86,9 @@ public class Powerup : MonoBehaviour
         switch (PUName)
         {
             case "Heal":
+                CrystalHP hp = GameObject.Find("Crystal").GetComponent<CrystalHP>();
+                hp.crystalhealth += 20;
+                hp.UpdateHealth();
                 break;
             case "Repair":
                 break;

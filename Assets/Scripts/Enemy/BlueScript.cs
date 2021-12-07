@@ -26,15 +26,21 @@ public class BlueScript : MonoBehaviour
         }
         if(isArrived)
         {
-            attackSpeed -= Time.deltaTime;
-            if(attackSpeed <= 0)
-            {
-                Instantiate(bullet, transform.position, Quaternion.identity);
-                RuntimeManager.PlayOneShot(sfxShoot);
-                attackSpeed = 2f;
-            }
+            StartCoroutine(Attack());
         }
     }
+
+    IEnumerator Attack()
+    {
+        while(isArrived)
+        {
+            Instantiate(bullet, transform.position, Quaternion.identity);
+            RuntimeManager.PlayOneShot(sfxShoot);
+
+            yield return new WaitForSeconds(attackSpeed);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Bullet")

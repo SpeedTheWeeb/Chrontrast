@@ -165,3 +165,5 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   render: {fileID: 6394801250345454653}
+  sfxEnemyDeath: event:/sfx/enemies/past/rammer/die
+  sfxEnemyHurt: event:/sfx/enemies/past/rammer/hurt
