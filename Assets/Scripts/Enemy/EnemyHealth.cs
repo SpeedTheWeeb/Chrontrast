@@ -31,13 +31,14 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        
         currentHealth -= damage;
-        Flash();
-        if (currentHealth <= 0)
+        if(currentHealth > 1f)
+        {
+            RuntimeManager.PlayOneShot(sfxEnemyHurt); // issue with playing along with the Die() method
+        }
+        else if (currentHealth <= 0)
             Die();
-        else
-            RuntimeManager.PlayOneShot(sfxEnemyHurt);
+        Flash();
     }
 
     void Flash()

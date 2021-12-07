@@ -166,6 +166,8 @@ MonoBehaviour:
   maxHealth: 2
   currentHealth: 0
   render: {fileID: 3217243183844050784}
+  sfxEnemyDeath: event:/sfx/enemies/past/sniper/die
+  sfxEnemyHurt: event:/sfx/enemies/past/sniper/hurt
 --- !u!95 &59064326
 Animator:
   serializedVersion: 3

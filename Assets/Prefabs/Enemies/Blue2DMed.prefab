@@ -165,3 +165,5 @@ MonoBehaviour:
   maxHealth: 2
   currentHealth: 0
   render: {fileID: 3198515269410146258}
+  sfxEnemyDeath: event:/sfx/enemies/future/sniper/die
+  sfxEnemyHurt: event:/sfx/enemies/future/sniper/hurt
