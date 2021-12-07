@@ -28,9 +28,8 @@ public class Wall : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Projectile")) //Skal ændre til entity hvis vi vælger dette system
         {
-            hitsTaken += 1;
-            Destroy(collision.gameObject);
-
+            
+            
             if (hitsTaken >= hitsNeeded) 
             {
                 switch (playerSide)
@@ -45,10 +44,11 @@ public class Wall : MonoBehaviour
                         break;
                 }
 
-                gameObject.SetActive(false);
             }
             else
             {
+                hitsTaken += 1;
+
                 switch (playerSide)
                 {
                     case "future":
@@ -60,6 +60,8 @@ public class Wall : MonoBehaviour
                         //Debug.Log("event:/sfx/props/walls/past/damaged");
                         break;
                 }
+
+                Destroy(collision.gameObject);
             }
         }
     }

@@ -60,6 +60,13 @@ public class PrepPhase : MonoBehaviour
         }
 
         downTimer.enabled = false;
+        GameObject[] destroyPU = GameObject.FindGameObjectsWithTag("PowerUp");
+
+        for(int p = 0; p < destroyPU.Length; p++)
+        {
+            Destroy(destroyPU[p]);
+        }
+
         nextWave();
 
     }

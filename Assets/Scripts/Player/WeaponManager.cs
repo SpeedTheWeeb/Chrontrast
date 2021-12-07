@@ -15,6 +15,8 @@ public class WeaponManager : MonoBehaviour
     Vector2 direction;
     public Vector2 throwingDirection;
     public GameObject rotatePoint;
+    bool puInteract;
+    GameObject puHover;
 
     public bool trigger;
     private GameObject weaponHover;
@@ -23,19 +25,22 @@ public class WeaponManager : MonoBehaviour
     public float meleeRange = 3f;       // Radius for Overlap Circle
     public float meleeDamage = 100f;     // Damage applied to Tag: Enemies inside Overlap Circle
     public float meleeSpeed = 2f;       // Attacks pr. second
-    float nextMeleeAttackTime = 0f;     // Initialized cooldown for melee attacks
+    public float meleeDmgMod = 0;
+    public float meleeASMod = 0;
     // public Animator meleeAnim;
 
     public GameObject grenadePrefab;    // Holds projectile prefab
     public float grenadeRadius = 3f;    // Range before projectile explodes
     public float splashSpeed = .5f;     // Attacks pr. second
-    float nextSplashAttackTime = 0f;    // Initialized cooldown for splash attacks
+    public float splashSMod = 0;
+    public float splashASMod = 0;
     // public Animator splashAnim;
 
     public LineRenderer sniperSight;    // Holds lasersight effect
     public float sniperDamage = 1f;     // Damage applied to Tag: Enemies on raycast path
     public float sniperSpeed = 1f;      // Attacks pr. second
-    float nextSniperAttackTime = 0f;    // Initialized cooldown for sniper attacks
+    public float sniperDmgMod = 0;
+    public float sniperASMod = 0;
     // public Animator sniperAnim;
 
     public GameObject holdingWeapon;
@@ -52,6 +57,10 @@ public class WeaponManager : MonoBehaviour
 
     EventInstance sfxPickup; // FMOD Pickup SFX
     EventInstance sfxThrow; //FMOD Throw SFX
+
+    bool meleeBool = true;
+    bool splashBool = true;
+    bool sniperBool = true;
 
     private void Start()
     {
@@ -85,31 +94,41 @@ public class WeaponManager : MonoBehaviour
             switch (weaponType)
             {
                 case 1:
-                    if (Time.time >= nextMeleeAttackTime)
+
+                    if(meleeBool)
                     {
                         MeleeAttack();
-                        nextMeleeAttackTime = Time.time + 1f / meleeSpeed; // Counts how many times pr second you can swing.
+                        meleeBool = false;
+                        Invoke("ResetMelee", meleeSpeed * meleeASMod);
                     }
                     break;
 
                 case 2:
-                    if (Time.time >= nextSplashAttackTime)
+                    if (splashBool)
                     {
                         SplashAttack();
-                        nextSplashAttackTime = Time.time + 1f / splashSpeed;
+                        splashBool = false;
+                        Invoke("ResetSplash", splashSpeed * splashASMod);
                     }
                     break;
             }
         }
         else if(Input.GetButton("Fire" + playerNumber) && alreadyHolding && weaponType == 3)
         {
+            if(sniperBool)
+            {
                 sniperSight.enabled = true;
+            }
         }
         else if(Input.GetButtonUp("Fire" + playerNumber) && alreadyHolding && weaponType == 3)
         {
+            if (sniperBool)
+            {            
                 SniperAttack();
                 sniperSight.enabled = false;
-                nextSniperAttackTime = Time.time + 1f / sniperSpeed;
+                sniperBool = false;
+                Invoke("ResetSniper", sniperSpeed * sniperASMod);
+            }
         }
 
         //Drop
@@ -196,7 +215,24 @@ public class WeaponManager : MonoBehaviour
             {
                 ChooseWeapon(weaponHover);                
             }
+            else if (puInteract)
+            {
+                PickupPowerUp(puHover);
+            }
         }
+    }
+
+    void ResetMelee()
+    {
+        meleeBool = true;
+    }
+    void ResetSplash()
+    {
+        splashBool = true;
+    }
+    void ResetSniper()
+    {
+        sniperBool = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -205,6 +241,11 @@ public class WeaponManager : MonoBehaviour
         {
             trigger = true;
             weaponHover = collision.gameObject;
+        }
+        if (collision.CompareTag("PowerUp"))
+        {
+            puInteract = true;
+            puHover = collision.gameObject;
         }
     }
 
@@ -215,8 +256,20 @@ public class WeaponManager : MonoBehaviour
             trigger = false;
             weaponHover = null;
         }
+        if (collision.CompareTag("PowerUp"))
+        {
+            puInteract = false;
+            puHover = null;
+        }
     }
+    void PickupPowerUp(GameObject col)
+    {
+        puHover = null;
 
+        Powerup pu = col.GetComponent<Powerup>();
+        pu.player = gameObject;
+        pu.activatePU();
+    }
     void ChooseWeapon(GameObject weapon)
     {
         itemName = weapon.GetComponent<SpriteRenderer>().sprite.name;
@@ -270,7 +323,7 @@ public class WeaponManager : MonoBehaviour
                         Debug.Log("event:/sfx/player/past/melee/hit");
                         break;
                 }                
-                enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage);
+                enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage * meleeDmgMod);
             }
             else
             {
@@ -333,7 +386,7 @@ public class WeaponManager : MonoBehaviour
                         Debug.Log("event:/sfx/player/past/sniper/hit");
                         break;
                 }
-                enemy.TakeDamage(sniperDamage);
+                enemy.TakeDamage(sniperDamage * sniperDmgMod);
             }            
         }
         else

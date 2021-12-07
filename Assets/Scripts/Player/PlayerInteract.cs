@@ -11,6 +11,7 @@ public class PlayerInteract : MonoBehaviour
     private GameObject pickupObject;
     public float dropSpeed = 20f;
     public ItemBehavior Item;
+    bool puInteract;
 
     //Bullet Data
     public GameObject bullet;
@@ -96,7 +97,13 @@ public class PlayerInteract : MonoBehaviour
                 PickUp(collidingObject);
             }
         }
+        if(Input.GetButtonDown("Drop"+playerNumber) && puInteract)
+        {
+            PickupPowerUp(collidingObject);
+        }
     }
+
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         //if(pickupObject != null)
@@ -104,14 +111,30 @@ public class PlayerInteract : MonoBehaviour
         //    pickupObject.transform.parent = null;
         //}
 
-        trigger = false;
-        collidingObject = null;
+        if (collision.CompareTag("PowerUp"))
+        {
+            puInteract = false;
+            collidingObject = null;
+        }
+        else if (collision.CompareTag("Weapons"))
+        {
+            trigger = false;
+            collidingObject = null;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        trigger = true;
-        collidingObject = collision;
-
+        if(collision.CompareTag("PowerUp"))
+        {
+            puInteract = true;
+            collidingObject = collision;
+        }
+        else if(collision.CompareTag("Weapons"))
+        {
+            trigger = true;
+            collidingObject = collision;
+        }
+        
     }
 
     //Pick up object
@@ -129,6 +152,14 @@ public class PlayerInteract : MonoBehaviour
             
             isHolding = true;
         }
+    }
+    void PickupPowerUp(Collider2D col)
+    {
+        collidingObject = null;
+
+        Powerup pu = col.GetComponent<Powerup>();
+        pu.player = gameObject;
+        pu.activatePU();
     }
 
     //Is to be changed to look at the variable in the weapon_manager script that determines what weapon is being held and then instansiate
