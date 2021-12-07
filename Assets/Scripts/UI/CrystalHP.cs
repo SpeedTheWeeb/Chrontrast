@@ -19,7 +19,13 @@ public class CrystalHP : MonoBehaviour
     private void Start()
     {
         crystalhealth = 100;
-        
+        UpdateHealth();
+
+    }
+
+    public void UpdateHealth()
+    {
+        TextUI.text = "Crystal HP: " + crystalhealth;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -36,7 +42,7 @@ public class CrystalHP : MonoBehaviour
     public void HP(int damage)
     {
         crystalhealth = crystalhealth - damage;
-        TextUI.text = "Crystal HP: " + crystalhealth;
+        UpdateHealth();
         StartCoroutine(cameraShake.Shake(.15f, .2f));
         RuntimeManager.PlayOneShot("event:/sfx/props/crystal/damaged");
 
