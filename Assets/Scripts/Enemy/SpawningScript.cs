@@ -29,6 +29,7 @@ public class SpawningScript : MonoBehaviour
 
     public EventInstance bgmMain;
     public EventInstance bgmFinale;
+    public bool prepPhase = false;
     float phase;
     float choir;
     float brass;
@@ -209,7 +210,7 @@ public class SpawningScript : MonoBehaviour
         bgmMain.setParameterByName("Brass", brass);
         bgmMain.setParameterByName("Harp", harp);
 
-        if (isSpawning == false)
+        if (prepPhase)
             phase = 0f;
         else
             phase = 1f;

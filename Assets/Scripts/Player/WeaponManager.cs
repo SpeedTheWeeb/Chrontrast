@@ -137,7 +137,6 @@ public class WeaponManager : MonoBehaviour
             if (!alreadyHolding)
             {
                 sfxPickup.start();
-                sfxPickup.release();
             }
             
             if (alreadyHolding)
@@ -209,7 +208,6 @@ public class WeaponManager : MonoBehaviour
                 }
 
                 sfxThrow.start();
-                sfxThrow.release();
             }
             else if (trigger)
             {
@@ -300,12 +298,21 @@ public class WeaponManager : MonoBehaviour
 
     private void MeleeAttack()
     {
-        Debug.Log("I am swinging my sword!");
+        // Debug.Log("I am swinging my sword!");
         // play animation
         // Animator.SetTrigger("MeleeAttack");
-
+        switch (playerNumber)
+        {
+            case 1:
+                RuntimeManager.PlayOneShot("event:/sfx/player/future/melee/miss");
+                break;
+            case 2:
+                RuntimeManager.PlayOneShot("event:/sfx/player/past/melee/miss");
+                break;
+        }
         // Detects enemies in range
         Collider2D[] meleeEnemies = Physics2D.OverlapCircleAll(meleeHurtbox.position, meleeRange, enemyMask);
+
 
         // Applies damage
         foreach (Collider2D enemy in meleeEnemies)
@@ -316,29 +323,13 @@ public class WeaponManager : MonoBehaviour
                 {
                     case 1:
                         RuntimeManager.PlayOneShot("event:/sfx/player/future/melee/hit");
-                        Debug.Log("event:/sfx/player/future/melee/hit");
                         break;
                     case 2:
                         RuntimeManager.PlayOneShot("event:/sfx/player/past/melee/hit");
-                        Debug.Log("event:/sfx/player/past/melee/hit");
                         break;
                 }                
                 enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage + ((meleeASMod / 100) * meleeDamage));
-            }
-            else
-            {
-                switch (playerNumber)
-                {
-                    case 1:
-                        RuntimeManager.PlayOneShot("event:/sfx/player/future/melee/miss");
-                        Debug.Log("event:/sfx/player/future/melee/miss");
-                        break;
-                    case 2:
-                        RuntimeManager.PlayOneShot("event:/sfx/player/past/melee/miss");
-                        Debug.Log("event:/sfx/player/past/melee/miss");
-                        break;
-                }
-            }
+            }            
         }
     }
 
@@ -348,11 +339,9 @@ public class WeaponManager : MonoBehaviour
         {
             case 1:
                 RuntimeManager.PlayOneShot("event:/sfx/player/future/explosive/shoot");
-                Debug.Log("event:/sfx/player/future/explosive/shoot");
                 break;
             case 2:
                 RuntimeManager.PlayOneShot("event:/sfx/player/past/explosive/shoot");
-                Debug.Log("event:/sfx/player/past/explosive/shoot");
                 break;
         }
         GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
@@ -380,11 +369,9 @@ public class WeaponManager : MonoBehaviour
                 {
                     case 1:
                         RuntimeManager.PlayOneShot("event:/sfx/player/future/sniper/hit");
-                        Debug.Log("event:/sfx/player/future/sniper/hit");
                         break;
                     case 2:
                         RuntimeManager.PlayOneShot("event:/sfx/player/past/sniper/hit");
-                        Debug.Log("event:/sfx/player/past/sniper/hit");
                         break;
                 }
                 enemy.TakeDamage(sniperDamage + ((sniperDmgMod/100)*sniperDamage));
@@ -396,11 +383,9 @@ public class WeaponManager : MonoBehaviour
             {
                 case 1:
                     RuntimeManager.PlayOneShot("event:/sfx/player/future/sniper/miss");
-                    Debug.Log("event:/sfx/player/future/sniper/miss");
                     break;
                 case 2:
                     RuntimeManager.PlayOneShot("event:/sfx/player/past/sniper/miss");
-                    Debug.Log("event:/sfx/player/past/sniper/miss");
                     break;
             }
         }
