@@ -13,21 +13,27 @@ public class Grenade : MonoBehaviour
     public float explosionRadius = 4f;      // radius for explosion range
     public float directHit = 5f;            // added damage from the projectile itself (unused)
     public Rigidbody2D r2d;                 // Reference to Rigidbody2D
-
+    public float dmgMod = 0;
     private void Update()
     {
-        detonationTimer -= Time.deltaTime;
-        if (detonationTimer <= 0f)
-        {
-            Explosive();
-            Destroy(gameObject);
-        }
 
+
+    }
+
+    void Detonate()
+    {
+        Explosive();
+        Destroy(gameObject);
     }
 
     public void Move(Vector2 dir)
     {
         r2d.velocity = dir * speed;
+    }
+
+    public void AddMod(float mod)
+    {
+        dmgMod = mod;
     }
 
     public void Explosive()
@@ -42,7 +48,7 @@ public class Grenade : MonoBehaviour
                 float distance = Vector3.Distance(closestPoint, transform.position);
 
                 float damagePercent = Mathf.InverseLerp(explosionRadius, 0, distance);
-                enemy.GetComponent<EnemyHealth>().TakeDamage(maxDamage * damagePercent);
+                enemy.GetComponent<EnemyHealth>().TakeDamage((maxDamage * damagePercent) * ((dmgMod/100)*(maxDamage * damagePercent)));
             }            
         }
     }

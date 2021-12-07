@@ -83,7 +83,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{29f67ad5-e09a-4b1c-8ef5-0bc9589008af}">
 		<property name="volume">
-			<value>-14.5</value>
+			<value>-7</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{5228c9d4-b71a-44d7-ba68-ed5c88254c74}</destination>
@@ -138,6 +138,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{fafe5ee8-8218-496a-8056-6b688418fec5}">
+		<property name="volume">
+			<value>-6</value>
+		</property>
 		<property name="name">
 			<value>Audio 2</value>
 		</property>
@@ -187,7 +190,7 @@
 			<value>1</value>
 		</property>
 		<property name="curveShape">
-			<value>0.25471893</value>
+			<value>-0.489006966</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{509eacc7-1db0-4c82-8a9b-db15f80a32ba}">

@@ -25,8 +25,9 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayTutorial ()
     {
-        Debug.Log ("TUTORIAL");
-        //SceneManager.LoadScene("Tutorial Scene");
+        if(playbackState != PLAYBACK_STATE.STOPPED)
+            bgmLoop.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        SceneManager.LoadScene("Tutorial Scene");
     }
 
     public void QuitGame () 

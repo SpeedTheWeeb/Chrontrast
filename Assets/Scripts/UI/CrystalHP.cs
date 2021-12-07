@@ -4,20 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using FMOD.Studio;
 using FMODUnity;
+using JetBrains.Annotations;
+
 public class CrystalHP : MonoBehaviour
 {
     public Text TextUI;
     public int crystalhealth;
     public CameraShake cameraShake;
 
-    EventInstance gameOverLoop;
-    PLAYBACK_STATE playbackState;
+    public EventInstance gameOverLoop;
+    PLAYBACK_STATE mainPBS;
+    PLAYBACK_STATE finalePBS;
 
     private void Start()
     {
         crystalhealth = 100;
-        gameOverLoop = RuntimeManager.CreateInstance("event:/bgm/game_over");
-        gameOverLoop.getPlaybackState(out playbackState);
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -43,7 +45,8 @@ public class CrystalHP : MonoBehaviour
             //Invoke("EndGame", 0.5f);
             RuntimeManager.PlayOneShot("event:/sfx/props/crystal/destroyed");
             StartCoroutine(EndGame());
-            
+            StartGameOverMusic();           
+
             // play animation crystal shatter
             Time.timeScale = 0f;
         }
@@ -51,7 +54,24 @@ public class CrystalHP : MonoBehaviour
     IEnumerator EndGame()
     {
         yield return new WaitForSecondsRealtime(2f);
-        FindObjectOfType<Gamemanager>().Endgame(); // invoke to postpone game over screen until animation and sfx for the shattered crystal is finished
-        gameOverLoop.start();        
+        FindObjectOfType<Gamemanager>().Endgame(); // invoke to postpone game over screen until animation and sfx for the shattered crystal is finished                
+    }
+
+    void StartGameOverMusic()
+    {
+        EventInstance bgmMain = FindObjectOfType<SpawningScript>().bgmMain;
+        bgmMain.getPlaybackState(out mainPBS);
+        EventInstance bgmFinale = FindObjectOfType<SpawningScript>().bgmFinale;
+        bgmFinale.getPlaybackState(out finalePBS);
+
+        if (mainPBS == PLAYBACK_STATE.PLAYING || finalePBS == PLAYBACK_STATE.PLAYING)
+        {
+            bgmMain.release();
+            bgmMain.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            bgmFinale.release();
+            bgmFinale.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            gameOverLoop = RuntimeManager.CreateInstance("event:/bgm/game_over");
+            gameOverLoop.start();
+        }
     }
 }
