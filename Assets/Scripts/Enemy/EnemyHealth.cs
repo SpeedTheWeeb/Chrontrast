@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class EnemyHealth : MonoBehaviour
     int modifier = 0;
     Color ogColor;
     public SpriteRenderer render;
+    public string sfxEnemyDeath;
+    public string sfxEnemyHurt;
+
     private void Start()
     {
         GameObject crystal = GameObject.Find("Crystal");
@@ -32,6 +36,8 @@ public class EnemyHealth : MonoBehaviour
         Flash();
         if (currentHealth <= 0)
             Die();
+        else
+            RuntimeManager.PlayOneShot(sfxEnemyHurt);
     }
 
     void Flash()
@@ -48,7 +54,7 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy died!");
-
+        RuntimeManager.PlayOneShot(sfxEnemyDeath);
         Destroy(gameObject);
     }
     
