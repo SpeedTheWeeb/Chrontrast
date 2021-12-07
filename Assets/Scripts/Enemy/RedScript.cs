@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class RedScript : MonoBehaviour
     CrystalHP crystalHP;
     bool isArrived = false;
     float timer = 4f;
+    public string sfxEnemyAttack;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +44,7 @@ public class RedScript : MonoBehaviour
         while(isArrived)
         {
             crystalHP.HP(1);
+            RuntimeManager.PlayOneShot(sfxEnemyAttack);
             yield return new WaitForSeconds(timer);
         }
     }
