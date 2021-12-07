@@ -32,7 +32,7 @@ public class WeaponManager : MonoBehaviour
     public GameObject grenadePrefab;    // Holds projectile prefab
     public float grenadeRadius = 3f;    // Range before projectile explodes
     public float splashSpeed = .5f;     // Attacks pr. second
-    public float splashSMod = 0;
+    public float splashDmgMod = 0;
     public float splashASMod = 0;
     // public Animator splashAnim;
 
@@ -99,7 +99,7 @@ public class WeaponManager : MonoBehaviour
                     {
                         MeleeAttack();
                         meleeBool = false;
-                        Invoke("ResetMelee", meleeSpeed * meleeASMod);
+                        Invoke("ResetMelee", meleeSpeed - meleeASMod);
                     }
                     break;
 
@@ -108,7 +108,7 @@ public class WeaponManager : MonoBehaviour
                     {
                         SplashAttack();
                         splashBool = false;
-                        Invoke("ResetSplash", splashSpeed * splashASMod);
+                        Invoke("ResetSplash", splashSpeed - splashASMod);
                     }
                     break;
             }
@@ -127,7 +127,7 @@ public class WeaponManager : MonoBehaviour
                 SniperAttack();
                 sniperSight.enabled = false;
                 sniperBool = false;
-                Invoke("ResetSniper", sniperSpeed * sniperASMod);
+                Invoke("ResetSniper", sniperSpeed - sniperASMod);
             }
         }
 
@@ -323,7 +323,7 @@ public class WeaponManager : MonoBehaviour
                         Debug.Log("event:/sfx/player/past/melee/hit");
                         break;
                 }                
-                enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage * meleeDmgMod);
+                enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage + ((meleeASMod / 100) * meleeDamage));
             }
             else
             {
@@ -357,6 +357,7 @@ public class WeaponManager : MonoBehaviour
         }
         GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
         Grenade g = grenade.GetComponent<Grenade>();
+        g.dmgMod = splashDmgMod;
         g.Move(direction);
     }
 
@@ -386,7 +387,7 @@ public class WeaponManager : MonoBehaviour
                         Debug.Log("event:/sfx/player/past/sniper/hit");
                         break;
                 }
-                enemy.TakeDamage(sniperDamage * sniperDmgMod);
+                enemy.TakeDamage(sniperDamage + ((sniperDmgMod/100)*sniperDamage));
             }            
         }
         else
