@@ -17,7 +17,7 @@ public class WeaponManager : MonoBehaviour
     public GameObject rotatePoint;
     bool puInteract;
     GameObject puHover;
-    public GameObject powerup;
+    public string powerup;
     public bool havePowerup;
 
     public bool trigger;
@@ -265,7 +265,7 @@ public class WeaponManager : MonoBehaviour
     void PickupPowerUp(GameObject col)
     {
         puHover = null;
-        powerup = col.gameObject;
+        powerup = col.gameObject.name;
         havePowerup = true;
 
         Powerup pu = col.GetComponent<Powerup>();

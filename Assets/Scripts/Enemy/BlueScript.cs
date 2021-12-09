@@ -12,13 +12,14 @@ public class BlueScript : MonoBehaviour
     bool isArrived = false;
     public GameObject bullet;
     public float attackSpeed = 4f;
-
+    public bool isFrozen = false;
     public string sfxShoot;
-    
+    SpriteRenderer sprite;
+
     // Update is called once per frame
     void Update()
     {
-        if(forward)
+        if(forward && !isFrozen)
         {
             float vel = speed * Time.deltaTime;
 
@@ -28,13 +29,26 @@ public class BlueScript : MonoBehaviour
 
     IEnumerator Attack()
     {
-        while(isArrived)
+        while(isArrived && !isFrozen)
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
             RuntimeManager.PlayOneShot(sfxShoot);
 
             yield return new WaitForSeconds(attackSpeed);
         }
+    }
+
+    public void Freeze()
+    {
+        isFrozen = true;
+        sprite.color = new Color(152 / 255f, 208 / 255f, 250 / 255f);
+        Invoke("Thaw", 5f);
+    }
+
+    void Thaw()
+    {
+        isFrozen = false;
+        sprite.color = Color.white;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

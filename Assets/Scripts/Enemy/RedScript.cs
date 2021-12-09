@@ -6,14 +6,16 @@ using UnityEngine;
 public class RedScript : MonoBehaviour
 {
     public float speed;
-    float baseSpeed;
+    public float baseSpeed;
     public int stopSpot;
     bool forward = true;
     GameObject Crystal;
     CrystalHP crystalHP;
     bool isArrived = false;
+    public bool isFrozen = false;
     float timer = 4f;
     public string sfxEnemyAttack;
+    SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class RedScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (forward)
+        if (forward && !isFrozen)
         {
             float vel = speed * Time.deltaTime;
 
@@ -37,7 +39,7 @@ public class RedScript : MonoBehaviour
 
     IEnumerator Attack()
     {
-        while(isArrived)
+        while(isArrived && !isFrozen)
         {
             crystalHP.HP(1);
             RuntimeManager.PlayOneShot(sfxEnemyAttack);
@@ -45,6 +47,18 @@ public class RedScript : MonoBehaviour
         }
     }
 
+    public void Freeze()
+    {
+        isFrozen = true;
+        sprite.color = new Color(152 / 255f, 208 / 255f, 250 / 255f);
+        Invoke("Thaw", 5f);
+    }
+
+    void Thaw()
+    {
+        isFrozen = false;
+        sprite.color = Color.white;
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         

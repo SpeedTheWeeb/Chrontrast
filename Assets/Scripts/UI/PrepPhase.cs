@@ -51,7 +51,7 @@ public class PrepPhase : MonoBehaviour
 
         for(int t = 30; t>=0; t--)
         {
-            downTimer.text = Math.Floor(timer).ToString();
+            downTimer.text = t.ToString();
             yield return new WaitForSeconds(1);
         }
 
@@ -99,9 +99,12 @@ public class PrepPhase : MonoBehaviour
             GameObject UtilSpawn = GameObject.Find("PU-Util" + p);
             GameObject DefSpawn = GameObject.Find("PU-Def" + p);
 
-            Instantiate(objStr, StrSpawn.transform.position, Quaternion.identity);
-            Instantiate(objUtil, UtilSpawn.transform.position, Quaternion.identity);
-            Instantiate(objDef, DefSpawn.transform.position, Quaternion.identity);
+            GameObject puStr = Instantiate(objStr, StrSpawn.transform.position, Quaternion.identity);
+            puStr.name = puStr.name.Split('_')[0] + "_P" + p + "Str";
+            GameObject puUtil = Instantiate(objUtil, UtilSpawn.transform.position, Quaternion.identity);
+            puUtil.name = puUtil.name.Split('_')[0] + "_P" + p + "Util";
+            GameObject puDef = Instantiate(objDef, DefSpawn.transform.position, Quaternion.identity);
+            puDef.name = puDef.name.Split('_')[0] + "_P" + p + "Def";
         }
     }
 }
