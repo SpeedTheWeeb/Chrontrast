@@ -20,6 +20,7 @@ public class RedScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         Crystal = GameObject.Find("Crystal");
         crystalHP = (CrystalHP)Crystal.GetComponent("CrystalHP");
         speed = Random.Range(2, 10);

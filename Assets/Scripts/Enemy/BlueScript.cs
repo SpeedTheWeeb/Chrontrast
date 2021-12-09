@@ -16,6 +16,10 @@ public class BlueScript : MonoBehaviour
     public string sfxShoot;
     SpriteRenderer sprite;
 
+    private void Start()
+    {
+        sprite = GetComponent<SpriteRenderer>();
+    }
     // Update is called once per frame
     void Update()
     {
