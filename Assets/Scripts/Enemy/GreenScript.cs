@@ -24,10 +24,6 @@ public class GreenScript : MonoBehaviour
 
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, Random.Range(-10, 11), 0), vel);
         }
-        if(isArrived)
-        {
-            StartCoroutine(Attack());
-        }
     }
     IEnumerator Attack()
     {
@@ -48,8 +44,9 @@ public class GreenScript : MonoBehaviour
         }
         if (other.gameObject.name == "Green Stop")
         {
-            forward = false;
             isArrived = true;
+            forward = false;
+            StartCoroutine(Attack());
         }
     }
 }
