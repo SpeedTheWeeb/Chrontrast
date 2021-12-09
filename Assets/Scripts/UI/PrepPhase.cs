@@ -13,7 +13,7 @@ public class PrepPhase : MonoBehaviour
     public List<GameObject> PUDef;
 
     int nextW = 1;
-    bool isPrep = false;
+    public bool isPrep = false;
     public Text WaveUI;
     public Text downTimer;
     float timer = 30f;

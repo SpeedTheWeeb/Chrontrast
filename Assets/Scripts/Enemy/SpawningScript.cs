@@ -29,7 +29,7 @@ public class SpawningScript : MonoBehaviour
 
     public EventInstance bgmMain;
     public EventInstance bgmFinale;
-    public bool prepPhase = false;
+    public bool prepPhase;
     float phase;
     float choir;
     float brass;
@@ -57,6 +57,7 @@ public class SpawningScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        prepPhase = GameObject.Find("InitObj").GetComponent<PrepPhase>().isPrep;
         BGM();
     }
     public void InitWave(int Wave)

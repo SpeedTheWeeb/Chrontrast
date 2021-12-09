@@ -21,18 +21,21 @@ public class MainMenu : MonoBehaviour
     {
         if(playbackState != PLAYBACK_STATE.STOPPED)
             bgmLoop.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        RuntimeManager.PlayOneShot("event:/sfx/menu/start");
         SceneManager.LoadScene("Game Scene");
     }
     public void PlayTutorial ()
     {
         if(playbackState != PLAYBACK_STATE.STOPPED)
             bgmLoop.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        RuntimeManager.PlayOneShot("event:/sfx/menu/start");
         SceneManager.LoadScene("Tutorial Scene");
     }
 
     public void QuitGame () 
     {
         Debug.Log ("QUIT");
+        RuntimeManager.PlayOneShot("event:/sfx/menu/click");
         Application.Quit();
     }
 }
