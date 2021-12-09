@@ -265,6 +265,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Exists: 0
+--- !u!114 &-8546934051299362748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/main/Choir
+  m_EditorClassIdentifier: 
+  Name: Choir
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 0
 --- !u!114 &-8540400576790871620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,6 +952,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Exists: 0
+--- !u!114 &-7044135549780588530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/main/Brass
+  m_EditorClassIdentifier: 
+  Name: Brass
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-7019298663528793967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1586,10 +1630,10 @@ MonoBehaviour:
   Path: FMOD/Chrontrast/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637744815339294810
+  lastModified: 637746477541898663
   FileSizes:
   - Name: Desktop
-    Value: 3506
+    Value: 3186
   Exists: 1
 --- !u!114 &-5825762259257981844
 MonoBehaviour:
@@ -2256,6 +2300,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 117333
+--- !u!114 &-4339043142533875633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/main/Prep-Wave
+  m_EditorClassIdentifier: 
+  Name: Prep-Wave
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-4245981782396092284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3873,6 +3939,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Exists: 0
+--- !u!114 &-1066524370612740941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/main/Harp
+  m_EditorClassIdentifier: 
+  Name: Harp
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 0
 --- !u!114 &-1034362788671029276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4440,12 +4528,10 @@ MonoBehaviour:
   - {fileID: -5884119342570104837}
   - {fileID: 6153354532819145612}
   EditorEvents:
-  - {fileID: 6074918711361321003}
   - {fileID: 520243604460976508}
   - {fileID: -4225788217825789728}
   - {fileID: -2490095407123045396}
   - {fileID: 7851652050634393328}
-  - {fileID: -5771614404191307230}
   - {fileID: 4578438121778900949}
   - {fileID: -5774098820704333876}
   - {fileID: 7919268548374014907}
@@ -4453,16 +4539,12 @@ MonoBehaviour:
   - {fileID: 7357278584118897170}
   - {fileID: 3766688572699559807}
   - {fileID: 6552617524683048256}
-  - {fileID: 8290208727394949681}
-  - {fileID: -2708155359005606908}
   - {fileID: 363008098674595724}
   - {fileID: -6959658475809855743}
   - {fileID: -7532901558625087769}
   - {fileID: -5064861699683709637}
   - {fileID: 7655525100926609592}
   - {fileID: 2748480581682967143}
-  - {fileID: -3771125614874605529}
-  - {fileID: 8646864976722962867}
   - {fileID: 8350219401001373274}
   - {fileID: -7935430206814819836}
   - {fileID: 602967454937292200}
@@ -4472,7 +4554,6 @@ MonoBehaviour:
   - {fileID: -4541813109988872710}
   - {fileID: 2687624191890837222}
   - {fileID: -2264255634447452663}
-  - {fileID: -838070242303552088}
   - {fileID: 5295133246512541329}
   - {fileID: 9212040618479830647}
   - {fileID: 2228580022177915371}
@@ -4493,7 +4574,6 @@ MonoBehaviour:
   - {fileID: 8919625915160562181}
   - {fileID: -2936534174407654098}
   - {fileID: -3996087702505138171}
-  - {fileID: -1952277496045478346}
   - {fileID: 3595676532687088397}
   - {fileID: 717767395380158487}
   - {fileID: -3949445877702405290}
@@ -4502,7 +4582,7 @@ MonoBehaviour:
   - {fileID: 6153354532819145612}
   StringsBanks:
   - {fileID: -5884119342570104837}
-  stringsBankWriteTime: 637744815339294810
+  stringsBankWriteTime: 637746477541898663
   cacheVersion: 8
 --- !u!114 &6828235625407079
 MonoBehaviour:
@@ -4924,10 +5004,10 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 4679094815939112513}
-  - {fileID: 3748053887751448103}
-  - {fileID: 5887676531357405723}
-  - {fileID: 3836793565001712583}
+  - {fileID: 4401546406936270804}
+  - {fileID: -4339043142533875633}
+  - {fileID: 6841289708526338664}
+  - {fileID: -7044135549780588530}
   MinDistance: 0
   MaxDistance: 0
   Length: 14666
@@ -6171,6 +6251,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Exists: 0
+--- !u!114 &3278747093004045001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/main/Brass
+  m_EditorClassIdentifier: 
+  Name: Brass
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 0
 --- !u!114 &3383236162058469400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6658,6 +6760,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Exists: 0
+--- !u!114 &4401546406936270804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/main/Harp
+  m_EditorClassIdentifier: 
+  Name: Harp
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &4404871315166260426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7314,10 +7438,10 @@ MonoBehaviour:
   Path: FMOD/Chrontrast/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637744815339259778
+  lastModified: 637746477541888701
   FileSizes:
   - Name: Desktop
-    Value: 13082304
+    Value: 13077472
   Exists: 1
 --- !u!114 &6186150080176648090
 MonoBehaviour:
@@ -7629,6 +7753,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Exists: 0
+--- !u!114 &6841289708526338664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/main/Choir
+  m_EditorClassIdentifier: 
+  Name: Choir
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &6873504301663642472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7775,6 +7921,28 @@ MonoBehaviour:
   m_Name: parameter:/main/Choir
   m_EditorClassIdentifier: 
   Name: Choir
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 0
+--- !u!114 &7237347364510382919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/main/Prep-Wave
+  m_EditorClassIdentifier: 
+  Name: Prep-Wave
   Min: 0
   Max: 1
   Default: 0
