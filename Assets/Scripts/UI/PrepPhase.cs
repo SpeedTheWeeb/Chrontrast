@@ -43,10 +43,6 @@ public class PrepPhase : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(isPrep)
-        {
-            StartCoroutine(Countdown());
-        }
     }
 
     IEnumerator Countdown()
@@ -60,12 +56,6 @@ public class PrepPhase : MonoBehaviour
         }
 
         downTimer.enabled = false;
-        GameObject[] destroyPU = GameObject.FindGameObjectsWithTag("PowerUp");
-
-        for(int p = 0; p < destroyPU.Length; p++)
-        {
-            Destroy(destroyPU[p]);
-        }
 
         nextWave();
 
@@ -75,6 +65,7 @@ public class PrepPhase : MonoBehaviour
     {
         nextW = spawnWave.currentWave + 1;
         isPrep = true;
+        StartCoroutine(Countdown());
         PowerupSpawn.SetActive(true);
         SpawnPowerUp();
     }
