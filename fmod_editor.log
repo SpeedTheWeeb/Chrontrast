@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000020722C6A178 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001F3E1020058 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -20,216 +20,72 @@
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 3
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 13005088
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 72384
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 13618400
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 82880
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000B05A69F498
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000001A010AF5D8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFD34AC60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFD34AC60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD34AC61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD34AC6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002069C279318
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFD64FA60E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFD64FA60B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD64FA61B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD64FA6270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001F4535780E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='CrystalHit', format=5, channels=2, frequency=48000, lengthbytes=34304, lengthpcm=97802, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.997955.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 13005088
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 72384
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000B05A69F498
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFD34AC60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFD34AC60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD34AC61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD34AC6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002069C278AD8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='SnipershotV3', format=5, channels=2, frequency=48000, lengthbytes=9120, lengthpcm=101564, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.841797.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 13005088
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 72384
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000B05A69F498
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFD34AC60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFD34AC60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD34AC61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD34AC6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002069C278AD8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='SP FutSniper Shoot', format=5, channels=2, frequency=48000, lengthbytes=16512, lengthpcm=97802, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.484467.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 13005088
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 72384
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000B05A69F498
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFD34AC60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFD34AC60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD34AC61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD34AC6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000207484F11E8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='SP PastSniper Shoot', format=5, channels=2, frequency=48000, lengthbytes=5312, lengthpcm=25344, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.968811.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 13005088
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 72384
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000B05A69F498
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFD34AC60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFD34AC60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD34AC61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD34AC6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002069C595208
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='SP FutRammer Shoot', format=5, channels=2, frequency=48000, lengthbytes=20832, lengthpcm=114102, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.445374.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 13005088
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 72384
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000B05A69F498
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFD34AC60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFD34AC60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD34AC61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD34AC6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000020698D0E9B8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Hundevrøvlwav', format=5, channels=1, frequency=48000, lengthbytes=319616, lengthpcm=1877054, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999603.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 13005088
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 72384
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000B05A69F498
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFD34AC60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFD34AC60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD34AC61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD34AC6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000207474301E8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='fireball_blast_projectile_spell_01', format=5, channels=2, frequency=48000, lengthbytes=18432, lengthpcm=76032, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 13005088
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 72384
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000B05A69F498
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFD34AC60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFD34AC60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD34AC61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD34AC6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000207474301E8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='MovingAir', format=5, channels=2, frequency=48000, lengthbytes=95552, lengthpcm=481488, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.437347.
-[LOG] SoundI::release                          :  (00000206997DFC98)
-[LOG] SoundI::release                          :     Hundevrøvlwav (000002074A23B308)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 13005088
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 72384
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000B05A69F498
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFD34AC60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFD34AC60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD34AC61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD34AC6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000020698D0E9B8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Hundevrøvlwav', format=5, channels=1, frequency=48000, lengthbytes=319616, lengthpcm=1877054, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999603.
-[LOG] SoundI::release                          :  (00000206997E2C08)
-[LOG] SoundI::release                          :     Hundevrøvlwav (000002074A23AE28)
-[LOG] SoundI::release                          :  (0000020723578D88)
-[LOG] SoundI::release                          :     SP Finale SNES 5 Harp (00000206BD21BB48)
-[LOG] SoundI::release                          :  (0000020723578378)
-[LOG] SoundI::release                          :     SP Finale SNES 4 Brass (00000206993DABD8)
-[LOG] SoundI::release                          :  (000002069C8B41E8)
-[LOG] SoundI::release                          :     SP Finale Synth 2 Bass (0000020693B7E3A8)
-[LOG] SoundI::release                          :  (0000020723578C18)
-[LOG] SoundI::release                          :     SP Finale Synth 3 Choir (00000206BD16F3E8)
-[LOG] SoundI::release                          :  (0000020697CF24E8)
-[LOG] SoundI::release                          :     SP Finale SNES 3 Choir (00000206993DA6F8)
-[LOG] SoundI::release                          :  (0000020723578098)
-[LOG] SoundI::release                          :     SP Finale SNES 2 Bass (0000020693B15DF8)
-[LOG] SoundI::release                          :  (0000020722A5C9C8)
-[LOG] SoundI::release                          :     SP Finale SNES 1 Drums (0000020693B15F98)
-[LOG] SoundI::release                          :  (000002069C8B4358)
-[LOG] SoundI::release                          :     SP Finale Synth 1 Drums (00000206993E1238)
-[LOG] SoundI::release                          :  (0000020723578AA8)
-[LOG] SoundI::release                          :     SP Finale Synth 4 Brass (00000206BD21B668)
-[LOG] SoundI::release                          :  (0000020697CF2658)
-[LOG] SoundI::release                          :     SP Finale Synth 5 Harp (00000206993E1718)
-[LOG] SoundI::release                          :  (00000206BD37A848)
-[LOG] SoundI::release                          :     SP PastSniper Shoot (000002074A23AAE8)
-[LOG] SoundI::release                          :  (0000020722A5CB38)
-[LOG] SoundI::release                          :     SnipershotV3 (000002074A23A948)
-[LOG] SoundI::release                          :  (0000020722A5D268)
-[LOG] SoundI::release                          :     SP FutSniper Shoot (000002074A238588)
-[LOG] SoundI::release                          :  (000002074692B348)
-[LOG] SoundI::release                          :     MovingAir (000002074A238728)
-[LOG] SoundI::release                          :  (000002074692B628)
-[LOG] SoundI::release                          :     fireball_blast_projectile_spell_01 (000002074A2383E8)
-[LOG] SoundI::release                          :  (0000020697F98278)
-[LOG] SoundI::release                          :     FuturePickUp (0000020693B7FDA8)
-[LOG] SoundI::release                          :  (0000020722A5C578)
-[LOG] SoundI::release                          :     SP FutRammer Shoot (000002074A239908)
-[LOG] SoundI::release                          :  (0000020697F98108)
-[LOG] SoundI::release                          :     SP Synth 1 Drums (0000020693B7E888)
-[LOG] SoundI::release                          :  (0000020723578658)
-[LOG] SoundI::release                          :     SP Synth 3 Choir (00000206BD21B4C8)
-[LOG] SoundI::release                          :  (00000207235784E8)
-[LOG] SoundI::release                          :     SP Synth 4 Brass (00000206BD170AA8)
-[LOG] SoundI::release                          :  (0000020722A5CCA8)
-[LOG] SoundI::release                          :     SP SNES 5 Harp (0000020693B162D8)
-[LOG] SoundI::release                          :  (00000207235787C8)
-[LOG] SoundI::release                          :     SP SNES 1 Drums (00000206BD1705C8)
-[LOG] SoundI::release                          :  (000002069C8B4638)
-[LOG] SoundI::release                          :     SP Synth 5 Harp (0000020693B7E208)
-[LOG] SoundI::release                          :  (0000020697F989A8)
-[LOG] SoundI::release                          :     SP SNES 2 Bass (0000020693B7F728)
-[LOG] SoundI::release                          :  (0000020697CF2378)
-[LOG] SoundI::release                          :     SP SNES 4 Brass (00000206993DBDB8)
-[LOG] SoundI::release                          :  (0000020697CF2098)
-[LOG] SoundI::release                          :     SP SNES 3 Choir (00000206993DA078)
-[LOG] SoundI::release                          :  (0000020697F97F98)
-[LOG] SoundI::release                          :     SP Synth 2 Bass (0000020693B7F8C8)
-[LOG] SoundI::release                          :  (0000020722A5C6E8)
-[LOG] SoundI::release                          :     CrystalHit (000002074A239768)
-[LOG] SoundI::release                          :  (0000020697F97CB8)
-[LOG] SoundI::release                          :     PastPickUp (0000020693B7F248)
-[LOG] SoundI::release                          :  (0000020723578208)
-[LOG] SoundI::release                          :     FutureThrow (00000206BD21B188)
-[LOG] SoundI::release                          :  (0000020723578938)
-[LOG] SoundI::release                          :     PastThrow (00000206BD170C48)
-[LOG] SoundI::release                          :  (0000020697CF2208)
-[LOG] SoundI::release                          :     ThrowGrunts (00000206993DA3B8)
+[LOG] SoundI::release                          :  (000001F452FDBA48)
+[LOG] SoundI::release                          :     SP Finale SNES 5 Harp (000001F42E964128)
+[LOG] SoundI::release                          :  (000001F452FDCFD8)
+[LOG] SoundI::release                          :     SP Finale SNES 4 Brass (000001F42E963F88)
+[LOG] SoundI::release                          :  (000001F4B8402348)
+[LOG] SoundI::release                          :     SP Finale Synth 2 Bass (000001F42E963428)
+[LOG] SoundI::release                          :  (000001F452FDCCF8)
+[LOG] SoundI::release                          :     SP Finale Synth 3 Choir (000001F42E964468)
+[LOG] SoundI::release                          :  (000001F452FDB8D8)
+[LOG] SoundI::release                          :     SP Finale SNES 3 Choir (000001F42E964AE8)
+[LOG] SoundI::release                          :  (000001F452FDD148)
+[LOG] SoundI::release                          :     SP Finale SNES 2 Bass (000001F42E9647A8)
+[LOG] SoundI::release                          :  (000001F4287569A8)
+[LOG] SoundI::release                          :     SP Finale SNES 1 Drums (000001F42E964C88)
+[LOG] SoundI::release                          :  (000001F4B84014E8)
+[LOG] SoundI::release                          :     SP Finale Synth 1 Drums (000001F42E963908)
+[LOG] SoundI::release                          :  (000001F452FDA798)
+[LOG] SoundI::release                          :     SP Finale Synth 4 Brass (000001F42E967528)
+[LOG] SoundI::release                          :  (000001F4B8401658)
+[LOG] SoundI::release                          :     SP Finale Synth 5 Harp (000001F42E966348)
+[LOG] SoundI::release                          :  (000001F430F7C008)
+[LOG] SoundI::release                          :     CrystalHit (000001F42E965168)
+[LOG] SoundI::release                          :  (000001F4B84031A8)
+[LOG] SoundI::release                          :     PastPickUp (000001F42E964608)
+[LOG] SoundI::release                          :  (000001F452FDAA78)
+[LOG] SoundI::release                          :     FutureThrow (000001F42E965B28)
+[LOG] SoundI::release                          :  (000001F4B8401378)
+[LOG] SoundI::release                          :     FuturePickUp (000001F42E963288)
+[LOG] SoundI::release                          :  (000001F4B8401208)
+[LOG] SoundI::release                          :     SP Synth 1 Drums (000001F42E9630E8)
+[LOG] SoundI::release                          :  (000001F452FDC8A8)
+[LOG] SoundI::release                          :     SP Synth 3 Choir (000001F42E966B68)
+[LOG] SoundI::release                          :  (000001F452FDABE8)
+[LOG] SoundI::release                          :     SP Synth 4 Brass (000001F42E966688)
+[LOG] SoundI::release                          :  (000001F428756C88)
+[LOG] SoundI::release                          :     SP SNES 5 Harp (000001F42E9671E8)
+[LOG] SoundI::release                          :  (000001F452FDC178)
+[LOG] SoundI::release                          :     SP SNES 1 Drums (000001F42E9642C8)
+[LOG] SoundI::release                          :  (000001F4B84021D8)
+[LOG] SoundI::release                          :     SP Synth 5 Harp (000001F42E9616E8)
+[LOG] SoundI::release                          :  (000001F4B83FF828)
+[LOG] SoundI::release                          :     SP SNES 2 Bass (000001F42E961BC8)
+[LOG] SoundI::release                          :  (000001F4B8402908)
+[LOG] SoundI::release                          :     SP SNES 4 Brass (000001F42E963DE8)
+[LOG] SoundI::release                          :  (000001F4B84024B8)
+[LOG] SoundI::release                          :     SP SNES 3 Choir (000001F42E963AA8)
+[LOG] SoundI::release                          :  (000001F4B8400DB8)
+[LOG] SoundI::release                          :     SP Synth 2 Bass (000001F42E962F48)
+[LOG] SoundI::release                          :  (000001F452FDB318)
+[LOG] SoundI::release                          :     PastThrow (000001F42E964E28)
+[LOG] SoundI::release                          :  (000001F4B8402798)
+[LOG] SoundI::release                          :     ThrowGrunts (000001F42E963C48)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
