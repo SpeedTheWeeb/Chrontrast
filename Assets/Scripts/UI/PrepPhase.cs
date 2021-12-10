@@ -76,7 +76,10 @@ public class PrepPhase : MonoBehaviour
 
         for(int pu = 0; pu < AllPowerUps.Length; pu++)
         {
-            Destroy(AllPowerUps[pu]);
+            if (!AllPowerUps[pu].name.Contains("Clone"))
+            {
+                Destroy(AllPowerUps[pu]);
+            }
         }
         PowerupSpawn.SetActive(false);
         isPrep = false;

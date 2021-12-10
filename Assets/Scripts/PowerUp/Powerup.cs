@@ -30,7 +30,7 @@ public class Powerup : MonoBehaviour
         GetPowerup();
         foreach (GameObject game in objects)
         {
-            if (game.name.Contains(player.name))
+            if (game.name.Contains(player.name) && !game.name.Contains("Clone"))
             {
                 Destroy(game);
             }

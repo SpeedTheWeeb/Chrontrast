@@ -40,7 +40,7 @@ public class RedScript : MonoBehaviour
 
     IEnumerator Attack()
     {
-        while(isArrived && !isFrozen)
+        while(isArrived)
         {
             crystalHP.HP(1);
             RuntimeManager.PlayOneShot(sfxEnemyAttack);
@@ -52,6 +52,7 @@ public class RedScript : MonoBehaviour
     {
         isFrozen = true;
         sprite.color = new Color(152 / 255f, 208 / 255f, 250 / 255f);
+        StopCoroutine(Attack());
         Invoke("Thaw", 5f);
     }
 
@@ -59,6 +60,7 @@ public class RedScript : MonoBehaviour
     {
         isFrozen = false;
         sprite.color = Color.white;
+        StartCoroutine(Attack());
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

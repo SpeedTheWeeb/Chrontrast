@@ -35,6 +35,7 @@ public class GreenScript : MonoBehaviour
     {
         isFrozen = true;
         sprite.color = new Color(152 / 255f, 208 / 255f, 250 / 255f);
+        StopCoroutine(Attack());
         Invoke("Thaw", 5f);
     }
 
@@ -42,11 +43,12 @@ public class GreenScript : MonoBehaviour
     {
         isFrozen = false;
         sprite.color = Color.white;
+        StartCoroutine(Attack());
     }
 
     IEnumerator Attack()
     {
-        while (isArrived && !isFrozen)
+        while (isArrived)
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
             RuntimeManager.PlayOneShot(sfxShoot);

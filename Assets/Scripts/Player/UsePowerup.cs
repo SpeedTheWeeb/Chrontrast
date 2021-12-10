@@ -19,7 +19,6 @@ public class UsePowerup : MonoBehaviour
     {
         if(Input.GetButtonDown("PU"+playerNumber))
         {
-            Debug.Log("Using PU");
             Use();
         }
     }
@@ -44,6 +43,16 @@ public class UsePowerup : MonoBehaviour
             
             info.powerup = null;
             info.havePowerup = false;
+        }
+
+        GameObject[] Pu = GameObject.FindGameObjectsWithTag("PowerUp");
+
+        foreach(GameObject p in Pu)
+        {
+            if(p.name.Contains(info.playerNumber.ToString()))
+            {
+                Destroy(p);
+            }
         }
     }
 

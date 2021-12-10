@@ -33,7 +33,7 @@ public class BlueScript : MonoBehaviour
 
     IEnumerator Attack()
     {
-        while(isArrived && !isFrozen)
+        while(isArrived)
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
             RuntimeManager.PlayOneShot(sfxShoot);
@@ -46,6 +46,7 @@ public class BlueScript : MonoBehaviour
     {
         isFrozen = true;
         sprite.color = new Color(152 / 255f, 208 / 255f, 250 / 255f);
+        StopCoroutine(Attack());
         Invoke("Thaw", 5f);
     }
 
@@ -53,6 +54,7 @@ public class BlueScript : MonoBehaviour
     {
         isFrozen = false;
         sprite.color = Color.white;
+        StartCoroutine(Attack());
     }
 
     private void OnTriggerEnter2D(Collider2D other)
