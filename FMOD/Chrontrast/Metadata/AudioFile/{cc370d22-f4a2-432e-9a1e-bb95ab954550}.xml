@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{cc370d22-f4a2-432e-9a1e-bb95ab954550}">
+		<property name="assetPath">
+			<value>sword_hit_impact_heavy_05.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.67200000000000004</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3ee9d415-89d8-414e-9d36-ac3ff5d298f2}</destination>
+		</relationship>
+	</object>
+</objects>
