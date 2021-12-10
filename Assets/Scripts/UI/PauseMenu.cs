@@ -15,6 +15,7 @@ public class PauseMenu : MonoBehaviour
     PLAYBACK_STATE goPBS;
     PLAYBACK_STATE mainPBS;
     PLAYBACK_STATE finalePBS;
+    PLAYBACK_STATE tutPBS;
 
     void Update()
     {
@@ -46,16 +47,16 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1f;
         StopMusic();
         SceneManager.LoadScene("Game Scene");
-        Time.timeScale = 1f;
     }
 
     public void LoadMainMenu()
     {
+        Time.timeScale = 1f;
         StopMusic();
         SceneManager.LoadScene("main menu");
-        Time.timeScale = 1f;
     }
 
     public void QuitGame()
@@ -65,16 +66,21 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
-    void StopMusic()
+    public void StopMusic()
     {
         EventInstance bgmMain = FindObjectOfType<SpawningScript>().bgmMain;
         bgmMain.getPlaybackState(out mainPBS);
+
         EventInstance bgmFinale = FindObjectOfType<SpawningScript>().bgmFinale;
         bgmFinale.getPlaybackState(out finalePBS);
+
         EventInstance gameOverLoop = FindObjectOfType<CrystalHP>().gameOverLoop;
         gameOverLoop.getPlaybackState(out goPBS);
 
-        if (mainPBS == PLAYBACK_STATE.PLAYING || finalePBS == PLAYBACK_STATE.PLAYING || goPBS == PLAYBACK_STATE.PLAYING)
+        EventInstance bgmTut = FindObjectOfType<TutorialBGM>().bgmTut;
+        bgmTut.getPlaybackState(out tutPBS);
+
+        if (mainPBS == PLAYBACK_STATE.PLAYING || finalePBS == PLAYBACK_STATE.PLAYING || goPBS == PLAYBACK_STATE.PLAYING || tutPBS == PLAYBACK_STATE.PLAYING)
         {
             bgmMain.release();
             bgmMain.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -82,6 +88,8 @@ public class PauseMenu : MonoBehaviour
             bgmFinale.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             gameOverLoop.release();
             gameOverLoop.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            bgmTut.release();
+            bgmTut.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
     }
 }
