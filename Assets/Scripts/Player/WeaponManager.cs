@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using UnityEngine.UI;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class WeaponManager : MonoBehaviour
     GameObject puHover;
     public string powerup;
     public bool havePowerup;
+
+
+    public Image imageShow;
 
     public bool trigger;
     private GameObject weaponHover;
@@ -59,6 +63,7 @@ public class WeaponManager : MonoBehaviour
 
     EventInstance sfxPickup; // FMOD Pickup SFX
     EventInstance sfxThrow; //FMOD Throw SFX
+    EventInstance sfxPowerup; // FMOD PowerUp SFX
 
     bool meleeBool = true;
     bool splashBool = true;
@@ -73,6 +78,8 @@ public class WeaponManager : MonoBehaviour
                 RuntimeManager.AttachInstanceToGameObject(sfxPickup, transform, GetComponent<Rigidbody2D>());
                 sfxThrow = RuntimeManager.CreateInstance("event:/sfx/player/future/throw");
                 RuntimeManager.AttachInstanceToGameObject(sfxThrow, transform, GetComponent<Rigidbody2D>());
+                sfxPowerup = RuntimeManager.CreateInstance("event:/sfx/player/future/powerup");
+                RuntimeManager.AttachInstanceToGameObject(sfxPowerup, transform, GetComponent<Rigidbody2D>());
                 break;
 
             case 2:
@@ -80,6 +87,8 @@ public class WeaponManager : MonoBehaviour
                 RuntimeManager.AttachInstanceToGameObject(sfxPickup, transform, GetComponent<Rigidbody2D>());
                 sfxThrow = RuntimeManager.CreateInstance("event:/sfx/player/past/throw");
                 RuntimeManager.AttachInstanceToGameObject(sfxThrow, transform, GetComponent<Rigidbody2D>());
+                sfxPowerup = RuntimeManager.CreateInstance("event:/sfx/player/past/powerup");
+                RuntimeManager.AttachInstanceToGameObject(sfxPowerup, transform, GetComponent<Rigidbody2D>());
                 break;
         }           
     }
@@ -135,15 +144,9 @@ public class WeaponManager : MonoBehaviour
 
         //Drop
         if (Input.GetButtonDown("Drop" + playerNumber))
-        {
-            if (!alreadyHolding)
-            {
-                sfxPickup.start();
-            }
-            
+        {           
             if (alreadyHolding)
             {
-
                 if (itemName.Contains("Chip"))
                 {
                     switch (weaponType)
@@ -208,16 +211,17 @@ public class WeaponManager : MonoBehaviour
                             break;
                     }
                 }
-
                 sfxThrow.start();
             }
             else if (trigger)
             {
-                ChooseWeapon(weaponHover);                
+                ChooseWeapon(weaponHover);
+                sfxPickup.start();
             }
             else if (puInteract)
             {
                 PickupPowerUp(puHover);
+                sfxPowerup.start();
             }
         }
     }
@@ -264,14 +268,24 @@ public class WeaponManager : MonoBehaviour
     }
     void PickupPowerUp(GameObject col)
     {
-        puHover = null;
+        
         powerup = col.gameObject.name;
         havePowerup = true;
-
+        ShowPower(col.gameObject);
         Powerup pu = col.GetComponent<Powerup>();
         pu.player = gameObject;
         pu.activatePU();
+        
+        puHover = null;
     }
+    void ShowPower(GameObject obj)
+    {
+            GameObject showingPower = Instantiate(obj, imageShow.transform.position, Quaternion.identity);
+            showingPower.transform.localScale = new Vector3(transform.localScale.x * 3, transform.localScale.y * 3);
+
+
+    }
+
     void ChooseWeapon(GameObject weapon)
     {
         itemName = weapon.GetComponent<SpriteRenderer>().sprite.name;

@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class UsePowerup : MonoBehaviour
 {
     public GameObject Glue;
     public int playerNumber;
     WeaponManager info;
-
+    public Image freezeImg;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +49,7 @@ public class UsePowerup : MonoBehaviour
 
     void Freeze()
     {
+        freezeImg.enabled = true;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject enemy in enemies)
         {
@@ -68,6 +69,12 @@ public class UsePowerup : MonoBehaviour
                 red.Freeze();
             }                
         }
+        Invoke("StopFreeze", 5f);
+    }
+
+    void StopFreeze()
+    {
+        freezeImg.enabled = false;
     }
 
     void SpawnGlue()

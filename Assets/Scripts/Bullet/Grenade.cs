@@ -29,13 +29,8 @@ public class Grenade : MonoBehaviour
     public void Move(Vector2 dir)
     {
         r2d.velocity = dir * speed;
+        Invoke("Detonate", 0.5f);
     }
-
-    public void AddMod(float mod)
-    {
-        dmgMod = mod;
-    }
-
     public void Explosive()
     {        
         Collider2D[] splashEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, enemyMask);

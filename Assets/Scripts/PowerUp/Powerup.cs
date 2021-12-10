@@ -63,12 +63,14 @@ public class Powerup : MonoBehaviour
                 weapon.splashASMod +=  5f;
                 weapon.meleeASMod +=  3f;
                 weapon.powerup = null;
+                weapon.havePowerup = false;
                 break;
             case "Stronger":
                 weapon.sniperDmgMod += 2f;
                 weapon.splashDmgMod += 20f;
                 weapon.meleeDmgMod +=  5f;
                 weapon.powerup = null;
+                weapon.havePowerup = false;
                 break;
         }
     }
@@ -94,9 +96,12 @@ public class Powerup : MonoBehaviour
                 hp.crystalhealth = hp.crystalhealth + 20;
                 hp.UpdateHealth();
                 weapon.powerup = null;
+                weapon.havePowerup = false;
                 break;
             case "Repair":
                 break;
         }
     }
+
+
 }
