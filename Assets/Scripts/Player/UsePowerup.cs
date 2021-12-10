@@ -58,7 +58,8 @@ public class UsePowerup : MonoBehaviour
 
     void Freeze()
     {
-        freezeImg.enabled = true;
+        StartCoroutine(FadeIn());
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject enemy in enemies)
         {
@@ -78,12 +79,33 @@ public class UsePowerup : MonoBehaviour
                 red.Freeze();
             }                
         }
-        Invoke("StopFreeze", 5f);
+        Invoke("StopFreeze", 3f);
     }
 
     void StopFreeze()
     {
-        freezeImg.enabled = false;
+        StartCoroutine(FadeOut());
+    }
+
+    IEnumerator FadeIn()
+    {
+        var color = freezeImg.color;
+        color.a = 0.5f;
+        freezeImg.color = color;
+        yield return null;
+    }
+
+    IEnumerator FadeOut()
+    {
+        var color = freezeImg.color;
+        float i = 0.5f;
+        while (i > 0)
+        {
+            color.a = i;
+            freezeImg.color = color;
+            i -= 0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     void SpawnGlue()

@@ -24,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
         {
             modifier += 10;
         }
-        currentHealth = maxHealth + ((modifier/maxHealth)*100);
+        currentHealth = maxHealth + ((modifier/maxHealth));
         render = GetComponent<SpriteRenderer>();
         ogColor = render.color;
     }
@@ -45,12 +45,23 @@ public class EnemyHealth : MonoBehaviour
     {
         Color col = new Color(255/255f, 125/255f, 125/255f);
         render.color = col;
-        Invoke("ResetFlash", 0.3f);
+        StartCoroutine(ResetFlash());
     }
-    private void ResetFlash()
+    IEnumerator ResetFlash()
     {
-        render.color = ogColor;
+        float i = 0.4f;
+        while(i < 1.1)
+        {
+            render.color = new Color(1,i,i);
+            i += 0.2f;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
+
+    //private void ResetFlash()
+    //{
+    //    render.color = ogColor;
+    //}
 
     void Die()
     {
