@@ -21,6 +21,15 @@ public class WeaponManager : MonoBehaviour
     public string powerup;
     public bool havePowerup;
 
+    public Text txtDmg1;
+    public Text txtATS1;
+    public Text txtDmg2;
+    public Text txtATS2;
+
+    int dmgP1 = 0;
+    int atsP1 = 0;
+    int dmgP2 = 0;
+    int atsP2 = 0;
 
     public Image imageShow;
 
@@ -284,7 +293,41 @@ public class WeaponManager : MonoBehaviour
             GameObject showingPower = Instantiate(obj, imageShow.transform.position, Quaternion.identity);
             showingPower.transform.localScale = new Vector3(obj.transform.localScale.x * 3, obj.transform.localScale.y * 3);
         }
+        else if(obj.name.Contains("Str"))
+        {
+            switch(obj.name.Split('_')[0])
+            {
+                case "ATS":
+                    switch(playerNumber)
+                    {
+                        case 1:
+                            atsP1++;
+                            txtATS1.text = "ATS: " + atsP1;
+                            break;
 
+                        case 2:
+                            atsP2++;
+                            txtATS2.text = "ATS: " + atsP2;
+                            break;
+                    }
+                    break;
+
+                case "Stronger":
+                    switch (playerNumber)
+                    {
+                        case 1:
+                            dmgP1++;
+                            txtDmg1.text = "DMG: " + dmgP1;
+                            break;
+
+                        case 2:
+                            dmgP2++;
+                            txtDmg2.text = "DMG: " + dmgP2;
+                            break;
+                    }
+                    break;
+            }
+        }
 
     }
 
