@@ -14,6 +14,7 @@ public class Grenade : MonoBehaviour
     public float directHit = 5f;            // added damage from the projectile itself (unused)
     public Rigidbody2D r2d;                 // Reference to Rigidbody2D
     public float dmgMod = 0;
+
     private void Update()
     {
 
@@ -22,6 +23,16 @@ public class Grenade : MonoBehaviour
 
     void Detonate()
     {
+        switch (gameObject.name)
+        {
+            case "Rocket":
+                RuntimeManager.PlayOneShot("event:/sfx/player/future/explosive/explode");
+                break;
+
+            case "Fireball":
+                RuntimeManager.PlayOneShot("event:/sfx/player/past/explosive/explode");
+                break;
+        }
         Explosive();
         Destroy(gameObject);
     }
@@ -32,7 +43,7 @@ public class Grenade : MonoBehaviour
         Invoke("Detonate", 0.5f);
     }
     public void Explosive()
-    {        
+    {           
         Collider2D[] splashEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, enemyMask);
 
         foreach (Collider2D enemy in splashEnemies)
@@ -50,7 +61,17 @@ public class Grenade : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if(hitInfo.CompareTag("Enemy"))
+        switch (gameObject.name)
+        {
+            case "Rocket":
+                RuntimeManager.PlayOneShot("event:/sfx/player/future/explosive/explode");
+                break;
+
+            case "Fireball":
+                RuntimeManager.PlayOneShot("event:/sfx/player/past/explosive/explode");
+                break;
+        }
+        if (hitInfo.CompareTag("Enemy"))
         {
             if (explosionRadius > 0)
             {            
