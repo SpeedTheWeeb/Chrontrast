@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using UnityEngine.UI;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class WeaponManager : MonoBehaviour
     GameObject puHover;
     public string powerup;
     public bool havePowerup;
+
+
+    public Image imageShow;
 
     public bool trigger;
     private GameObject weaponHover;
@@ -264,14 +268,24 @@ public class WeaponManager : MonoBehaviour
     }
     void PickupPowerUp(GameObject col)
     {
-        puHover = null;
+        
         powerup = col.gameObject.name;
         havePowerup = true;
-
+        ShowPower(col.gameObject);
         Powerup pu = col.GetComponent<Powerup>();
         pu.player = gameObject;
         pu.activatePU();
+        
+        puHover = null;
     }
+    void ShowPower(GameObject obj)
+    {
+            GameObject showingPower = Instantiate(obj, imageShow.transform.position, Quaternion.identity);
+            showingPower.transform.localScale = new Vector3(transform.localScale.x * 3, transform.localScale.y * 3);
+
+
+    }
+
     void ChooseWeapon(GameObject weapon)
     {
         itemName = weapon.GetComponent<SpriteRenderer>().sprite.name;
