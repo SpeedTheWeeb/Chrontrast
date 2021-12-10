@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UsePowerup : MonoBehaviour
 {
+    public Transform meleeBox;
     public GameObject Glue;
     public int playerNumber;
     WeaponManager info;
@@ -32,6 +33,7 @@ public class UsePowerup : MonoBehaviour
             switch(pu.Split('_')[0])
             {
                 case "Repair":
+                    RepairWall();
                     break;
                 case "Glue":
                     SpawnGlue();
@@ -115,6 +117,12 @@ public class UsePowerup : MonoBehaviour
 
     void RepairWall()
     {
+        Collider2D[] wall = Physics2D.OverlapCircleAll(meleeBox.transform.position, 2);
 
+        if(wall[0].CompareTag("Breakable"))
+        {
+            Wall w = wall[0].GetComponent<Wall>();
+            w.hitsTaken -= 3;
+        }
     }
 }

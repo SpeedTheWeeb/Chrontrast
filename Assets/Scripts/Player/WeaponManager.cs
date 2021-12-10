@@ -279,7 +279,7 @@ public class WeaponManager : MonoBehaviour
     }
     void ShowPower(GameObject obj)
     {
-        if(!obj.name.Contains("Str") || !obj.name.Contains("Heal"))
+        if(!obj.name.Contains("Str") && !obj.name.Contains("Heal"))
         {
             GameObject showingPower = Instantiate(obj, imageShow.transform.position, Quaternion.identity);
             showingPower.transform.localScale = new Vector3(obj.transform.localScale.x * 3, obj.transform.localScale.y * 3);
