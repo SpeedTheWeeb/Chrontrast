@@ -63,6 +63,7 @@ public class WeaponManager : MonoBehaviour
 
     EventInstance sfxPickup; // FMOD Pickup SFX
     EventInstance sfxThrow; //FMOD Throw SFX
+    EventInstance sfxPowerup; // FMOD PowerUp SFX
 
     bool meleeBool = true;
     bool splashBool = true;
@@ -77,6 +78,8 @@ public class WeaponManager : MonoBehaviour
                 RuntimeManager.AttachInstanceToGameObject(sfxPickup, transform, GetComponent<Rigidbody2D>());
                 sfxThrow = RuntimeManager.CreateInstance("event:/sfx/player/future/throw");
                 RuntimeManager.AttachInstanceToGameObject(sfxThrow, transform, GetComponent<Rigidbody2D>());
+                sfxPowerup = RuntimeManager.CreateInstance("event:/sfx/player/future/powerup");
+                RuntimeManager.AttachInstanceToGameObject(sfxPowerup, transform, GetComponent<Rigidbody2D>());
                 break;
 
             case 2:
@@ -84,6 +87,8 @@ public class WeaponManager : MonoBehaviour
                 RuntimeManager.AttachInstanceToGameObject(sfxPickup, transform, GetComponent<Rigidbody2D>());
                 sfxThrow = RuntimeManager.CreateInstance("event:/sfx/player/past/throw");
                 RuntimeManager.AttachInstanceToGameObject(sfxThrow, transform, GetComponent<Rigidbody2D>());
+                sfxPowerup = RuntimeManager.CreateInstance("event:/sfx/player/past/powerup");
+                RuntimeManager.AttachInstanceToGameObject(sfxPowerup, transform, GetComponent<Rigidbody2D>());
                 break;
         }           
     }
@@ -139,15 +144,9 @@ public class WeaponManager : MonoBehaviour
 
         //Drop
         if (Input.GetButtonDown("Drop" + playerNumber))
-        {
-            if (!alreadyHolding)
-            {
-                sfxPickup.start();
-            }
-            
+        {           
             if (alreadyHolding)
             {
-
                 if (itemName.Contains("Chip"))
                 {
                     switch (weaponType)
@@ -212,16 +211,17 @@ public class WeaponManager : MonoBehaviour
                             break;
                     }
                 }
-
                 sfxThrow.start();
             }
             else if (trigger)
             {
-                ChooseWeapon(weaponHover);                
+                ChooseWeapon(weaponHover);
+                sfxPickup.start();
             }
             else if (puInteract)
             {
                 PickupPowerUp(puHover);
+                sfxPowerup.start();
             }
         }
     }
