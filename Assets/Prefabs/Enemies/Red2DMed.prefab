@@ -146,7 +146,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  baseSpeed: 0
   stopSpot: 0
+  isFrozen: 0
+  sfxEnemyAttack: event:/sfx/enemies/future/runner/attack
 --- !u!114 &2375199753967913781
 MonoBehaviour:
   m_ObjectHideFlags: 0
