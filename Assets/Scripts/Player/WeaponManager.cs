@@ -144,7 +144,7 @@ public class WeaponManager : MonoBehaviour
             if (alreadyHolding)
             {
 
-                if (itemName.Contains("Future"))
+                if (itemName.Contains("Chip"))
                 {
                     switch (weaponType)
                     {
@@ -176,7 +176,7 @@ public class WeaponManager : MonoBehaviour
                             break;
                     }
                 }
-                else if(itemName.Contains("Med"))
+                else if(itemName.Contains("Tome"))
                 {
                     switch (weaponType)
                     {

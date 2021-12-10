@@ -13,12 +13,12 @@ public class ItemBehavior : MonoBehaviour
     public string weapon_type;
     public Vector2 Direction;
     private SpriteRenderer spriteRenderer;
-    private Sprite Sprite_future_melee;
-    private Sprite Sprite_medieval_melee;
-    private Sprite Sprite_future_medium;
-    private Sprite Sprite_medieval_medium;
-    private Sprite Sprite_future_long;
-    private Sprite Sprite_medieval_long;
+    private Sprite CyberswordChip;
+    private Sprite FrostTome;
+    private Sprite RocketChip;
+    private Sprite FireTome;
+    private Sprite RailgunChip;
+    private Sprite LightningTome;
     //Assets/Resources/Sprites/Weapons/Weapon_Future_MediumRange.png
     //to get the throwing direction i need to access the script of the parent og the game object that has this script
     //but i only want to get that after this game object has been picked up otherwise there is not parent.
@@ -27,12 +27,12 @@ public class ItemBehavior : MonoBehaviour
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        Sprite_future_melee = Resources.Load<Sprite>("Sprites/Weapons/Weapon_Future_Melee");
-        Sprite_medieval_melee = Resources.Load<Sprite>("Sprites/Weapons/swordMed");
-        Sprite_future_medium = Resources.Load<Sprite>("Sprites/Weapons/Weapon_Future_MediumRange");
-        Sprite_medieval_medium = Resources.Load<Sprite>("Sprites/Weapons/wandMed");
-        Sprite_future_long = Resources.Load<Sprite>("Sprites/Weapons/Weapon_Future_LongRange");
-        Sprite_medieval_long = Resources.Load<Sprite>("Sprites/Weapons/bowMed");
+        CyberswordChip = Resources.Load<Sprite>("FloorWeapons/WeaponChipCybersword");
+        FrostTome = Resources.Load<Sprite>("FloorWeapons/FrostTome");
+        RocketChip = Resources.Load<Sprite>("FloorWeapons/WeaponChipRockets");
+        FireTome = Resources.Load<Sprite>("FloorWeapons/FireTome");
+        RailgunChip = Resources.Load<Sprite>("FloorWeapons/WeaponChipRailgun");
+        LightningTome = Resources.Load<Sprite>("FloorWeapons/LightningTome");
     }
     
     public void Init(GameObject spawn)
@@ -88,15 +88,15 @@ public class ItemBehavior : MonoBehaviour
                 // and isMedieval is changed, and so is the color
                 if (weapon_type == "CR")
                 {
-                    spriteRenderer.sprite = Sprite_medieval_melee;
+                    spriteRenderer.sprite = FrostTome;
                 }
                 if (weapon_type == "MR")
                 {
-                    spriteRenderer.sprite = Sprite_medieval_medium;
+                    spriteRenderer.sprite = FireTome;
                 }
                 if (weapon_type == "LR")
                 {
-                    spriteRenderer.sprite = Sprite_medieval_long;
+                    spriteRenderer.sprite = LightningTome;
                 }
                 isMedieval = false;
             }
@@ -107,15 +107,15 @@ public class ItemBehavior : MonoBehaviour
                 // and isMedieval is changed, and so is the color
                 if (weapon_type == "CR")
                 {
-                    spriteRenderer.sprite = Sprite_future_melee;
+                    spriteRenderer.sprite = CyberswordChip;
                 }
                 if (weapon_type == "MR")
                 {
-                    spriteRenderer.sprite = Sprite_future_medium;
+                    spriteRenderer.sprite = RocketChip;
                 }
                 if (weapon_type == "LR")
                 {
-                    spriteRenderer.sprite = Sprite_future_long;
+                    spriteRenderer.sprite = RailgunChip;
                 }
                 isMedieval = true;
             }
