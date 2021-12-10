@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{0fe4fc0d-5d55-4ce7-8cbc-4f2993fb0122}">
+		<property name="assetPath">
+			<value>SP FutSplash Shoot.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.0375510204081633</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3ee9d415-89d8-414e-9d36-ac3ff5d298f2}</destination>
+		</relationship>
+	</object>
+</objects>

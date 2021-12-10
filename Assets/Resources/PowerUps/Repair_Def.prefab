@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7657635182071737585}
   - component: {fileID: 6162460154533693427}
   - component: {fileID: -4549390059443057962}
+  - component: {fileID: 1842799665582480204}
   m_Layer: 0
   m_Name: Repair_Def
   m_TagString: PowerUp
@@ -99,3 +100,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1842799665582480204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536225091469778633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc40f25586b9e93478adc971699202d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UsePowerup : MonoBehaviour
 {
+    public GameObject Glue;
     public int playerNumber;
     WeaponManager info;
 
@@ -18,15 +19,64 @@ public class UsePowerup : MonoBehaviour
     {
         if(Input.GetButtonDown("PU"+playerNumber))
         {
+            Debug.Log("Using PU");
             Use();
         }
     }
 
     void Use()
     {
+        
         if(info.havePowerup)
         {
-            GameObject pu = info.powerup;
+            string pu = info.powerup;
+            switch(pu.Split('_')[0])
+            {
+                case "Repair":
+                    break;
+                case "Glue":
+                    SpawnGlue();
+                    break;
+                case "Freeze":
+                    Freeze();
+                    break;
+            }
+            
+            info.powerup = null;
+            info.havePowerup = false;
         }
+    }
+
+    void Freeze()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in enemies)
+        {
+            if(enemy.name.Contains("Blue"))
+            {
+                BlueScript blue = enemy.GetComponent<BlueScript>();
+                blue.Freeze();
+            }
+            else if(enemy.name.Contains("Green"))
+            {
+                GreenScript green = enemy.GetComponent<GreenScript>();
+                green.Freeze();
+            }
+            else if(enemy.name.Contains("Red"))
+            {
+                RedScript red = enemy.GetComponent<RedScript>();
+                red.Freeze();
+            }                
+        }
+    }
+
+    void SpawnGlue()
+    {
+        Instantiate(Glue, transform.position, Quaternion.identity);
+    }
+
+    void RepairWall()
+    {
+
     }
 }

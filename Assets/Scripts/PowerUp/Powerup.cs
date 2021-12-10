@@ -25,15 +25,17 @@ public class Powerup : MonoBehaviour
     public void activatePU()
     {
         weapon = player.GetComponent<WeaponManager>();
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("PowerUp");
+
         GetPowerup();
-        Destroy(gameObject);
-        switch(player.name)
+        foreach (GameObject game in objects)
         {
-            case "P1":
-                break;
-            case "P2":
-                break;
+            if (game.name.Contains(player.name))
+            {
+                Destroy(game);
+            }
         }
+        
     }
 
     void GetPowerup()
@@ -60,11 +62,13 @@ public class Powerup : MonoBehaviour
                 weapon.sniperASMod +=  2f;
                 weapon.splashASMod +=  5f;
                 weapon.meleeASMod +=  3f;
+                weapon.powerup = null;
                 break;
             case "Stronger":
                 weapon.sniperDmgMod += 2f;
                 weapon.splashDmgMod += 20f;
                 weapon.meleeDmgMod +=  5f;
+                weapon.powerup = null;
                 break;
         }
     }
@@ -87,8 +91,9 @@ public class Powerup : MonoBehaviour
         {
             case "Heal":
                 CrystalHP hp = GameObject.Find("Crystal").GetComponent<CrystalHP>();
-                hp.crystalhealth += 20;
+                hp.crystalhealth = hp.crystalhealth + 20;
                 hp.UpdateHealth();
+                weapon.powerup = null;
                 break;
             case "Repair":
                 break;

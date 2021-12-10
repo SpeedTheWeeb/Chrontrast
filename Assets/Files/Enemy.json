@@ -3,9 +3,9 @@
 [
   {
     "Wave": 1,
-    "Red_Spawn": 5,
-    "Blue_Spawn": 5,
-    "Green_Spawn": 5
+    "Red_Spawn": 1,
+    "Blue_Spawn": 0,
+    "Green_Spawn": 0
   },
   {
     "Wave": 2,
