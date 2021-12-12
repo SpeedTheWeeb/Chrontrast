@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemBehavior : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class ItemBehavior : MonoBehaviour
     private Sprite FireTome;
     private Sprite RailgunChip;
     private Sprite LightningTome;
+    public static int tradesMade;
     //Assets/Resources/Sprites/Weapons/Weapon_Future_MediumRange.png
     //to get the throwing direction i need to access the script of the parent og the game object that has this script
     //but i only want to get that after this game object has been picked up otherwise there is not parent.
@@ -119,6 +121,8 @@ public class ItemBehavior : MonoBehaviour
                 }
                 isMedieval = true;
             }
+
+            tradesMade++;
 
         }
     }
