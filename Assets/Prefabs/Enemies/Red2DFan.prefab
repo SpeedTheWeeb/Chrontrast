@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442e855f1e4f5764386a51f1925c8c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 100
   currentHealth: 0
   render: {fileID: 5249939832515014315}
   sfxEnemyDeath: event:/sfx/enemies/past/runner/die

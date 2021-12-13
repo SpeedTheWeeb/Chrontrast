@@ -24,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
         //{
         //    modifier += 10;
         //}
-        //currentHealth = maxHealth + ((modifier/maxHealth));
+        currentHealth = maxHealth;
         render = GetComponent<SpriteRenderer>();
         ogColor = render.color;
     }
