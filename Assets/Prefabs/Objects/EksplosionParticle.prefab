@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9133657740290900654}
   - component: {fileID: 9203392284452350331}
   - component: {fileID: 8020419692258228727}
+  - component: {fileID: 3069410328056609413}
   m_Layer: 0
   m_Name: EksplosionParticle
   m_TagString: Untagged
@@ -4808,3 +4809,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &3069410328056609413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5299351574962438236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 235ed9dfe3b959a4b8437e32ec59f6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionSFX: event:/sfx/player/past/explosive/explode
