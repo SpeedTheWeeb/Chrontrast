@@ -16,10 +16,17 @@ public class RedScript : MonoBehaviour
     float timer = 4f;
     public string sfxEnemyAttack;
     SpriteRenderer sprite;
+    bool inRift;
 
+    float currentY;
+    float lastY;
+
+    bool goingUp;
+    Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         Crystal = GameObject.Find("Crystal");
         crystalHP = (CrystalHP)Crystal.GetComponent("CrystalHP");
@@ -30,11 +37,40 @@ public class RedScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (forward && !isFrozen)
+        if (forward && !isFrozen && !inRift)
         {
             float vel = speed * Time.deltaTime;
 
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, Random.Range(-10, 11), 0), vel);
+            currentY = transform.position.y;
+
+            if(currentY > lastY)
+            {
+                goingUp = true;
+            }
+            else
+            {
+                goingUp = false;
+            }
+
+            lastY = transform.position.y;
+        }
+        else if(!isFrozen && inRift && forward)
+        {
+            float vel = speed * Time.deltaTime;
+
+            if(goingUp)
+            {
+                rb.velocity = vel * (Vector2.up*100);
+            }
+            else
+            {
+                rb.velocity = vel * (Vector2.down*100);
+            }
+        }
+        else
+        {
+            rb.velocity = new Vector2(0,0);
         }
     }
 
@@ -64,11 +100,15 @@ public class RedScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if(other.CompareTag("Rift"))
+        {
+            inRift = true;
+        }
         if (other.gameObject.name == "Red Stop")
         {
             forward = false;
-            isArrived = true; 
+            isArrived = true;
+            inRift = false;
             StartCoroutine(Attack());
         }
         else if(other.CompareTag("Breakable"))
