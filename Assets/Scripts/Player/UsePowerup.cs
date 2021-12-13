@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FMOD.Studio;
+using FMODUnity;
 public class UsePowerup : MonoBehaviour
 {
     public Transform meleeBox;
@@ -34,12 +36,15 @@ public class UsePowerup : MonoBehaviour
             switch(pu.Split('_')[0])
             {
                 case "Repair":
+                    RuntimeManager.PlayOneShot("event:/sfx/powerup/repair");
                     RepairWall();
                     break;
                 case "Glue":
+                    RuntimeManager.PlayOneShot("event:/sfx/powerup/glue");
                     SpawnGlue();
                     break;
                 case "Freeze":
+                    RuntimeManager.PlayOneShot("event:/sfx/powerup/freeze");
                     Freeze();
                     break;
             }

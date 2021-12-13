@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMOD.Studio;
+using FMODUnity;
 
 public class Powerup : MonoBehaviour
 {
@@ -95,6 +97,7 @@ public class Powerup : MonoBehaviour
                 CrystalHP hp = GameObject.Find("Crystal").GetComponent<CrystalHP>();
                 hp.crystalhealth = hp.crystalhealth + 20;
                 hp.UpdateHealth();
+                RuntimeManager.PlayOneShot("event:/sfx/powerup/heal");
                 weapon.powerup = null;
                 weapon.havePowerup = false;
                 break;
