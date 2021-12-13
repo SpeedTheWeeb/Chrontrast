@@ -15,6 +15,7 @@ public class Grenade : MonoBehaviour
     public Rigidbody2D r2d;                 // Reference to Rigidbody2D
     public float dmgMod = 0;
     int player;
+    public GameObject explosion;
     private void Update()
     {
 
@@ -34,6 +35,7 @@ public class Grenade : MonoBehaviour
                 break;
         }
         Explosive();
+        Instantiate(explosion);
         Destroy(gameObject);
     }
 

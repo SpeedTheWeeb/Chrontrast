@@ -78,8 +78,20 @@ public class WeaponManager : MonoBehaviour
     bool splashBool = true;
     bool sniperBool = true;
 
+    //Particles
+    GameObject meleeAttackParticleObjectP1 = null;
+    GameObject meleeAttackParticleObjectP2 = null;
+    ParticleSystem meleeAttackParticleEmitterP1;
+    ParticleSystem meleeAttackParticleEmitterP2;
+
     private void Start()
     {
+        //Defines Particles
+        meleeAttackParticleObjectP1 = GameObject.Find("P1MeleeParticleSystem");
+        meleeAttackParticleObjectP2 = GameObject.Find("P2MeleeParticleSystem");
+        meleeAttackParticleEmitterP1 = meleeAttackParticleObjectP1.GetComponent<ParticleSystem>();
+        meleeAttackParticleEmitterP2 = meleeAttackParticleObjectP2.GetComponent<ParticleSystem>();
+
         switch (playerNumber)
         {
             case 1:
@@ -368,9 +380,13 @@ public class WeaponManager : MonoBehaviour
         {
             case 1:
                 RuntimeManager.PlayOneShot("event:/sfx/player/future/melee/miss");
+                //FutureMeleeParticleEffect
+                meleeAttackParticleEmitterP1.Play();
                 break;
             case 2:
                 RuntimeManager.PlayOneShot("event:/sfx/player/past/melee/miss");
+                //MedievalMeleeParticleEffect
+                meleeAttackParticleEmitterP2.Play();
                 break;
         }
         // Detects enemies in range

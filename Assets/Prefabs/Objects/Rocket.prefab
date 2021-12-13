@@ -145,6 +145,7 @@ MonoBehaviour:
   directHit: 5
   r2d: {fileID: 7492064293064868418}
   dmgMod: 0
+  explosion: {fileID: 5299351574962438236, guid: 1b9a70573955881459c0bfefe1495f45, type: 3}
 --- !u!95 &2990384140789213673
 Animator:
   serializedVersion: 3

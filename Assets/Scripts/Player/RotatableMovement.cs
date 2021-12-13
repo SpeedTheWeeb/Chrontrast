@@ -10,7 +10,9 @@ public class RotatableMovement : MonoBehaviour
     
 
     GameObject currentPlayer = null;
+    //GameObject dustParticleObject = null;
     Rigidbody2D rb2d;
+    //ParticleSystem dustParticleEmitter;
     float horizontalInput = 0;
     float verticalInput = 0;
     public Animator animator;
@@ -18,7 +20,11 @@ public class RotatableMovement : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         currentPlayer = GameObject.Find("Player " + playerNumber);
+        //dustParticleObject = GameObject.Find("FootstepDust");
+        //dustParticleEmitter = dustParticleObject.GetComponent<ParticleSystem>();
         animator = GetComponent<Animator>();
+
+        //dustParticleEmitter.Stop();
     }
 
     void Update()
@@ -31,6 +37,16 @@ public class RotatableMovement : MonoBehaviour
         MovePlayer();
         if(horizontalInput != 0 || verticalInput != 0)
             RotatePlayer();
+
+        //if (currentPlayer.GetComponent<Rigidbody2D>().velocity.magnitude > 0)
+        //{
+        //    dustParticleEmitter.Play();
+        //}
+        //else
+        //{
+        //    dustParticleEmitter.Stop();
+        //}
+
     }
 
     private void GetPlayerInput()
