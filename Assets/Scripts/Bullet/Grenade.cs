@@ -59,14 +59,14 @@ public class Grenade : MonoBehaviour
                 {
                     if (enemy.name.Contains("Med"))
                     {
-                        enemy.GetComponent<EnemyHealth>().TakeDamage((maxDamage * damagePercent) * ((dmgMod / 100) * (maxDamage * damagePercent)));
+                        enemy.GetComponent<EnemyHealth>().TakeDamage((maxDamage * damagePercent) + ((dmgMod / 100) * (maxDamage * damagePercent)));
                     }
                 }
                 else if (player == 2)
                 {
                     if (enemy.name.Contains("Fan"))
                     {
-                        enemy.GetComponent<EnemyHealth>().TakeDamage((maxDamage * damagePercent) * ((dmgMod / 100) * (maxDamage * damagePercent)));
+                        enemy.GetComponent<EnemyHealth>().TakeDamage((maxDamage * damagePercent) + ((dmgMod / 100) * (maxDamage * damagePercent)));
                     }
                 }
             }            
