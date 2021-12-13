@@ -38,22 +38,22 @@ public class WeaponManager : MonoBehaviour
 
     public Transform meleeHurtbox;      // Reference point for Overlap Circle
     public float meleeRange = 3f;       // Radius for Overlap Circle
-    public float meleeDamage = 100f;     // Damage applied to Tag: Enemies inside Overlap Circle
-    public float meleeSpeed = 2f;       // Attacks pr. second
+    public float meleeDamage = 100f;    // Damage applied to Tag: Enemies inside Overlap Circle
+    public float meleeSpeed = 2f;       // Cooldown between attacks
     public float meleeDmgMod = 0;
     public float meleeASMod = 0;
     // public Animator meleeAnim;
 
     public GameObject grenadePrefab;    // Holds projectile prefab
     public float grenadeRadius = 3f;    // Range before projectile explodes
-    public float splashSpeed = .5f;     // Attacks pr. second
+    public float splashSpeed = 2f;      // Cooldown between attacks
     public float splashDmgMod = 0;
     public float splashASMod = 0;
     // public Animator splashAnim;
 
     public LineRenderer sniperSight;    // Holds lasersight effect
     public float sniperDamage = 1f;     // Damage applied to Tag: Enemies on raycast path
-    public float sniperSpeed = 1f;      // Attacks pr. second
+    public float sniperSpeed = 1f;      // Cooldown between attacks
     public float sniperDmgMod = 0;
     public float sniperASMod = 0;
     // public Animator sniperAnim;
@@ -70,9 +70,9 @@ public class WeaponManager : MonoBehaviour
 
     private string itemName;
 
-    EventInstance sfxPickup; // FMOD Pickup SFX
-    EventInstance sfxThrow; //FMOD Throw SFX
-    EventInstance sfxPowerup; // FMOD PowerUp SFX
+    EventInstance sfxPickup;    // FMOD Pickup SFX
+    EventInstance sfxThrow;     // FMOD Throw SFX
+    EventInstance sfxPowerup;   // FMOD PowerUp SFX
 
     bool meleeBool = true;
     bool splashBool = true;
@@ -391,7 +391,7 @@ public class WeaponManager : MonoBehaviour
                         RuntimeManager.PlayOneShot("event:/sfx/player/past/melee/hit");
                         break;
                 }                
-                enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage + ((meleeASMod / 100) * meleeDamage));
+                enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage + ((meleeDmgMod / 100) * meleeDamage));
             }            
         }
     }

@@ -59,9 +59,9 @@ public class Powerup : MonoBehaviour
         switch(PUName)
         {
             case "ATS":
-                weapon.sniperASMod +=  2f;
-                weapon.splashASMod +=  5f;
-                weapon.meleeASMod +=  3f;
+                weapon.sniperASMod +=  0.2f;
+                weapon.splashASMod +=  0.5f;
+                weapon.meleeASMod +=  0.2f;
                 weapon.powerup = null;
                 weapon.havePowerup = false;
                 break;
