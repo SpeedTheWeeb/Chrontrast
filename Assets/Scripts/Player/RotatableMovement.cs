@@ -10,7 +10,7 @@ public class RotatableMovement : MonoBehaviour
     
 
     GameObject currentPlayer = null;
-    //GameObject dustParticleObject = null;
+    GameObject MeleeParticleObject = null;
     Rigidbody2D rb2d;
     //ParticleSystem dustParticleEmitter;
     float horizontalInput = 0;
@@ -20,7 +20,7 @@ public class RotatableMovement : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         currentPlayer = GameObject.Find("Player " + playerNumber);
-        //dustParticleObject = GameObject.Find("FootstepDust");
+        MeleeParticleObject = GameObject.Find("MeleeParticleSystem");
         //dustParticleEmitter = dustParticleObject.GetComponent<ParticleSystem>();
         animator = GetComponent<Animator>();
 

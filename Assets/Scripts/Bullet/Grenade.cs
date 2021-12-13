@@ -16,26 +16,16 @@ public class Grenade : MonoBehaviour
     public float dmgMod = 0;
     int player;
     public GameObject explosion;
+
     private void Update()
     {
-
+        
 
     }
 
     void Detonate()
     {
-        switch (gameObject.name)
-        {
-            case "Rocket":
-                RuntimeManager.PlayOneShot("event:/sfx/player/future/explosive/explode");
-                break;
-
-            case "Fireball":
-                RuntimeManager.PlayOneShot("event:/sfx/player/past/explosive/explode");
-                break;
-        }
         Explosive();
-        Instantiate(explosion);
         Destroy(gameObject);
     }
 
@@ -48,7 +38,7 @@ public class Grenade : MonoBehaviour
     public void Explosive()
     {           
         Collider2D[] splashEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, enemyMask);
-
+        Instantiate(explosion, transform.position, transform.rotation);
         foreach (Collider2D enemy in splashEnemies)
         {
             if (enemy.CompareTag("Enemy"))
