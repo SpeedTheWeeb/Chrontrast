@@ -20,11 +20,11 @@ public class EnemyHealth : MonoBehaviour
     {
         GameObject crystal = GameObject.Find("Crystal");
         SpawningScript wave = (SpawningScript)crystal.GetComponent("SpawningScript");
-        if(wave.currentWave % 2 == 0)
-        {
-            modifier += 10;
-        }
-        currentHealth = maxHealth + ((modifier/maxHealth));
+        //if (wave.currentWave % 2 == 0)
+        //{
+        //    modifier += 10;
+        //}
+        //currentHealth = maxHealth + ((modifier/maxHealth));
         render = GetComponent<SpriteRenderer>();
         ogColor = render.color;
     }
@@ -39,6 +39,7 @@ public class EnemyHealth : MonoBehaviour
         else if (currentHealth <= 0)
             Die();
         Flash();
+        Debug.Log("Was hit for " + damage + " damage");
     }
 
     void Flash()

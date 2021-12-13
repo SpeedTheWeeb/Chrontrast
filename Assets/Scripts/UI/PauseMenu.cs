@@ -47,22 +47,22 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        StopMusic();
         SceneManager.LoadScene("Game Scene");
+        StopMusic();
         Time.timeScale = 1f;
     }
 
     public void LoadMainMenu()
     {
-        StopMusic();
         SceneManager.LoadScene("main menu");
+        StopMusic();
         Time.timeScale = 1f;
     }
 
     public void QuitGame()
     {
-        StopMusic();
         Debug.Log ("QUIT");
+        StopMusic();
         Application.Quit();
     }
 
