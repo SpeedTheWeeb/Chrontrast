@@ -9,6 +9,7 @@ public class UsePowerup : MonoBehaviour
     public int playerNumber;
     WeaponManager info;
     public Image freezeImg;
+    GameObject currentGlue;
     // Start is called before the first frame update
     void Start()
     {
@@ -112,15 +113,20 @@ public class UsePowerup : MonoBehaviour
 
     void SpawnGlue()
     {
-        Instantiate(Glue, transform.position, Quaternion.identity);
+        currentGlue = Instantiate(Glue, transform.position, Quaternion.identity);
+        Invoke("RemoveGlue", 6);
     }
-
+    void RemoveGlue()
+    {
+        Destroy(currentGlue);
+    }
     void RepairWall()
     {
         GameObject[] wall = GameObject.FindGameObjectsWithTag("Breakable");
 
         foreach(GameObject walls in wall)
         {
+            Debug.Log(walls);
             Wall w = walls.GetComponent<Wall>();
             if(w.hitsTaken > 5)
             { 
