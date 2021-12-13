@@ -12,11 +12,12 @@ public class Wall : MonoBehaviour
     public int hitsTaken;
     // string for differentiating future and past sprites and sfx
     public string playerSide;
+    public SpriteRenderer wallSprite;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        wallSprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -43,6 +44,7 @@ public class Wall : MonoBehaviour
                         //Debug.Log("event:/sfx/props/walls/past/destroyed");
                         break;
                 }
+                wallSprite.enabled = false;
 
             }
             else
