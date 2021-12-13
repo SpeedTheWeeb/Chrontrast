@@ -47,16 +47,16 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        Time.timeScale = 1f;
         StopMusic();
         SceneManager.LoadScene("Game Scene");
+        Time.timeScale = 1f;
     }
 
     public void LoadMainMenu()
     {
-        Time.timeScale = 1f;
         StopMusic();
         SceneManager.LoadScene("main menu");
+        Time.timeScale = 1f;
     }
 
     public void QuitGame()
