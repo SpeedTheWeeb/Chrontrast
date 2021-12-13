@@ -72,7 +72,7 @@ public class SpawningScript : MonoBehaviour
             totalSpawn = enemyInfo.WaveInfo[Wave - 1].Total;
 
             totalEnemies = enemyInfo.WaveInfo[Wave - 1].Red_Spawn + enemyInfo.WaveInfo[Wave - 1].Blue_Spawn + enemyInfo.WaveInfo[Wave - 1].Green_Spawn;
-
+            StartCoroutine(countEnemies());
             spawnEnemies();
         }
         catch(IndexOutOfRangeException)
@@ -212,6 +212,7 @@ public class SpawningScript : MonoBehaviour
         }
         else
         {
+            StopCoroutine(countEnemies());
             isSpawning = false;
         }
     }
