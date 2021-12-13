@@ -149,6 +149,7 @@ MonoBehaviour:
   stopSpot: 0
   bullet: {fileID: 4178815753567730303, guid: be205f040edc35b4baf9a9da66207748, type: 3}
   attackSpeed: 4
+  isFrozen: 0
   sfxShoot: event:/sfx/enemies/future/sniper/attack
 --- !u!114 &8689881369017920052
 MonoBehaviour:
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442e855f1e4f5764386a51f1925c8c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 10
   currentHealth: 0
   render: {fileID: 3198515269410146258}
   sfxEnemyDeath: event:/sfx/enemies/future/sniper/die

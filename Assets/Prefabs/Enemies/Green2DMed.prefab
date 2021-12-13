@@ -149,6 +149,7 @@ MonoBehaviour:
   stopSpot: 0
   bullet: {fileID: 4178815753567730303, guid: be205f040edc35b4baf9a9da66207748, type: 3}
   timer: 4
+  isFrozen: 0
   sfxShoot: event:/sfx/enemies/future/rammer/attack
 --- !u!114 &3858139795580098369
 MonoBehaviour:
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442e855f1e4f5764386a51f1925c8c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 40
   currentHealth: 0
   render: {fileID: 309652781483040443}
   sfxEnemyDeath: event:/sfx/enemies/future/rammer/die
