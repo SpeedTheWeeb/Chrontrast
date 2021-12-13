@@ -36,15 +36,15 @@ public class UsePowerup : MonoBehaviour
             switch(pu.Split('_')[0])
             {
                 case "Repair":
-                    RuntimeManager.PlayOneShot("event:/sfx/powerup/repair");
+                    RuntimeManager.PlayOneShot("event:/sfx/powerups/repair");
                     RepairWall();
                     break;
                 case "Glue":
-                    RuntimeManager.PlayOneShot("event:/sfx/powerup/glue");
+                    RuntimeManager.PlayOneShot("event:/sfx/powerups/glue");
                     SpawnGlue();
                     break;
                 case "Freeze":
-                    RuntimeManager.PlayOneShot("event:/sfx/powerup/freeze");
+                    RuntimeManager.PlayOneShot("event:/sfx/powerups/freeze");
                     Freeze();
                     break;
             }

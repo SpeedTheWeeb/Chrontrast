@@ -97,7 +97,7 @@ public class Powerup : MonoBehaviour
                 CrystalHP hp = GameObject.Find("Crystal").GetComponent<CrystalHP>();
                 hp.crystalhealth = hp.crystalhealth + 20;
                 hp.UpdateHealth();
-                RuntimeManager.PlayOneShot("event:/sfx/powerup/heal");
+                RuntimeManager.PlayOneShot("event:/sfx/powerups/heal");
                 weapon.powerup = null;
                 weapon.havePowerup = false;
                 break;
