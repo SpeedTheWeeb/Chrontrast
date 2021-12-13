@@ -386,12 +386,19 @@ public class WeaponManager : MonoBehaviour
                 {
                     case 1:
                         RuntimeManager.PlayOneShot("event:/sfx/player/future/melee/hit");
+                        if(enemy.gameObject.name.Contains("Med"))
+                        {
+                            enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage + ((meleeASMod / 100) * meleeDamage));
+                        }
                         break;
                     case 2:
                         RuntimeManager.PlayOneShot("event:/sfx/player/past/melee/hit");
+                        if (enemy.gameObject.name.Contains("Fan"))
+                        {
+                            enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage + ((meleeASMod / 100) * meleeDamage));
+                        }
                         break;
                 }                
-                enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage + ((meleeASMod / 100) * meleeDamage));
             }            
         }
     }
@@ -410,7 +417,7 @@ public class WeaponManager : MonoBehaviour
         GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
         Grenade g = grenade.GetComponent<Grenade>();
         g.dmgMod = splashDmgMod;
-        g.Move(direction);
+        g.Move(direction, playerNumber);
     }
 
     void SniperAttack()

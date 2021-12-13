@@ -14,7 +14,7 @@ public class Grenade : MonoBehaviour
     public float directHit = 5f;            // added damage from the projectile itself (unused)
     public Rigidbody2D r2d;                 // Reference to Rigidbody2D
     public float dmgMod = 0;
-
+    int player;
     private void Update()
     {
 
@@ -37,10 +37,11 @@ public class Grenade : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Move(Vector2 dir)
+    public void Move(Vector2 dir, int currentPlayer)
     {
         r2d.velocity = dir * speed;
         Invoke("Detonate", 0.5f);
+        player = currentPlayer;
     }
     public void Explosive()
     {           
@@ -54,7 +55,20 @@ public class Grenade : MonoBehaviour
                 float distance = Vector3.Distance(closestPoint, transform.position);
 
                 float damagePercent = Mathf.InverseLerp(explosionRadius, 0, distance);
-                enemy.GetComponent<EnemyHealth>().TakeDamage((maxDamage * damagePercent) * ((dmgMod/100)*(maxDamage * damagePercent)));
+                if (player == 1)
+                {
+                    if (enemy.name.Contains("Med"))
+                    {
+                        enemy.GetComponent<EnemyHealth>().TakeDamage((maxDamage * damagePercent) * ((dmgMod / 100) * (maxDamage * damagePercent)));
+                    }
+                }
+                else if (player == 2)
+                {
+                    if (enemy.name.Contains("Fan"))
+                    {
+                        enemy.GetComponent<EnemyHealth>().TakeDamage((maxDamage * damagePercent) * ((dmgMod / 100) * (maxDamage * damagePercent)));
+                    }
+                }
             }            
         }
     }
