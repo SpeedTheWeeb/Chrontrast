@@ -64,7 +64,26 @@ public class Wall : MonoBehaviour
                 }
 
                 Destroy(collision.gameObject);
+                Flash();
             }
+
+
+        }
+    }
+    void Flash()
+    {
+        Color col = new Color(130 / 255f, 130 / 255f, 130 / 255f);
+        wallSprite.color = col;
+        StartCoroutine(ResetFlash());
+    }
+    IEnumerator ResetFlash()
+    {
+        float i = 0.4f;
+        while (i < 1.1)
+        {
+            wallSprite.color = new Color(i, i, i);
+            i += 0.2f;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
