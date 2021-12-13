@@ -127,6 +127,9 @@
 	<object class="MixerBusFader" id="{342bead6-fcdb-4964-9083-44dd9de69fe4}" />
 	<object class="ThreeEQEffect" id="{cc9ef414-1e23-477b-84c0-58ca2577f5c4}">
 		<property name="lowGain">
+			<value>-7</value>
+		</property>
+		<property name="highGain">
 			<value>-80</value>
 		</property>
 	</object>
