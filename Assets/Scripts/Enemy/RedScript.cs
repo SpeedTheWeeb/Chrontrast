@@ -71,9 +71,9 @@ public class RedScript : MonoBehaviour
             isArrived = true; 
             StartCoroutine(Attack());
         }
-        else if(other.gameObject.tag == "Breakable")
+        else if(other.CompareTag("Breakable"))
         {
-            Wall wallScript = (Wall)other.GetComponent("Wall");
+            Wall wallScript = other.GetComponent<Wall>();
             int hits = wallScript.hitsTaken;
             if(hits / 100 < 0.33)
             {
@@ -92,7 +92,7 @@ public class RedScript : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Breakable")
+        if (other.CompareTag("Breakable"))
         {
             speed = baseSpeed;
         }

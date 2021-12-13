@@ -117,12 +117,19 @@ public class UsePowerup : MonoBehaviour
 
     void RepairWall()
     {
-        Collider2D[] wall = Physics2D.OverlapCircleAll(meleeBox.transform.position, 2);
+        GameObject[] wall = GameObject.FindGameObjectsWithTag("Breakable");
 
-        if(wall[0].CompareTag("Breakable"))
+        foreach(GameObject walls in wall)
         {
-            Wall w = wall[0].GetComponent<Wall>();
-            w.hitsTaken -= 3;
+            Wall w = walls.GetComponent<Wall>();
+            if(w.hitsTaken > 5)
+            { 
+                w.hitsTaken -= 5;
+            }
+            else if(w.hitsTaken < 5)
+            {
+                w.hitsTaken = 0;
+            }
         }
     }
 }

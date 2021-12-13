@@ -3802,6 +3802,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281100429833316455, guid: f75b86de539d28e4aa5c757920e456ff, type: 3}
+      propertyPath: hitsTaken
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281100429833316455, guid: f75b86de539d28e4aa5c757920e456ff, type: 3}
       propertyPath: playerSide
       value: future
       objectReference: {fileID: 0}
@@ -6114,6 +6118,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2281100429833316454, guid: f75b86de539d28e4aa5c757920e456ff, type: 3}
       propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281100429833316455, guid: f75b86de539d28e4aa5c757920e456ff, type: 3}
+      propertyPath: hitsTaken
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281100429833316455, guid: f75b86de539d28e4aa5c757920e456ff, type: 3}
