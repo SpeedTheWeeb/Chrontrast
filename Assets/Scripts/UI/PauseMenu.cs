@@ -77,9 +77,6 @@ public class PauseMenu : MonoBehaviour
         EventInstance gameOverLoop = FindObjectOfType<CrystalHP>().gameOverLoop;
         gameOverLoop.getPlaybackState(out goPBS);
 
-        EventInstance bgmTut = FindObjectOfType<TutorialBGM>().bgmTut;
-        bgmTut.getPlaybackState(out tutPBS);
-
         if (mainPBS == PLAYBACK_STATE.PLAYING || finalePBS == PLAYBACK_STATE.PLAYING || goPBS == PLAYBACK_STATE.PLAYING || tutPBS == PLAYBACK_STATE.PLAYING)
         {
             bgmMain.release();
@@ -88,8 +85,17 @@ public class PauseMenu : MonoBehaviour
             bgmFinale.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             gameOverLoop.release();
             gameOverLoop.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            bgmTut.release();
-            bgmTut.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Tutorial Scene")
+        {
+            EventInstance bgmTut = FindObjectOfType<TutorialBGM>().bgmTut;
+            bgmTut.getPlaybackState(out tutPBS);
+            if (tutPBS == PLAYBACK_STATE.PLAYING)
+            {
+                bgmTut.release();
+                bgmTut.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            }
         }
     }
 }
