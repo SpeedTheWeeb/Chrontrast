@@ -89,8 +89,8 @@ public class WeaponManager : MonoBehaviour
         //Defines Particles
         meleeAttackParticleObjectP1 = GameObject.Find("P1MeleeParticleSystem");
         meleeAttackParticleObjectP2 = GameObject.Find("P2MeleeParticleSystem");
-        meleeAttackParticleEmitterP1 = meleeAttackParticleObjectP1.GetComponent<ParticleSystem>();
-        meleeAttackParticleEmitterP2 = meleeAttackParticleObjectP2.GetComponent<ParticleSystem>();
+        meleeAttackParticleEmitterP1 = GetComponentInChildren<ParticleSystem>();
+        meleeAttackParticleEmitterP2 = GetComponentInChildren<ParticleSystem>();
 
         switch (playerNumber)
         {

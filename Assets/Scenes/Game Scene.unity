@@ -5160,6 +5160,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 2027569487}
+    - target: {fileID: 3550331821663876304, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
+      propertyPath: m_Name
+      value: P1MeleeParticleSystem
+      objectReference: {fileID: 0}
     - target: {fileID: 8488685446140833739, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
       propertyPath: m_Name
       value: P1
@@ -11754,6 +11758,10 @@ PrefabInstance:
       propertyPath: grenadePrefab
       value: 
       objectReference: {fileID: 7619420288410870234, guid: 98f86b10ede85a9458635effc6e18793, type: 3}
+    - target: {fileID: 5860568037377717474, guid: b9799720dbaa74541a5adc49b76a028d, type: 3}
+      propertyPath: m_Name
+      value: P2MeleeParticleSystem
+      objectReference: {fileID: 0}
     - target: {fileID: 7924719899836006235, guid: b9799720dbaa74541a5adc49b76a028d, type: 3}
       propertyPath: animator
       value: 
@@ -11765,6 +11773,18 @@ PrefabInstance:
     - target: {fileID: 8498516728847600242, guid: b9799720dbaa74541a5adc49b76a028d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636768746788393559, guid: b9799720dbaa74541a5adc49b76a028d, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636768746788393559, guid: b9799720dbaa74541a5adc49b76a028d, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.986478
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636768746788393559, guid: b9799720dbaa74541a5adc49b76a028d, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.7971698
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9799720dbaa74541a5adc49b76a028d, type: 3}
