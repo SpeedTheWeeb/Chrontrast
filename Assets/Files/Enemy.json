@@ -3,29 +3,29 @@
 [
   {
     "Wave": 1,
-    "Red_Spawn": 1,
-    "Blue_Spawn": 0,
-    "Green_Spawn": 0,
+    "Red_Spawn": 7,
+    "Blue_Spawn": 7,
+    "Green_Spawn": 8,
      "Total":  6
   },
   {
     "Wave": 2,
     "Red_Spawn": 1,
-    "Blue_Spawn": 10,
-    "Green_Spawn": 1,
+    "Blue_Spawn": 15,
+    "Green_Spawn": 5,
     "Total": 6
   },
   {
     "Wave": 3,
     "Red_Spawn": 15,
     "Blue_Spawn": 0,
-    "Green_Spawn": 0,
+    "Green_Spawn": 5,
     "Total": 9
   },
   {
     "Wave": 4,
     "Red_Spawn": 10,
-    "Blue_Spawn": 0,
+    "Blue_Spawn": 2,
     "Green_Spawn": 10,
     "Total": 9
   },
@@ -33,7 +33,7 @@
     "Wave": 5,
     "Red_Spawn": 15,
     "Blue_Spawn": 15,
-    "Green_Spawn": 15,
+    "Green_Spawn": 25,
     "Total": 10
   } 
 ]  

@@ -9,7 +9,7 @@ public class Grenade : MonoBehaviour
     public LayerMask enemyMask;
     public float speed = 7.5f;              // Travel Speed
     public float maxDamage = 15f;           // Core damage
-    public float detonationTimer = .75f;    // seconds before grenade explodes without direct hit
+    public float detonationTimer = 1.5f;    // seconds before grenade explodes without direct hit
     public float explosionRadius = 4f;      // radius for explosion range
     public float directHit = 5f;            // added damage from the projectile itself (unused)
     public Rigidbody2D r2d;                 // Reference to Rigidbody2D

@@ -131,7 +131,6 @@ public class UsePowerup : MonoBehaviour
 
         foreach(GameObject walls in wall)
         {
-            Debug.Log(walls);
             Wall w = walls.GetComponent<Wall>();
             if(w.hitsTaken > 5)
             { 

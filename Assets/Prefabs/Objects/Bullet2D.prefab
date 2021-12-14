@@ -140,7 +140,7 @@ MonoBehaviour:
     m_Bits: 128
   speed: 10
   maxDamage: 15
-  detonationTimer: 1
+  detonationTimer: 2
   explosionRadius: 4
   directHit: 5
   r2d: {fileID: 793517990291852047}
