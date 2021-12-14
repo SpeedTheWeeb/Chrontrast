@@ -5,9 +5,12 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 using UnityEngine.UI;
+using TMPro;
 
 public class WeaponManager : MonoBehaviour
 {
+    //public TextMeshPro textMesh;
+    public TextMeshProUGUI textMesh;
     private bool alreadyHolding = false; // Checks if player is or isn't holding a Weapon Power-Up
     public int weaponType = 0;          // initial "unarmed" state
     public Transform firePoint;         // Reference point for raycast and Projectile spawn     
@@ -269,8 +272,33 @@ public class WeaponManager : MonoBehaviour
         }
         if (collision.CompareTag("PowerUp"))
         {
+            string powerup = "";
             puInteract = true;
             puHover = collision.gameObject;
+            switch(puHover.name.Split('_')[0])
+            {
+                case "ATS":
+                    powerup = "Attck Speed Up";
+                    break;
+                case "Stronger":
+                    powerup = "Damage Up";
+                    break;
+                case "Heal":
+                    powerup = "Heal Crystal";
+                    break;
+                case "Repair":
+                    powerup = "Repair Walls";
+                    break;
+                case "Glue":
+                    powerup = "Glue Floor";
+                    break;
+                case "Freeze":
+                    powerup = "Freeze Enemies";
+                    break;
+            }
+
+            textMesh.text = powerup;
+
         }
     }
 
@@ -285,6 +313,7 @@ public class WeaponManager : MonoBehaviour
         {
             puInteract = false;
             puHover = null;
+            textMesh.text = "";
         }
     }
     void PickupPowerUp(GameObject col)
