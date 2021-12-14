@@ -30,6 +30,7 @@ public class SpawningScript : MonoBehaviour
 
     public EventInstance bgmMain;
     public EventInstance bgmFinale;
+    public EventInstance bgmVictory;
     public bool prepPhase;
     float phase;
     float choir;
@@ -44,6 +45,7 @@ public class SpawningScript : MonoBehaviour
         //FMOD
         bgmMain = RuntimeManager.CreateInstance("event:/bgm/main");
         bgmFinale = RuntimeManager.CreateInstance("event:/bgm/finale");
+        bgmVictory = RuntimeManager.CreateInstance("event:/bgm/victory");
         phase = 0f;
         choir = 0f;
         brass = 0f;
@@ -78,6 +80,8 @@ public class SpawningScript : MonoBehaviour
         catch(IndexOutOfRangeException)
         {
             Debug.Log("Woo Win");
+            FindObjectOfType<Gamemanager>().Victory();
+            StartVictoryMusic();
         }
     }
     IEnumerator countEnemies()
@@ -242,7 +246,7 @@ public class SpawningScript : MonoBehaviour
             harp = 1f;
         }
 
-        if (currentWave >= 5)
+        if (currentWave == 5)
         {
             bgmMain.getPlaybackState(out PLAYBACK_STATE pbsMain);
             if(pbsMain == PLAYBACK_STATE.PLAYING)
@@ -254,6 +258,41 @@ public class SpawningScript : MonoBehaviour
             {                
                 bgmFinale.start();                
             }                        
+        }
+
+        if(currentWave >= 6)
+        {
+            bgmMain.getPlaybackState(out PLAYBACK_STATE pbsMain);
+            if (pbsMain == PLAYBACK_STATE.PLAYING)
+                bgmMain.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+            bgmFinale.getPlaybackState(out PLAYBACK_STATE pbsFinale);
+            if (pbsFinale == PLAYBACK_STATE.PLAYING)
+                bgmFinale.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+            bgmVictory.getPlaybackState(out PLAYBACK_STATE pbsVictory);
+
+            if (pbsVictory != PLAYBACK_STATE.PLAYING)
+            {
+                bgmVictory.start();
+            }
+        }
+    }
+
+    void StartVictoryMusic()
+    {
+        bgmMain.getPlaybackState(out PLAYBACK_STATE mainPBS);
+        bgmFinale.getPlaybackState(out PLAYBACK_STATE finalePBS);
+
+
+        if (mainPBS == PLAYBACK_STATE.PLAYING || finalePBS == PLAYBACK_STATE.PLAYING)
+        {
+            bgmMain.release();
+            bgmMain.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            bgmFinale.release();
+            bgmFinale.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            bgmVictory = RuntimeManager.CreateInstance("event:/bgm/victory");
+            bgmVictory.start();
         }
     }
 }

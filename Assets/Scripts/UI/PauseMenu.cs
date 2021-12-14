@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    PLAYBACK_STATE victoryPBS;
     PLAYBACK_STATE goPBS;
     PLAYBACK_STATE mainPBS;
     PLAYBACK_STATE finalePBS;
@@ -74,6 +75,9 @@ public class PauseMenu : MonoBehaviour
         EventInstance bgmFinale = FindObjectOfType<SpawningScript>().bgmFinale;
         bgmFinale.getPlaybackState(out finalePBS);
 
+        EventInstance bgmVictory = FindObjectOfType<SpawningScript>().bgmVictory;
+        bgmVictory.getPlaybackState(out victoryPBS);
+
         EventInstance gameOverLoop = FindObjectOfType<CrystalHP>().gameOverLoop;
         gameOverLoop.getPlaybackState(out goPBS);
 
@@ -85,6 +89,8 @@ public class PauseMenu : MonoBehaviour
             bgmFinale.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             gameOverLoop.release();
             gameOverLoop.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            bgmVictory.release();
+            bgmVictory.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
 
         if (SceneManager.GetActiveScene().name == "Tutorial Scene")

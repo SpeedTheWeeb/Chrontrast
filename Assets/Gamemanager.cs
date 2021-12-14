@@ -9,6 +9,7 @@ public class Gamemanager : MonoBehaviour
     public static bool GameEnd = false;
 
     public GameObject gameOverMenuUI;
+    public GameObject VictoryMenuUI;
 
     
 
@@ -28,6 +29,13 @@ public class Gamemanager : MonoBehaviour
             gameOverMenuUI.SetActive(true);
             //gameoverscreen.Setup();
         }
+    }
+
+    public void Victory()
+    {
+        GameEnd = true;
+        Time.timeScale = 0f;
+        VictoryMenuUI.SetActive(true);
     }
     //public void Restart()// Bruges ikke i nuv�rende version
     //{
