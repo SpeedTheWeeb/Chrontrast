@@ -18,7 +18,7 @@ public class RedScript : MonoBehaviour
     SpriteRenderer sprite;
     bool inRift;
 
-    float currentY;
+    float ogPos;
     float lastY;
 
     bool goingUp;
@@ -26,6 +26,7 @@ public class RedScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ogPos = transform.position.y;
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         Crystal = GameObject.Find("Crystal");
@@ -37,41 +38,38 @@ public class RedScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (forward && !isFrozen)// && !inRift)
+        if (forward && !isFrozen && !inRift)
         {
             float vel = speed * Time.deltaTime;
 
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, Random.Range(-10, 11), 0), vel);
-            //currentY = transform.position.y;
 
-            //if(currentY > lastY)
-            //{
-            //    goingUp = true;
-            //}
-            //else
-            //{
-            //    goingUp = false;
-            //}
+            if (ogPos < lastY)
+            {
+                goingUp = true;
+            }
+            else
+            {
+                goingUp = false;
+            }
 
-            //lastY = transform.position.y;
+            lastY = transform.position.y;
         }
-        //else if(!isFrozen && inRift && forward)
-        //{
-        //    float vel = speed * Time.deltaTime;
+        else if (!isFrozen && inRift && forward)
+        {
+            float vel = speed * Time.deltaTime;
 
-        //    if(goingUp)
-        //    {
-        //        rb.velocity = vel * (Vector2.up*100);
-        //    }
-        //    else
-        //    {
-        //        rb.velocity = vel * (Vector2.down*100);
-        //    }
-        //}
-        //else
-        //{
-        //    rb.velocity = new Vector2(0,0);
-        //}
+            if (goingUp)
+            {
+                transform.position += new Vector3(0, Vector2.up.y, 0) * vel;
+                //rb.velocity = vel * (Vector2.up * 100);
+            }
+            else
+            {
+                transform.position += new Vector3(0, Vector2.down.y, 0) * vel;
+                //rb.velocity = vel * (Vector2.down * 100);
+            }
+        }
     }
 
     IEnumerator Attack()
@@ -100,10 +98,10 @@ public class RedScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //if(other.CompareTag("Rift"))
-        //{
-        //    inRift = true;
-        //}
+        if (other.CompareTag("Rift"))
+        {
+            inRift = true;
+        }
         if (other.gameObject.name == "Red Stop")
         {
             forward = false;
