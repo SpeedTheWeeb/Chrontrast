@@ -13266,6 +13266,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9223053040563369286, guid: f077f3ca657618544a640fb5d9936769, type: 3}
+      propertyPath: waveUI
+      value: 
+      objectReference: {fileID: 307912402}
+    - target: {fileID: 9223053040563369286, guid: f077f3ca657618544a640fb5d9936769, type: 3}
+      propertyPath: counterUI
+      value: 
+      objectReference: {fileID: 1394524301}
     - target: {fileID: 9223053040563369287, guid: f077f3ca657618544a640fb5d9936769, type: 3}
       propertyPath: m_RootOrder
       value: 4
