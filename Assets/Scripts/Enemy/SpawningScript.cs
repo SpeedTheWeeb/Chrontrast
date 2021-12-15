@@ -8,6 +8,8 @@ using FMODUnity;
 
 public class SpawningScript : MonoBehaviour
 {
+    public Text waveUI;
+    public Text counterUI;
     public int currentWave;
     private JsonList enemyInfo;
     public TextAsset jsonText;
@@ -36,7 +38,8 @@ public class SpawningScript : MonoBehaviour
     float choir;
     float brass;
     float harp;
-    
+    bool beginGame;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,11 +54,25 @@ public class SpawningScript : MonoBehaviour
         brass = 0f;
         harp = 0f;
         bgmMain.start();
-
+        
         currentWave = 0;
         enemyInfo = JsonUtility.FromJson<JsonList>(jsonText.text);
-        Invoke("InitWave", 5f);
+
+        waveUI.text = "Starting Game";
     }
+
+    //IEnumerator StartGame()
+    //{
+    //    waveUI.text = "Starting Game";
+    //    for(int i = 5; i > 0; i--)
+    //    {
+    //        yield return new WaitForSeconds(1);
+    //        counterUI.text = i.ToString();
+    //    }
+    //    counterUI.text = "";
+    //    waveUI.text = "Wave 1";
+    //    InitWave(1);
+    //}
 
     // Update is called once per frame
     void FixedUpdate()

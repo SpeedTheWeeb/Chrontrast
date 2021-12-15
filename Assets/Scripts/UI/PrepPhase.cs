@@ -47,18 +47,31 @@ public class PrepPhase : MonoBehaviour
 
     IEnumerator Countdown()
     {
+        bool noPowerupLeft = false; ;
         downTimer.enabled = true;
 
         for(int t = 30; t>=0; t--)
         {            
             if(GameObject.FindGameObjectsWithTag("PowerUp").Length <= 2)
             {
+                noPowerupLeft = true;
                 break;
             }
             downTimer.text = t.ToString();
 
             yield return new WaitForSeconds(1);
         }
+
+        if(noPowerupLeft)
+        {
+            for (int t = 5; t >= 0; t--)
+            {
+                downTimer.text = t.ToString();
+
+                yield return new WaitForSeconds(1);
+            }
+        }
+
 
         downTimer.enabled = false;
 
