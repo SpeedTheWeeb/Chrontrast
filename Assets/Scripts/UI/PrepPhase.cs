@@ -50,8 +50,13 @@ public class PrepPhase : MonoBehaviour
         downTimer.enabled = true;
 
         for(int t = 30; t>=0; t--)
-        {
+        {            
+            if(GameObject.FindGameObjectsWithTag("PowerUp").Length <= 2)
+            {
+                break;
+            }
             downTimer.text = t.ToString();
+
             yield return new WaitForSeconds(1);
         }
 
@@ -65,9 +70,9 @@ public class PrepPhase : MonoBehaviour
     {
         nextW = spawnWave.currentWave + 1;
         isPrep = true;
-        StartCoroutine(Countdown());
         PowerupSpawn.SetActive(true);
         SpawnPowerUp();
+        StartCoroutine(Countdown());
     }
 
     void nextWave()

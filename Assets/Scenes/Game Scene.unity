@@ -6350,7 +6350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8488685446140833783, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
@@ -13110,7 +13110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745035674381868474, guid: b9799720dbaa74541a5adc49b76a028d, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1745035674381868474, guid: b9799720dbaa74541a5adc49b76a028d, type: 3}
       propertyPath: m_SpriteSortPoint

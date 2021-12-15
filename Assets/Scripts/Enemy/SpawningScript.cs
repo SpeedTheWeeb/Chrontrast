@@ -54,7 +54,7 @@ public class SpawningScript : MonoBehaviour
 
         currentWave = 0;
         enemyInfo = JsonUtility.FromJson<JsonList>(jsonText.text);
-        InitWave(1);
+        Invoke("InitWave", 5f);
     }
 
     // Update is called once per frame
