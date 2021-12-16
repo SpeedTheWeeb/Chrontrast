@@ -174,15 +174,16 @@ public class WeaponManager : MonoBehaviour
 
         //Drop
         if (Input.GetButtonDown("Drop" + playerNumber))
-        {           
+        {            
             if (alreadyHolding)
-            {
+            {           
                 if (itemName.Contains("Chip"))
-                {
+                {                    
                     switch (weaponType)
                     {
                         case 1:
                             weaponType = 0;
+                            animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P1");
                             alreadyHolding = false;
                             GameObject mel = Instantiate(FmeleePrefab, rotatePoint.transform.position, Quaternion.identity);
                             item = mel.GetComponent<ItemBehavior>();
@@ -192,6 +193,7 @@ public class WeaponManager : MonoBehaviour
 
                         case 2:
                             weaponType = 0;
+                            animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P1");
                             alreadyHolding = false;
                             GameObject sho = Instantiate(FshotgunPrefab, transform.position, Quaternion.identity);
                             item = sho.GetComponent<ItemBehavior>();
@@ -200,7 +202,8 @@ public class WeaponManager : MonoBehaviour
                             break;
 
                         case 3:
-                            weaponType = 0;
+                            weaponType = 0;                            
+                            animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P1");
                             alreadyHolding = false;
                             GameObject sni = Instantiate(FsniperPrefab, transform.position, Quaternion.identity);
                             item = sni.GetComponent<ItemBehavior>();
@@ -215,6 +218,7 @@ public class WeaponManager : MonoBehaviour
                     {
                         case 1:
                             weaponType = 0;
+                            animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P2");
                             alreadyHolding = false;
                             GameObject mel = Instantiate(MmeleePrefab, transform.position, Quaternion.identity);
                             item = mel.GetComponent<ItemBehavior>();
@@ -224,6 +228,7 @@ public class WeaponManager : MonoBehaviour
 
                         case 2:
                             weaponType = 0;
+                            animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P2");
                             alreadyHolding = false;
                             GameObject sho = Instantiate(MshotgunPrefab, transform.position, Quaternion.identity);
                             item = sho.GetComponent<ItemBehavior>();
@@ -233,6 +238,7 @@ public class WeaponManager : MonoBehaviour
 
                         case 3:
                             weaponType = 0;
+                            animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P2");
                             alreadyHolding = false;
                             GameObject sni = Instantiate(MsniperPrefab, transform.position, Quaternion.identity);
                             item = sni.GetComponent<ItemBehavior>();
@@ -399,7 +405,6 @@ public class WeaponManager : MonoBehaviour
         alreadyHolding = true;
         Pickup(weapon);
         OverrideAnimations();
-        
     }
 
     void Pickup(GameObject pl)
@@ -534,10 +539,10 @@ public class WeaponManager : MonoBehaviour
                         animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P1SPLASH");
                         break;
                     case 3:
-                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("AnimatorControllers/P1LONG");
+                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P1LONG");
                         break;
                     default:
-                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("AnimatorControllers/P1");
+                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P1");
                         break;
                 }
                 break;
@@ -554,7 +559,7 @@ public class WeaponManager : MonoBehaviour
                         animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P2LONG");
                         break;
                     default:
-                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations//AnimatorControllers/P2");
+                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P2");
                         break;
                 }
                 break;
