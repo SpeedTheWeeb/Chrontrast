@@ -6,6 +6,7 @@ using FMODUnity;
 using FMOD.Studio;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Animations;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class WeaponManager : MonoBehaviour
     GameObject puHover;
     public string powerup;
     public bool havePowerup;
+    Animator animator;    
 
     public Text txtDmg1;
     public Text txtATS1;
@@ -73,6 +75,7 @@ public class WeaponManager : MonoBehaviour
 
     private string itemName;
 
+    //FMOD
     EventInstance sfxPickup; // FMOD Pickup SFX
     EventInstance sfxThrow; //FMOD Throw SFX
     EventInstance sfxPowerup; // FMOD PowerUp SFX
@@ -86,9 +89,12 @@ public class WeaponManager : MonoBehaviour
     GameObject meleeAttackParticleObjectP2 = null;
     ParticleSystem meleeAttackParticleEmitterP1;
     ParticleSystem meleeAttackParticleEmitterP2;
+    
 
     private void Start()
     {
+        animator = GetComponent<Animator>();       
+
         //Defines Particles
         meleeAttackParticleObjectP1 = GameObject.Find("P1MeleeParticleSystem");
         meleeAttackParticleObjectP2 = GameObject.Find("P2MeleeParticleSystem");
@@ -387,11 +393,12 @@ public class WeaponManager : MonoBehaviour
         }
         else if(weapon.name.Contains("Sniper"))
         {
-            weaponType = 3;
+            weaponType = 3;            
         }
         
         alreadyHolding = true;
         Pickup(weapon);
+        OverrideAnimations();
         
     }
 
@@ -511,5 +518,47 @@ public class WeaponManager : MonoBehaviour
         if (meleeHurtbox == null)
             return;
         Gizmos.DrawWireSphere(meleeHurtbox.position, meleeRange);
+    }
+
+    private void OverrideAnimations()
+    {   
+        switch(playerNumber)
+        {
+            case 1:
+                switch (weaponType)
+                {
+                    case 1:
+                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P1MELEE");
+                        break;
+                    case 2:
+                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P1SPLASH");
+                        break;
+                    case 3:
+                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("AnimatorControllers/P1LONG");
+                        break;
+                    default:
+                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("AnimatorControllers/P1");
+                        break;
+                }
+                break;
+            case 2:
+                switch (weaponType)
+                {
+                    case 1:
+                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P2MELEE");
+                        break;
+                    case 2:                        
+                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P2SPLASH");
+                        break;
+                    case 3:
+                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P2LONG");
+                        break;
+                    default:
+                        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations//AnimatorControllers/P2");
+                        break;
+                }
+                break;
+        }
+                           
     }
 }
