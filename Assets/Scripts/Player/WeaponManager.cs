@@ -42,21 +42,21 @@ public class WeaponManager : MonoBehaviour
     public Transform meleeHurtbox;      // Reference point for Overlap Circle
     public float meleeRange = 3f;       // Radius for Overlap Circle
     public float meleeDamage = 100f;     // Damage applied to Tag: Enemies inside Overlap Circle
-    public float meleeSpeed = 2f;       // Attacks pr. second
+    public float meleeSpeed = 2f;       // Cooldown between attacks
     public float meleeDmgMod = 0;
     public float meleeASMod = 0;
     // public Animator meleeAnim;
 
     public GameObject grenadePrefab;    // Holds projectile prefab
     public float grenadeRadius = 3f;    // Range before projectile explodes
-    public float splashSpeed = .5f;     // Attacks pr. second
+    public float splashSpeed = .5f;     // Cooldown between attacks
     public float splashDmgMod = 0;
     public float splashASMod = 0;
     // public Animator splashAnim;
 
     public LineRenderer sniperSight;    // Holds lasersight effect
     public float sniperDamage = 1f;     // Damage applied to Tag: Enemies on raycast path
-    public float sniperSpeed = 1f;      // Attacks pr. second
+    public float sniperSpeed = 1f;      // Cooldown between attacks
     public float sniperDmgMod = 0;
     public float sniperASMod = 0;
     // public Animator sniperAnim;
@@ -263,7 +263,7 @@ public class WeaponManager : MonoBehaviour
         sniperBool = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Weapons"))
         {
