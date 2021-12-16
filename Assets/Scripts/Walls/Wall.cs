@@ -36,11 +36,13 @@ public class Wall : MonoBehaviour
                 switch (playerSide)
                 {
                     case "future":
-                        RuntimeManager.PlayOneShot("event:/sfx/props/walls/future/destroyed");
+                        if(wallSprite.enabled)
+                            RuntimeManager.PlayOneShot("event:/sfx/props/walls/future/destroyed");
                         //Debug.Log("event:/sfx/props/walls/future/destroyed");
                         break;
                     case "past":
-                        RuntimeManager.PlayOneShot("event:/sfx/props/walls/past/destroyed");
+                        if (wallSprite.enabled)
+                            RuntimeManager.PlayOneShot("event:/sfx/props/walls/past/destroyed");
                         //Debug.Log("event:/sfx/props/walls/past/destroyed");
                         break;
                 }
