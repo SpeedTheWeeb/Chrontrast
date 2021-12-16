@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: P2MELEE
+  m_Controller: {fileID: 9100000, guid: d6ad9fac59deb9b43960ac6f2c827776, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: d60e54b99daad254a9c36a31b653e4bc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e567cad200493524caae7cd7827bedeb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ddfe39706e92c7b49a90d2a1c3aab3ef, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6070f3bbc10ad6f4bb27dc64af49908b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5d514de9514d07941a9f5afc289f2eec, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 230a1345c24dd524a971c9fc53c32ea2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4b967d8b2074e784fbfacea52c561cfc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4390581e3423e65429adfa34a040c22b, type: 2}
