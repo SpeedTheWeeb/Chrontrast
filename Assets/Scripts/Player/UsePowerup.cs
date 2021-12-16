@@ -140,6 +140,11 @@ public class UsePowerup : MonoBehaviour
             {
                 w.hitsTaken = 0;
             }
+
+            if(!w.wallSprite.enabled)
+            {
+                w.wallSprite.enabled = true;
+            }
         }
     }
 }
