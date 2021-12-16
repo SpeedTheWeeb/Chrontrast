@@ -204,6 +204,8 @@ public class WeaponManager : MonoBehaviour
                         case 3:
                             weaponType = 0;                            
                             animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P1");
+                            if (sniperSight.enabled == true)
+                                sniperSight.enabled = false;
                             alreadyHolding = false;
                             GameObject sni = Instantiate(FsniperPrefab, transform.position, Quaternion.identity);
                             item = sni.GetComponent<ItemBehavior>();
@@ -239,6 +241,8 @@ public class WeaponManager : MonoBehaviour
                         case 3:
                             weaponType = 0;
                             animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/AnimatorControllers/P2");
+                            if (sniperSight.enabled == true)
+                                sniperSight.enabled = false;
                             alreadyHolding = false;
                             GameObject sni = Instantiate(MsniperPrefab, transform.position, Quaternion.identity);
                             item = sni.GetComponent<ItemBehavior>();
@@ -563,7 +567,6 @@ public class WeaponManager : MonoBehaviour
                         break;
                 }
                 break;
-        }
-                           
+        }                           
     }
 }
