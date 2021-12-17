@@ -50,12 +50,15 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume () 
     {
-        CrysHP.enabled = true;
-        Wave.enabled = true;
-        P1ATS.enabled = true;
-        P1DMG.enabled = true;
-        P2ATS.enabled = true;
-        P2DMG.enabled = true;
+        if (SceneManager.GetActiveScene().name == "Game Scene")
+        {
+            CrysHP.enabled = true;
+            Wave.enabled = true;
+            P1ATS.enabled = true;
+            P1DMG.enabled = true;
+            P2ATS.enabled = true;
+            P2DMG.enabled = true;
+        }
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
@@ -64,12 +67,15 @@ public class PauseMenu : MonoBehaviour
     void Pause ()
     {
         pauseMenuUI.SetActive(true);
-        CrysHP.enabled = false;
-        Wave.enabled = false;
-        P1ATS.enabled = false;
-        P1DMG.enabled = false;
-        P2ATS.enabled = false;
-        P2DMG.enabled = false;
+        if (SceneManager.GetActiveScene().name == "Game Scene")
+        {
+            CrysHP.enabled = false;
+            Wave.enabled = false;
+            P1ATS.enabled = false;
+            P1DMG.enabled = false;
+            P2ATS.enabled = false;
+            P2DMG.enabled = false;
+        }
         Time.timeScale = 0f;
         GamePaused = true;
     }
