@@ -9939,6 +9939,7 @@ MonoBehaviour:
   P1DMG: {fileID: 1904319702}
   P2DMG: {fileID: 2093118892}
   pauseMenuUI: {fileID: 1505163376}
+  InfoMenuUI: {fileID: 0}
 --- !u!1 &1646775807
 GameObject:
   m_ObjectHideFlags: 0
