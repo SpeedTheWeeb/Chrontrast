@@ -11,6 +11,7 @@ public class TutorialMenu : MonoBehaviour
     public GameObject PowerUpsGO;
     public GameObject PowerupItems;
     public GameObject TargetPracticeGO;
+    public GameObject TargetBundle;
     int tutStage = 1;
 
 
@@ -81,6 +82,7 @@ public class TutorialMenu : MonoBehaviour
         {
             PowerUpsGO.SetActive(false);
             TargetPracticeGO.SetActive(true);
+            TargetBundle.SetActive(true);
         }       
     }
 }
