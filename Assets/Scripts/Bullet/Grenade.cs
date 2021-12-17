@@ -17,12 +17,6 @@ public class Grenade : MonoBehaviour
     int player;
     public GameObject explosion;
 
-    private void Update()
-    {
-        
-
-    }
-
     void Detonate()
     {
         Explosive();
@@ -53,12 +47,22 @@ public class Grenade : MonoBehaviour
                     {
                         enemy.GetComponent<EnemyHealth>().TakeDamage((maxDamage * damagePercent) + ((dmgMod / 100) * (maxDamage * damagePercent)));
                     }
+                    if (enemy.name.Contains("TargetWallBreaker"))
+                    {
+                        enemy.GetComponent<TargetHealth>().TakeDamage(0);
+                        RuntimeManager.PlayOneShot("event:/sfx/tut/targethit");
+                    }
                 }
                 else if (player == 2)
                 {
                     if (enemy.name.Contains("Fan"))
                     {
                         enemy.GetComponent<EnemyHealth>().TakeDamage((maxDamage * damagePercent) + ((dmgMod / 100) * (maxDamage * damagePercent)));
+                    }
+                    if (enemy.name.Contains("TargetWallBreaker"))
+                    {
+                        enemy.GetComponent<TargetHealth>().TakeDamage(0);
+                        RuntimeManager.PlayOneShot("event:/sfx/tut/targethit");
                     }
                 }
             }            
