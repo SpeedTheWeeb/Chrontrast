@@ -479,6 +479,7 @@ public class WeaponManager : MonoBehaviour
         }
         
         GameObject grenade = Instantiate(grenadePrefab, firePoint.position, firePoint.rotation);
+        grenade.transform.Rotate(direction*100);
         Grenade g = grenade.GetComponent<Grenade>();
         g.dmgMod = splashDmgMod;
         g.Move(direction, playerNumber);
