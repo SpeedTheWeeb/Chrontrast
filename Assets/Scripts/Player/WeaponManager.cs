@@ -7,6 +7,7 @@ using FMOD.Studio;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor.Animations;
+using UnityEngine.Animations;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -72,6 +73,7 @@ public class WeaponManager : MonoBehaviour
     public GameObject MshotgunPrefab;
     public GameObject MsniperPrefab;
     ItemBehavior item;
+    
 
     private string itemName;
 
@@ -475,7 +477,8 @@ public class WeaponManager : MonoBehaviour
                 RuntimeManager.PlayOneShot("event:/sfx/player/past/explosive/shoot");
                 break;
         }
-        GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
+        
+        GameObject grenade = Instantiate(grenadePrefab, firePoint.position, firePoint.rotation);
         Grenade g = grenade.GetComponent<Grenade>();
         g.dmgMod = splashDmgMod;
         g.Move(direction, playerNumber);
