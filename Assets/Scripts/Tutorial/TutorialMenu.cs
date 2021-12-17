@@ -8,6 +8,7 @@ public class TutorialMenu : MonoBehaviour
     public int movesMade = 0;
     public GameObject MovementKeysGO;
     public GameObject ThrowingShootingKeysGO;
+    public GameObject PowerUpsGO;
     public GameObject TargetPracticeGO;
 
 
@@ -68,8 +69,15 @@ public class TutorialMenu : MonoBehaviour
         if (ItemBehavior.tradesMade >= 2 && movesMade >=10)
         {
             ThrowingShootingKeysGO.SetActive(false);
-            TargetPracticeGO.SetActive(true);
+            PowerUpsGO.SetActive(true);
         }
+
+        /*if (powerupcondition true)
+        {
+            PowerUpsGO.SetActive(false);
+            TargetPracticeGO-SetActive(true);
+        }
+        */
 
     }
 }
