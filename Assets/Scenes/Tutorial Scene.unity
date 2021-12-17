@@ -14190,6 +14190,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 122214565}
     m_Modifications:
+    - target: {fileID: 806315792, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.91517913
+      objectReference: {fileID: 0}
+    - target: {fileID: 806315792, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.9504018
+      objectReference: {fileID: 0}
     - target: {fileID: 1571512730, guid: f39c3dc5f473eea45bf85f03b5de850b, type: 3}
       propertyPath: animator
       value: 
@@ -16136,6 +16144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abcd8626d1ddc814a8530c169931b526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CrysHP: {fileID: 0}
+  Wave: {fileID: 0}
+  P1ATS: {fileID: 0}
+  P2ATS: {fileID: 0}
+  P1DMG: {fileID: 0}
+  P2DMG: {fileID: 0}
   pauseMenuUI: {fileID: 1505163376}
   InfoMenuUI: {fileID: 0}
 --- !u!1 &1619238952
@@ -16750,6 +16764,14 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1024809394}
+    - target: {fileID: 7924719900682458461, guid: b9799720dbaa74541a5adc49b76a028d, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.89918464
+      objectReference: {fileID: 0}
+    - target: {fileID: 7924719900682458461, guid: b9799720dbaa74541a5adc49b76a028d, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.9371726
+      objectReference: {fileID: 0}
     - target: {fileID: 8498516728847600242, guid: b9799720dbaa74541a5adc49b76a028d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1
