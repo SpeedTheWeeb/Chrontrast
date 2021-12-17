@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMOD.Studio;
 using FMODUnity;
-
+using UnityEngine.SceneManagement;
 public class Powerup : MonoBehaviour
 {
     WeaponManager weapon;
