@@ -2009,14 +2009,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The portal of the Great Crystal, a legendary means of exchange between
-    two dimensions, is under attack. \n\nWith their prosperity and perhaps very existence
+  m_text: "The Portal of the Great Crystal, a legendary means of exchange between
+    two dimensions, is under attack! \n\nWith their prosperity and perhaps very existence
     on the line, the people of the mechanized and magical realm must band together
-    at the intersection of their worlds to stop the oncoming horde of destruction.
-    \n\nThanks to the great power of the Portal, and the cunning of the heroes, they
-    may mind both sides of the battle and lay waste to the horde. As long as they
-    aid each other, they will have a fighting chance!\r\n\nAfter all, with a portal
-    like this, either world would fall along with the other..."
+    at the intersection of their worlds to stop the oncoming Horde of Destruction.
+    \n\nThanks to the great power of the Portal, and the cunning of the Guardians,
+    they may mind both sides of the battle and lay waste to the Horde. As long as
+    they aid each other, they will have a fighting chance.\r\n\nAfter all, with a
+    Portal like this, either world would fall along with the other..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b2f8a7bace3e45b4eb9276c16d20d0eb, type: 2}
   m_sharedMaterial: {fileID: -3881873395232889636, guid: b2f8a7bace3e45b4eb9276c16d20d0eb, type: 2}
@@ -6811,14 +6811,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The portal of the Great Crystal, a legendary means of exchange between
-    two dimensions, is under attack. \n\nWith their prosperity and perhaps very existence
+  m_text: "The Portal of the Great Crystal, a legendary means of exchange between
+    two dimensions, is under attack! \n\nWith their prosperity and perhaps very existence
     on the line, the people of the mechanized and magical realm must band together
-    at the intersection of their worlds to stop the oncoming horde of destruction.
-    \n\nThanks to the great power of the Portal, and the cunning of the heroes, they
-    may mind both sides of the battle and lay waste to the horde. As long as they
-    aid each other, they will have a fighting chance!\r\n\nAfter all, with a portal
-    like this, either world would fall along with the other..."
+    at the intersection of their worlds to stop the oncoming Horde of Destruction.
+    \n\nThanks to the great power of the Portal, and the cunning of the Guardians,
+    they may mind both sides of the battle and lay waste to the Horde. As long as
+    they aid each other, they will have a fighting chance.\r\n\nAfter all, with a
+    Portal like this, either world would fall along with the other..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b2f8a7bace3e45b4eb9276c16d20d0eb, type: 2}
   m_sharedMaterial: {fileID: -3881873395232889636, guid: b2f8a7bace3e45b4eb9276c16d20d0eb, type: 2}
