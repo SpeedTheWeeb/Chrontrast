@@ -3802,7 +3802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &306363736
 Transform:
   m_ObjectHideFlags: 0
@@ -3913,7 +3913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &316120894
 Transform:
   m_ObjectHideFlags: 0
@@ -4526,6 +4526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glue_Util
       objectReference: {fileID: 0}
+    - target: {fileID: 2353366813110343098, guid: 62186595548ade645af834da81ea164e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62186595548ade645af834da81ea164e, type: 3}
 --- !u!4 &356598460 stripped
@@ -4669,6 +4673,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 74733532}
     m_Modifications:
+    - target: {fileID: 1971296247338651134, guid: d5f56d25339e9a54bb3c36b379379e02, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3220415295875091562, guid: d5f56d25339e9a54bb3c36b379379e02, type: 3}
       propertyPath: m_Name
       value: Freeze_Util
@@ -7553,6 +7561,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7046730596406557836, guid: c2e37c35d9baf084088ac2d07ea4dddd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e37c35d9baf084088ac2d07ea4dddd, type: 3}
 --- !u!4 &620954364 stripped
@@ -9295,6 +9307,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 74733532}
     m_Modifications:
+    - target: {fileID: 4625108808069485846, guid: 70ff0f6e5f1145341afb65e68b74c8d8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5567504678868618411, guid: 70ff0f6e5f1145341afb65e68b74c8d8, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -10670,7 +10686,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.6483052, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -19242,6 +19258,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4161374144840446985, guid: 5bce921269b447249953b57349ee7417, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bce921269b447249953b57349ee7417, type: 3}
 --- !u!4 &1627217026 stripped
@@ -20570,7 +20590,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.0047169924, g: 0.82473254, b: 1, a: 1}
   m_FlipX: 0
@@ -22788,7 +22808,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -23212,6 +23232,10 @@ PrefabInstance:
     - target: {fileID: 1536225091469778633, guid: 56d40688cef517c46a49f0514dfc8610, type: 3}
       propertyPath: m_Name
       value: Repair_Def
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162460154533693427, guid: 56d40688cef517c46a49f0514dfc8610, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7657635182071737585, guid: 56d40688cef517c46a49f0514dfc8610, type: 3}
       propertyPath: m_RootOrder
