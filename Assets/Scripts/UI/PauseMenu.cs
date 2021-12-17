@@ -11,6 +11,8 @@ public class PauseMenu : MonoBehaviour
     public static bool GamePaused = false;
 
     public GameObject pauseMenuUI;
+    public GameObject InfoMenuUI;
+
 
     PLAYBACK_STATE victoryPBS;
     PLAYBACK_STATE goPBS;
@@ -29,6 +31,14 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            InfoMenuUI.SetActive(true);
+        } else
+        {
+            InfoMenuUI.SetActive(false);
         }
     }
 
