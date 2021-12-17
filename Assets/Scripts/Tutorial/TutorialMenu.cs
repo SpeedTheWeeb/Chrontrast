@@ -9,7 +9,9 @@ public class TutorialMenu : MonoBehaviour
     public GameObject MovementKeysGO;
     public GameObject ThrowingShootingKeysGO;
     public GameObject PowerUpsGO;
+    public GameObject PowerupItems;
     public GameObject TargetPracticeGO;
+    int tutStage = 1;
 
 
     // Start is called before the first frame update
@@ -60,24 +62,25 @@ public class TutorialMenu : MonoBehaviour
                 movesMade++;
             }
 
-        if (movesMade >= 10)
+        if (tutStage == 1 && movesMade >= 10)
         {
             MovementKeysGO.SetActive(false);
             ThrowingShootingKeysGO.SetActive(true);
+            tutStage = 2;
         }
 
-        if (ItemBehavior.tradesMade >= 2 && movesMade >=10)
-        {
+        if (tutStage == 2 && ItemBehavior.tradesMade >= 2 && movesMade >=10)
+        {            
             ThrowingShootingKeysGO.SetActive(false);
             PowerUpsGO.SetActive(true);
+            PowerupItems.SetActive(true);
+            tutStage = 3;
         }
 
-        /*if (powerupcondition true)
+        if ((Input.GetButtonDown("PU1") || Input.GetButtonDown("PU2")) && tutStage == 3 && PowerupItems.activeInHierarchy && ItemBehavior.tradesMade >= 2 && movesMade >= 10)
         {
             PowerUpsGO.SetActive(false);
-            TargetPracticeGO-SetActive(true);
-        }
-        */
-
+            TargetPracticeGO.SetActive(true);
+        }       
     }
 }
