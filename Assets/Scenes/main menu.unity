@@ -1986,8 +1986,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 100, y: 25}
-  m_SizeDelta: {x: 1921.465, y: 823.5121}
+  m_AnchoredPosition: {x: 100, y: 94.779785}
+  m_SizeDelta: {x: 1750, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &385074338
 MonoBehaviour:
@@ -2009,13 +2009,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The portal of the great crystal, a legendary means of exchange between
+  m_text: "The portal of the Great Crystal, a legendary means of exchange between
     two dimensions, is under attack. \n\nWith their prosperity and perhaps very existence
-    on the line, the people of the mechanised and magical realm must band together
+    on the line, the people of the mechanized and magical realm must band together
     at the intersection of their worlds to stop the oncoming horde of destruction.
-    \n\nThanks to the great power of the portal, and the cunning of the heroes, they
+    \n\nThanks to the great power of the Portal, and the cunning of the heroes, they
     may mind both sides of the battle and lay waste to the horde. As long as they
-    aid each other, they will have a fighting chance!\r\n\n\nAfter all, with a portal
+    aid each other, they will have a fighting chance!\r\n\nAfter all, with a portal
     like this, either world would fall along with the other..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b2f8a7bace3e45b4eb9276c16d20d0eb, type: 2}
@@ -2043,8 +2043,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3068,7 +3068,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90, y: -480.7}
+  m_AnchoredPosition: {x: 90, y: -493.7}
   m_SizeDelta: {x: 450, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &528887543
@@ -4695,7 +4695,7 @@ GameObject:
   - component: {fileID: 1074493171}
   - component: {fileID: 1074493172}
   m_Layer: 0
-  m_Name: Text Crawl
+  m_Name: TextCrawlMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6270,7 +6270,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90, y: -350}
+  m_AnchoredPosition: {x: 90, y: -363}
   m_SizeDelta: {x: 900, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1742150820
@@ -6788,8 +6788,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 104, y: 21}
-  m_SizeDelta: {x: 1921.465, y: 823.5121}
+  m_AnchoredPosition: {x: 104, y: 91}
+  m_SizeDelta: {x: 1750, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1974620558
 MonoBehaviour:
@@ -6811,13 +6811,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The portal of the great crystal, a legendary means of exchange between
+  m_text: "The portal of the Great Crystal, a legendary means of exchange between
     two dimensions, is under attack. \n\nWith their prosperity and perhaps very existence
-    on the line, the people of the mechanised and magical realm must band together
+    on the line, the people of the mechanized and magical realm must band together
     at the intersection of their worlds to stop the oncoming horde of destruction.
-    \n\nThanks to the great power of the portal, and the cunning of the heroes, they
+    \n\nThanks to the great power of the Portal, and the cunning of the heroes, they
     may mind both sides of the battle and lay waste to the horde. As long as they
-    aid each other, they will have a fighting chance!\r\n\n\nAfter all, with a portal
+    aid each other, they will have a fighting chance!\r\n\nAfter all, with a portal
     like this, either world would fall along with the other..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b2f8a7bace3e45b4eb9276c16d20d0eb, type: 2}
@@ -6845,8 +6845,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
