@@ -452,12 +452,23 @@ public class WeaponManager : MonoBehaviour
                         {
                             enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage + ((meleeASMod / 100) * meleeDamage));
                         }
+                        if (enemy.gameObject.name.Contains("TargetRusher"))
+                        {
+                            enemy.GetComponent<TargetHealth>().TakeDamage(meleeDamage + ((meleeASMod / 100) * meleeDamage));
+                            RuntimeManager.PlayOneShot("event:/sfx/tut/targethit");
+
+                        }
                         break;
                     case 2:
                         RuntimeManager.PlayOneShot("event:/sfx/player/past/melee/hit");
                         if (enemy.gameObject.name.Contains("Fan"))
                         {
                             enemy.GetComponent<EnemyHealth>().TakeDamage(meleeDamage + ((meleeASMod / 100) * meleeDamage));
+                        }
+                        if (enemy.gameObject.name.Contains("TargetRusher"))
+                        {
+                            enemy.GetComponent<TargetHealth>().TakeDamage(meleeDamage + ((meleeASMod / 100) * meleeDamage));
+                            RuntimeManager.PlayOneShot("event:/sfx/tut/targethit");
                         }
                         break;
                 }                
@@ -495,6 +506,7 @@ public class WeaponManager : MonoBehaviour
         if (hitInfo)
         {
             EnemyHealth enemy = hitInfo.collider.transform.GetComponent<EnemyHealth>();
+            TargetHealth target = hitInfo.collider.transform.GetComponent<TargetHealth>();
 
             if (enemy != null)
             {
@@ -508,7 +520,23 @@ public class WeaponManager : MonoBehaviour
                         break;
                 }
                 enemy.TakeDamage(sniperDamage + ((sniperDmgMod/100)*sniperDamage));
-            }            
+            }
+
+            if (target != null)
+            {
+                switch (playerNumber)
+                {
+                    case 1:
+                        RuntimeManager.PlayOneShot("event:/sfx/player/future/sniper/hit");
+                        break;
+                    case 2:
+                        RuntimeManager.PlayOneShot("event:/sfx/player/past/sniper/hit");
+                        break;
+                }
+                if(target.name.Contains("TargetLongR"))
+                    RuntimeManager.PlayOneShot("event:/sfx/tut/targethit");
+                target.TakeDamage(0);
+            }
         }
         else
         {

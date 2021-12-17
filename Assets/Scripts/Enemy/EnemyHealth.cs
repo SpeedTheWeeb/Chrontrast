@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if(currentHealth > 1f)
+        if (currentHealth > 1f)
         {
             RuntimeManager.PlayOneShot(sfxEnemyHurt); // issue with playing along with the Die() method
         }
@@ -44,16 +44,16 @@ public class EnemyHealth : MonoBehaviour
 
     void Flash()
     {
-        Color col = new Color(255/255f, 125/255f, 125/255f);
+        Color col = new Color(255 / 255f, 125 / 255f, 125 / 255f);
         render.color = col;
         StartCoroutine(ResetFlash());
     }
     IEnumerator ResetFlash()
     {
         float i = 0.4f;
-        while(i < 1.1)
+        while (i < 1.1)
         {
-            render.color = new Color(1,i,i);
+            render.color = new Color(1, i, i);
             i += 0.2f;
             yield return new WaitForSeconds(0.1f);
         }
@@ -69,6 +69,5 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log("Enemy died!");
         RuntimeManager.PlayOneShot(sfxEnemyDeath);
         Destroy(gameObject);
-    }
-    
+    }    
 }

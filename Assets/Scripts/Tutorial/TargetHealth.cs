@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FMOD.Studio;
+using FMODUnity;
 
 // Burde inherit fra EnemyHealth
 public class TargetHealth : MonoBehaviour
@@ -25,16 +27,7 @@ public class TargetHealth : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
         ogColor = render.color;
     }
-
-    public void TakeDamage(float damage)
-    {
-        
-        currentHealth -= damage;
-        Flash();
-        if (currentHealth <= 0)
-            Die();
-    }
-
+    
     void Flash()
     {
         Color col = new Color(255/255f, 125/255f, 125/255f);
@@ -46,11 +39,9 @@ public class TargetHealth : MonoBehaviour
         render.color = ogColor;
     }
 
-    void Die()
+    public void TakeDamage(float damage)
     {
-        Debug.Log("Enemy died!");
-
-        Destroy(gameObject);
+        currentHealth -= damage;        
+        Flash();
     }
-    
 }
