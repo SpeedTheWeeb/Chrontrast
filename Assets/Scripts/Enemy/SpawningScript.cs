@@ -34,7 +34,7 @@ public class SpawningScript : MonoBehaviour
     public EventInstance bgmFinale;
     public EventInstance bgmVictory;
     public bool prepPhase;
-    float phase;
+    float phase = 0f;
     float choir;
     float brass;
     float harp;
