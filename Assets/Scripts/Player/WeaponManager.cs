@@ -6,7 +6,6 @@ using FMODUnity;
 using FMOD.Studio;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine.Animations;
 
 public class WeaponManager : MonoBehaviour
@@ -478,8 +477,7 @@ public class WeaponManager : MonoBehaviour
                 break;
         }
         
-        GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
-        grenade.transform.Rotate(direction*100);
+        GameObject grenade = Instantiate(grenadePrefab, firePoint.position, firePoint.rotation);
         Grenade g = grenade.GetComponent<Grenade>();
         g.dmgMod = splashDmgMod;
         g.Move(direction, playerNumber);
