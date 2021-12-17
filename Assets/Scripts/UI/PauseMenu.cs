@@ -39,12 +39,12 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if(SceneManager.GetActiveScene().name == "Tutorial Scene")
         {
-            InfoMenuUI.SetActive(true);
-        } else
-        {
-            InfoMenuUI.SetActive(false);
+            if (Input.GetKey(KeyCode.Space))
+                InfoMenuUI.SetActive(true);
+            else
+                InfoMenuUI.SetActive(false);
         }
     }
 
